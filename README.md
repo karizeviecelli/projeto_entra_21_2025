@@ -1,5 +1,4 @@
-# projeto_entra_21_2025
-Repositório base para projetos dos alunos do curso Entra21 do ano de 2025
+
 # 💻 Projeto TCC – Entra21 – 2025
 
 Este é o repositório base para os projetos de TCC dos alunos do Entra21 - Turma 2025. Cada aluno deve criar seu próprio branch e desenvolver o projeto de forma independente, seguindo as orientações.
