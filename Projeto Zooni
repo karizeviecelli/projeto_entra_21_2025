@@ -1,0 +1,39 @@
+Projeto: Zooni
+
+📌 Problema Identificado (Dor)
+Cuidar da saúde de animais — sejam domésticos, exóticos ou de fazenda — ainda é um desafio para muitos tutores e criadores. A falta de acesso a informações confiáveis sobre sintomas, doenças e vacinas, somada à dificuldade de localizar clínicas especializadas, pode atrasar diagnósticos e comprometer o bem-estar animal. Isso afeta tanto famílias que têm pets em casa quanto produtores rurais que dependem dos seus animais para sustento.
+
+
+🎯 Objetivo
+Criar uma aplicação em Java que ajude tutores e criadores a monitorar a saúde de seus animais, oferecendo:
+
+●	Consulta de sintomas por espécie, com sugestão de possíveis doenças.
+●	Mapa com clínicas veterinárias próximas, segmentadas por tipo de animal.
+●	Calendário e controle de vacinas.
+●	Recomendações de cuidados de acordo com a espécie e a idade.
+
+📝 Justificativa
+Apesar da grande variedade de apps voltados para cães e gatos, há pouca oferta de soluções completas que também atendam animais de fazenda e espécies exóticas. Ao oferecer um sistema acessível e fácil de usar, o AgroVet Fácil contribui para o cuidado preventivo e tratamento adequado de diversos tipos de animais, promovendo saúde, bem-estar e responsabilidade — seja no campo ou na cidade.
+
+
+👥 Público-Alvo
+●	Tutores de animais domésticos (como cães e gatos).
+●	Criadores de animais exóticos (como aves ornamentais, répteis, entre outros).
+●	Produtores rurais e fazendeiros com animais como galinhas, porcos, cavalos, ovelhas, entre outros.
+●	Clínicas veterinárias e estudantes de áreas relacionadas à saúde animal.
+
+🧑‍💻 Equipe
+●	Isabelle Sombrio - Scrum/DEV
+●	Camille Venturi - PO/DEV
+
+💻 Tecnologias Utilizadas
+●	Linguagem de programação: Java, JavaScript e React
+●	Banco de dados: MySQL ou SQLite  (??)
+●	APIs (simuladas ou reais): OpenStreetMap ou Google Maps (para localização de clínicas)
+●	Geração de relatórios: iText (opcional para PDF)
+🧰 IDEs e Ferramentas
+●	IDE principal: Eclipse e VS code
+●	Scene Builder: para criação das telas em JavaScript e React
+●	DB Browser for SQLite ou MySQL Workbench  (??)
+●	GitHub: para controle de versão
+●	Figma: para protótipos e documentação visual
