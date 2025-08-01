@@ -11,8 +11,8 @@
     <style>
         /* Variáveis de Cores */
         :root {
-            --primary-blue: #003366; /* Azul Marinho Principal */
-            --secondary-blue: #007bff; /* Azul para acentos e botões */
+            --primary-blue: #012A4A; /* Azul Marinho Principal */
+            --secondary-blue: #013A63; /* Azul para acentos e botões */
             --light-blue: #e0f2f7; /* Azul bem claro para fundos/destaques */
             --white: #ffffff;
             --light-gray: #f8f9fa; /* Cinza muito claro para fundos */
@@ -97,23 +97,28 @@
             font-weight: 500;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2); 
+            color: #E7D7C1;
+            
         }
 
         .btn-primary:hover {
-            background-color: #0069d9;
+            background-color: #A78A7F !important;
             transform: translateY(-2px);
             box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+            color: #013A63;
         }
 
         .btn-primary-small {
             padding: 8px 18px;
             font-size: 0.95em;
             border-radius: 6px;
+            color: #E7D7C1 !important;
         }
 
         .btn-primary-small:hover {
-            background-color: #0069d9;
+            background-color: #A78A7F;
+            color:#013A63 !important ;
         }
 
         .btn-secondary {
@@ -126,7 +131,7 @@
 
         .btn-secondary:hover {
             background-color: var(--primary-blue);
-            color: var(--white);
+            color: #e7d7c1 ;
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0, 51, 102, 0.1);
         }
@@ -146,12 +151,11 @@
 
         /* Header */
         .header {
-            background-color: var(--white);
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
+            background-color: var(--white);
             z-index: 100;
+            padding: 20px 40px;
         }
 
         .header-content {
@@ -159,11 +163,15 @@
             justify-content: space-between;
             align-items: center;
         }
-
-        .logo a {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: var(--primary-blue);
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 10px;
+        }
+        .logo img {
+            height: 100px;
+            width: 200px;
         }
 
         .nav-menu {
@@ -211,7 +219,7 @@
 
         /* Hero Section (Específico para "Contato") */
         .hero-section {
-            background: linear-gradient(#023E8A, #03045e), url('https://source.unsplash.com/1600x900/?hospital,doctors') no-repeat center center/cover;
+            background: linear-gradient(#013A63, #012A4A), url('https://source.unsplash.com/1600x900/?hospital,doctors') no-repeat center center/cover;
             color: var(--white);
             text-align: center;
             padding: 80px 20px;
@@ -239,6 +247,7 @@
             margin-right: auto;
         }
 
+        
         /* Seções Gerais */
         section {
             padding: 80px 0;
@@ -396,7 +405,7 @@
         /* Footer (mesmo estilo das outras páginas) */
         .footer {
             background-color: var(--primary-blue);
-            color: var(--white);
+            color: #E7D7C1;
             padding: 60px 0 20px 0;
             font-size: 0.95em;
             margin-top: 20px; /* Garante espaço se a seção anterior não tiver */
@@ -417,7 +426,7 @@
         }
 
         .footer-col p {
-            color: #c0c0c0;
+            color: #E7D7C1;
             line-height: 1.8;
         }
 
@@ -426,11 +435,11 @@
         }
 
         .footer-col ul li a {
-            color: #c0c0c0;
+            color: #E7D7C1;
         }
 
         .footer-col ul li a:hover {
-            color: var(--secondary-blue);
+            color: var(--white);
         }
 
         .footer-col .social-icons a {
@@ -451,11 +460,14 @@
 
         .footer-bottom {
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.76);
             padding-top: 20px;
-            color: #c0c0c0;
+            color: #ffffff !important ;
         }
 
+        .footer i.fas, .footer i.fab {
+            color: #ffffff !important;
+        }
         /* Responsividade */
         @media (max-width: 992px) {
             .hero-content h1 {
@@ -578,7 +590,8 @@
     <header class="header">
         <div class="container header-content">
             <div class="logo">
-                <a href="index.html">MedCare</a>
+                <a href="index.html"><img src="logosite.svg"/> 
+                </a>
             </div>
             <nav class="nav-menu" id="navMenu">
                 <a href="index.html">Início</a>
@@ -586,7 +599,7 @@
                 <a href="services.html">Serviços</a>
                 <a href="doctors.html">Corpo Clínico</a>
                 <a href="contact.html" class="active">Contato</a>
-                <a href="login.html" class="btn-primary-small">Login</a>
+                <a href="login.html" class="btn-primary-small">Login </a>
             </nav>
             <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
@@ -701,9 +714,9 @@
                 </div>
                 <div class="footer-col">
                     <h3>Contato</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Rua da Saúde, 123 - Centro, Blumenau - SC</p>
-                    <p><i class="fas fa-phone-alt"></i> (XX) XXXX-YYYY</p>
-                    <p><i class="fas fa-envelope"></i> contato@medcare.com.br</p>
+                    <p><i class="fas fa-map-marker-alt" ></i> Rua da Saúde, 123 - Centro, Blumenau - SC</p>
+                    <p><i class="fas fa-phone-alt" ></i> (XX) XXXX-YYYY</p>
+                    <p><i class="fas fa-envelope" ></i> contato@medcare.com.br</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -712,7 +725,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 MedCare. Todos os direitos reservados.</p>
+                <p style="color: white;">&copy; 2025 MedCare. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
