@@ -21,3 +21,24 @@ Este é o repositório base para os projetos de TCC dos alunos do Entra21 - Turm
 ```bash
 git clone https://github.com/karizeviecelli/projeto_entra_21_2025.git
 cd projeto_entra_21_2025
+
+2️⃣ Criar seu branch
+Use o seguinte comando, substituindo 'seu-nome' por seu nome ou nome de usuário:
+
+git checkout -b seu-nome
+
+Depois, envie esse branch para o GitHub:
+git push origin seu-nome
+
+3️⃣ Trabalhar e enviar alterações
+Após fazer alterações no projeto, envie-as com os comandos:
+git add .
+git commit -m "mensagem do commit"
+git push origin seu-nome
+
+✅ Boas práticas
+- Não altere o branch 'main'.
+- Sempre crie e trabalhe no seu próprio branch.
+- Comente seu código de forma clara.
+- Realize commits frequentes e com mensagens descritivas.
+Em caso de dúvidas, procure a professora responsável pelo projeto.
