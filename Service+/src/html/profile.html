@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - Service+</title>
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Service<span class="plus">+</span></h1>
+            </div>
+            <nav class="nav">
+                <button id="darkModeToggle">🌙</button>
+                <a href="dashboard/dashboard/dashboard.html" class="nav-link">← Voltar</a>
+                <button class="btn btn-outline" onclick="logout()">Sair</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="profile-main">
+        <div class="container">
+            <div class="profile-header">
+                <h1>Meu Perfil</h1>
+                <div class="profile-actions">
+                    <button id="editBtn" class="btn btn-primary" onclick="toggleEdit()">
+                        Editar Perfil
+                    </button>
+                    <button id="saveBtn" class="btn btn-success" onclick="saveProfile()" style="display: none;">
+                        <span class="btn-text">Salvar</span>
+                        <span class="loading-spinner" style="display: none;"></span>
+                    </button>
+                    <button id="cancelBtn" class="btn btn-secondary" onclick="cancelEdit()" style="display: none;">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Profile Content -->
+            <div class="profile-content">
+                <!-- Avatar Section -->
+                <div class="profile-card avatar-section">
+                    <div class="avatar-container">
+                        <div class="avatar-wrapper" onclick="handleAvatarClick()">
+                            <img id="avatarImg" src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Avatar do usuário">
+                            <div class="avatar-overlay">
+                                <span>📷 Alterar</span>
+                            </div>
+                        </div>
+                        <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                    </div>
+                    <div class="user-info">
+                        <h2 id="displayName">João Silva</h2>
+                        <p id="displayEmail">joao.silva@email.com</p>
+                        <p class="join-date">Membro desde Janeiro 2024</p>
+                    </div>
+                </div>
+
+                <!-- Personal Information -->
+                <div class="profile-card">
+                    <h3 class="card-title">Informações Pessoais</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" value="João Silva" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" value="joao.silva@email.com" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" value="(11) 99999-9999" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="birthDate">Data de Nascimento</label>
+                            <input type="date" id="birthDate" value="1990-05-15" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Address Information -->
+                <div class="profile-card">
+                    <h3 class="card-title">Endereço</h3>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="address">Endereço</label>
+                            <input type="text" id="address" value="Rua das Flores, 123" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">Cidade</label>
+                            <input type="text" id="city" value="São Paulo" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">Estado</label>
+                            <input type="text" id="state" value="SP" readonly>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="bio">Biografia</label>
+                            <textarea id="bio" rows="4" readonly>Profissional dedicado com experiência em diversas áreas. Sempre buscando novos desafios e oportunidades de crescimento.</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Section -->
+                <div class="profile-card">
+                    <h3 class="card-title">Segurança</h3>
+                    <div class="security-section">
+                        <button id="changePasswordBtn" class="btn btn-warning" onclick="showPasswordSection()">
+                            🔒 Alterar Senha
+                        </button>
+                        
+                        <div id="passwordSection" class="password-section" style="display: none;">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="currentPassword">Senha Atual</label>
+                                    <div class="password-input">
+                                        <input type="password" id="currentPassword" placeholder="Digite sua senha atual">
+                                        <button type="button" class="password-toggle" onclick="togglePassword('currentPassword')">👁️</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPassword">Nova Senha</label>
+                                    <div class="password-input">
+                                        <input type="password" id="newPassword" placeholder="Digite a nova senha">
+                                        <button type="button" class="password-toggle" onclick="togglePassword('newPassword')">👁️</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirmar Nova Senha</label>
+                                    <div class="password-input">
+                                        <input type="password" id="confirmPassword" placeholder="Confirme a nova senha">
+                                        <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">👁️</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="password-actions">
+                                <button class="btn btn-secondary" onclick="hidePasswordSection()">Cancelar</button>
+                                <button class="btn btn-success" onclick="updatePassword()">
+                                    <span class="btn-text">Atualizar Senha</span>
+                                    <span class="loading-spinner" style="display: none;"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Notification Container -->
+    <div id="notificationContainer"></div>
+
+    <script src="../js/profile.js"></script>
+</body>
+
+</html>

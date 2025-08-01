@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service+ - Marketplace de Serviços</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Service<span class="plus">+</span></h1>
+            </div>
+            <button id="menuToggle" aria-label="Abrir menu">☰</button>
+            <nav class="nav">
+               
+               
+
+                <a href="#home" class="nav-link">Início</a>
+                <a href="#services" class="nav-link">Serviços</a>
+                <a href="#how-it-works" class="nav-link">Como Funciona</a>
+                <button class="btn btn-outline" onclick="showLogin()">Entrar</button>
+                <button class="btn btn-primary" onclick="showRegister()">Cadastrar-se</button>
+                 <button id="darkModeToggle">🌙</button>
+                 
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="geometric-shape shape-1"></div>
+            <div class="geometric-shape shape-2"></div>
+            <div class="geometric-shape shape-3"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Conectamos você aos melhores <span class="highlight">profissionais</span></h1>
+                <p class="hero-subtitle">Marketplace de serviços manuais e remotos. Encontre o profissional ideal para
+                    suas necessidades.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-large" onclick="showRegister()">Começar Agora</button>
+                    <button class="btn btn-outline btn-large">Sou Prestador</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Services Section -->
+<section id="services" class="services">
+    <div class="container">
+        <h2 class="section-title">Categorias de Serviços</h2>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Manutenção</h3>
+                <p>Reparos elétricos, hidráulicos e gerais</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Casa & Jardim</h3>
+                <p>Limpeza, jardinagem e organização</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Tecnologia</h3>
+                <p>Desenvolvimento, design e suporte</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Design & Arte</h3>
+                <p>Criação visual e design gráfico</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📚</div>
+                <h3>Educação</h3>
+                <p>Aulas particulares e cursos</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚚</div>
+                <h3>Transporte</h3>
+                <p>Fretes e mudanças</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Como Funciona</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Descreva sua necessidade</h3>
+                    <p>Conte-nos o que precisa e receba propostas personalizadas</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Compare profissionais</h3>
+                    <p>Analise perfis, avaliações e preços dos prestadores</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Contrate com segurança</h3>
+                    <p>Pague pelo app e tenha garantia em todos os serviços</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-left">
+                <div class="geometric-shape shape-modal-1"></div>
+                <div class="geometric-shape shape-modal-2"></div>
+                <div class="geometric-shape shape-modal-3"></div>
+            </div>
+            <div class="modal-right">
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+                <div class="auth-form">
+                    <h2>Entrar em <span class="brand">Service<span class="plus">+</span></span></h2>
+                    <form id="loginForm">
+                        <div class="input-group">
+                            <label for="loginEmail">Seu e-mail</label>
+                            <input type="email" id="loginEmail" placeholder="exemplo@email.com" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="loginPassword">Sua senha</label>
+                            <input type="password" id="loginPassword" placeholder="senha123" required>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="rememberMe">
+                            <label for="rememberMe">Lembrar de mim</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Entrar</button>
+                    </form>
+                    <p class="switch-auth">Não tem conta? <a href="#" onclick="switchToRegister()">Cadastre-se</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-left">
+                <div class="geometric-shape shape-modal-1"></div>
+                <div class="geometric-shape shape-modal-2"></div>
+                <div class="geometric-shape shape-modal-3"></div>
+            </div>
+            <div class="modal-right">
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+                <div class="auth-form">
+                    <h2>Cadastre-se em <span class="brand">Service<span class="plus">+</span></span></h2>
+                    <form id="registerForm">
+                        <div class="input-group">
+                            <label for="registerEmail">Seu e-mail</label>
+                            <input type="email" id="registerEmail" placeholder="exemplo@email.com" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="registerPassword">Sua senha</label>
+                            <input type="password" id="registerPassword" placeholder="senha123" required>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="acceptTerms" required>
+                            <label for="acceptTerms">Li e concordo com os termos de uso</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="shareInfo">
+                            <label for="shareInfo">Estou ciente que irei compartilhar informações pessoais como Nome,
+                                endereço, email etc</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Cadastrar-se</button>
+                    </form>
+                    <p class="switch-auth">Já tem conta? <a href="#" onclick="switchToLogin()">Entrar</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Service<span class="plus">+</span></h3>
+                    <p>Conectando pessoas a serviços de qualidade</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="#">Manutenção</a></li>
+                        <li><a href="#">Casa & Jardim</a></li>
+                        <li><a href="#">Tecnologia</a></li>
+                        <li><a href="#">Design</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Suporte</h4>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Privacidade</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Service+. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

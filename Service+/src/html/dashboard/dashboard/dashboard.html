@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service+ - Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Service<span class="plus">+</span></h1>
+            </div>
+            <nav class="nav">
+                <button id="darkModeToggle">🌙</button>
+                <span id="userName" class="welcome-text"
+                    onclick="window.location.href='../../profile.html'">Bem-vindo!</span>
+                <div id="userAvatar" class="user-avatar">
+                    <span>👤</span>
+                </div>
+        </div </nav>
+        </div>
+    </header>
+
+    <!-- Search and Filters -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Buscar serviços ou profissionais...">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="todos">Todos</button>
+                    <button class="filter-btn" data-category="manutencao">Manutenção</button>
+                    <button class="filter-btn" data-category="casa-jardim">Casa & Jardim</button>
+                    <button class="filter-btn" data-category="tecnologia">Tecnologia</button>
+                    <button class="filter-btn" data-category="design-arte">Design & Arte</button>
+                    <button class="filter-btn" data-category="educacao">Educação</button>
+                    <button class="filter-btn" data-category="transporte">Transporte</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <main class="main-content">
+        <div class="container">
+            <div class="services-header">
+                <h2 class="section-title">Todos os Serviços</h2>
+                <p class="services-count"><span id="servicesCount">6</span> serviços encontrados</p>
+            </div>
+
+            <div class="services-grid" id="servicesGrid">
+                <!-- Services will be populated by JavaScript -->
+            </div>
+
+            <!-- No results message -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <div class="no-results-icon">🔍</div>
+                <h3>Nenhum serviço encontrado</h3>
+                <p>Tente ajustar sua busca ou filtros</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Service Profile Modal -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content service-modal">
+            <button class="close-btn" onclick="closeServiceModal()">&times;</button>
+            <div class="service-profile" id="serviceProfile">
+                <!-- Service profile content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Contract Modal -->
+    <div id="contractModal" class="modal">
+        <div class="modal-content contract-modal">
+            <button class="close-btn" onclick="closeContractModal()">&times;</button>
+            <div class="contract-form">
+                <h2>Contratar Serviço</h2>
+                <div class "service-summary" id="serviceSummary">
+                    <!-- Service summary will be populated by JavaScript -->
+                </div>
+                <form id="contractForm">
+                    <div class="input-group">
+                        <label for="contractDate">Data Preferida</label>
+                        <input type="date" id="contractDate" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="contractTime">Horário Preferido</label>
+                        <select id="contractTime" required>
+                            <option value="">Selecione um horário</option>
+                            <option value="morning">Manhã (8h - 12h)</option>
+                            <option value="afternoon">Tarde (12h - 18h)</option>
+                            <option value="evening">Noite (18h - 22h)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="contractMessage">Descrição do Serviço</label>
+                        <textarea id="contractMessage" placeholder="Descreva detalhes do serviço que precisa..."
+                            rows="4" required></textarea>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="btn btn-outline" onclick="closeContractModal()">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Enviar Solicitação</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>
