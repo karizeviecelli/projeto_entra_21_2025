@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedCare - Painel do Doutor</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+     <link rel="icon" href="logoarredondadaboa.svg" type="image/x-icon"> </head>
+    <style>
+        /* Variáveis de Cores */
+        :root {
+            --primary-blue: #003366; /* Azul Marinho Principal */
+            --secondary-blue: #007bff; /* Azul para acentos e botões */
+            --light-blue: #e0f2f7; /* Azul bem claro para fundos/destaques */
+            --white: #ffffff;
+            --light-gray: #f0f2f5; /* Fundo mais suave */
+            --medium-gray: #ced4da; /* Para bordas e divisores */
+            --dark-gray: #343a40; /* Cinza escuro para textos principais */
+            --text-light: #6c757d; /* Cinza para textos secundários */
+            --success-green: #28a745;
+            --danger-red: #dc3545;
+            --warning-orange: #ffc107;
+            --font-family: 'Poppins', sans-serif;
+            --border-radius-sm: 6px;
+            --border-radius-md: 10px;
+            --border-radius-lg: 15px;
+            --box-shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
+            --box-shadow-md: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition-speed: 0.3s ease;
+        }
+
+        /* Reset Básico e Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--light-gray);
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden; /* Evita scroll horizontal */
+        }
+
+        /* Layout do Dashboard */
+        .dashboard-container {
+            display: flex;
+            width: 100%;
+        }
+
+        /* Sidebar (Barra Lateral) */
+        .sidebar {
+            width: 280px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--box-shadow-md);
+            z-index: 100;
+        }
+
+        .sidebar-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .sidebar-header .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--light-blue);
+            margin-bottom: 15px;
+        }
+
+        .sidebar-header h3 {
+            font-size: 1.6em;
+            margin-bottom: 5px;
+            color: var(--white);
+        }
+
+        .sidebar-header p {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            color: var(--white);
+            text-decoration: none;
+            border-radius: var(--border-radius-sm);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            font-size: 1.05em;
+        }
+
+        .sidebar-nav a i {
+            margin-right: 12px;
+            font-size: 1.2em;
+        }
+
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            background-color: var(--secondary-blue);
+            color: var(--white);
+            box-shadow: var(--box-shadow-sm);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex-grow: 1; /* Ocupa o espaço restante */
+            padding: 30px 40px;
+            background-color: var(--light-gray);
+            overflow-y: auto; /* Permite scroll se o conteúdo for grande */
+        }
+
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .content-header h1 {
+            font-size: 2.5em;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-info .user-name {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        .user-info .user-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--secondary-blue);
+        }
+
+        /* Seções de Conteúdo */
+        .content-section {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow-md);
+            margin-bottom: 30px;
+            display: none; /* Escondido por padrão, JavaScript gerencia a visibilidade */
+        }
+        .content-section.active {
+            display: block; /* Apenas a seção ativa é mostrada */
+        }
+
+        .content-section h2 {
+            font-size: 1.8em;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--medium-gray);
+        }
+
+        /* Botões Gerais */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: var(--border-radius-md);
+            font-size: 0.95em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            text-align: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-blue);
+            color: var(--white);
+            border: none;
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: #0069d9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+        }
+        
+        .btn-success {
+            background-color: var(--success-green);
+            color: var(--white);
+            border: none;
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2);
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--secondary-blue);
+            border: 1px solid var(--secondary-blue);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+        }
+
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 0.85em;
+            border-radius: var(--border-radius-sm);
+        }
+
+        /* Badges de Status */
+        .status-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.8em;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .status-badge.confirmed { background-color: #d4edda; color: #155724; } /* Verde suave */
+        .status-badge.pending { background-color: #fff3cd; color: #856404; } /* Amarelo suave */
+        .status-badge.completed { background-color: #cce5ff; color: #004085; } /* Azul suave */
+        .status-badge.canceled { background-color: #f8d7da; color: #721c24; } /* Vermelho suave */
+
+        /* Tabelas */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.95em;
+        }
+
+        .data-table th, .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--medium-gray);
+            text-align: left;
+        }
+
+        .data-table th {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .data-table tbody tr:hover {
+            background-color: var(--light-gray);
+        }
+
+        .data-table .actions button {
+            margin-right: 5px;
+        }
+
+        /* Formulários (gerais) */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"],
+        .form-group input[type="date"],
+        .form-group input[type="time"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--border-radius-sm);
+            font-family: var(--font-family);
+            font-size: 1em;
+            transition: all var(--transition-speed);
+            background-color: var(--light-gray);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-blue);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+            background-color: var(--white);
+        }
+
+        /* Modal de visualização de detalhes */
+        .modal {
+            display: none; /* Escondido por padrão */
+            position: fixed; /* Fica por cima de tudo */
+            z-index: 1000; /* Alto z-index para estar no topo */
+            left: 0;
+            top: 0;
+            width: 100%; /* Largura total */
+            height: 100%; /* Altura total */
+            overflow: auto; /* Habilita scroll se o conteúdo for muito grande */
+            background-color: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente escuro */
+            justify-content: center;
+            align-items: center;
+            opacity: 0; /* Para transição de fade */
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .modal.active {
+            display: flex; /* Torna visível */
+            opacity: 1; /* Faz aparecer com fade */
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: auto; /* Centraliza vertical e horizontalmente */
+            padding: 30px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 700px;
+            position: relative;
+            transform: translateY(-20px); /* Para efeito de subida */
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .modal.active .modal-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .modal-content h2 {
+            font-size: 2em;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--medium-gray);
+            text-align: left;
+        }
+
+        .modal-body p {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            color: var(--dark-gray);
+            text-align: left;
+        }
+
+        .modal-body p strong {
+            color: var(--primary-blue);
+            min-width: 120px; /* Para alinhar labels em p */
+            display: inline-block;
+        }
+
+        .modal-body hr {
+            border: none;
+            border-top: 1px solid var(--light-gray);
+            margin: 20px 0;
+        }
+
+        .close-button {
+            color: var(--dark-gray);
+            font-size: 30px;
+            font-weight: bold;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: var(--danger-red);
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://via.placeholder.com/100/003366/FFFFFF?text=Dr" alt="Avatar do Doutor" class="profile-pic">
+                <h3>Dr. Sobrenome</h3>
+                <p>Clínico Geral</p>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-target="overview"><i class="fas fa-home"></i> Visão Geral</a></li>
+                    <li><a href="#" class="nav-link" data-target="appointments"><i class="fas fa-calendar-alt"></i> Minhas Consultas</a></li>
+                    <li><a href="#" class="nav-link" data-target="record-appointment"><i class="fas fa-notes-medical"></i> Registrar Consulta</a></li>
+                    <li><a href="#" class="nav-link" data-target="my-profile"><i class="fas fa-user"></i> Meu Perfil</a></li>
+                    <li><a href="#" class="nav-link logout-btn"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="content-header">
+                <h1>Painel do Doutor</h1>
+                <div class="user-info">
+                    <span class="user-name">Dr. Sobrenome</span>
+                    <img src="https://via.placeholder.com/45/003366/FFFFFF?text=Dr" alt="Avatar do Doutor" class="user-avatar">
+                </div>
+            </div>
+
+            <section id="overview" class="content-section active">
+                <h2>Visão Geral do Dia</h2>
+                <p>Bem-vindo(a) de volta ao seu painel, Dr. Sobrenome!</p>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px;">
+                    <div style="background-color: var(--light-blue); padding: 25px; border-radius: var(--border-radius-md); flex: 1; min-width: 280px; box-shadow: var(--box-shadow-sm);">
+                        <h3>Próxima Consulta</h3>
+                        <p style="font-size: 1.1em; color: var(--primary-blue); font-weight: 600;">Paciente: João P. - 10:30</p>
+                        <button class="btn btn-primary btn-small" id="viewNextAppointmentDetailsBtn"><i class="fas fa-arrow-right"></i> Ver Detalhes</button>
+                    </div>
+                    <div style="background-color: var(--white); padding: 25px; border-radius: var(--border-radius-md); flex: 1; min-width: 280px; box-shadow: var(--box-shadow-sm);">
+                        <h3>Consultas Agendadas Hoje</h3>
+                        <p style="font-size: 1.1em; color: var(--primary-blue); font-weight: 600;">5 Consultas</p>
+                        <button class="btn btn-secondary btn-small" id="viewAllTodayAppointmentsBtn"><i class="fas fa-list"></i> Ver Todas</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="appointments" class="content-section">
+                <h2>Minhas Consultas</h2>
+                <p>Aqui você pode gerenciar todas as suas consultas.</p>
+                <table class="data-table consultations-table">
+                    <thead>
+                        <tr>
+                            <th>Paciente</th>
+                            <th>Data</th>
+                            <th>Horário</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </section>
+
+            <section id="record-appointment" class="content-section">
+                <h2 id="recordAppointmentTitle">Registrar Nova Consulta</h2>
+                <p>Preencha os dados abaixo para registrar uma nova consulta ou editar uma existente.</p>
+
+                <form class="record-form" id="recordAppointmentForm">
+                    <div class="form-group">
+                        <label for="patientName">Nome do Paciente</label>
+                        <input type="text" id="patientName" placeholder="Nome completo do paciente" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="consultationDate">Data da Consulta</label>
+                        <input type="date" id="consultationDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="consultationTime">Horário da Consulta</label>
+                        <input type="time" id="consultationTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="patientPhone">Telefone do Paciente</label>
+                        <input type="text" id="patientPhone" placeholder="(XX) XXXXX-XXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mainComplaint">Queixa Principal</label>
+                        <textarea id="mainComplaint" rows="3" placeholder="Ex: Dor de cabeça, febre, etc." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="diagnosis">Diagnóstico (Preencher após a consulta)</label>
+                        <textarea id="diagnosis" rows="3" placeholder="Diagnóstico da consulta"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="medications">Medicações Prescritas (Preencher após a consulta)</label>
+                        <textarea id="medications" rows="3" placeholder="Medicações, dosagens e frequência"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="observations">Observações / Plano de Tratamento (Preencher após a consulta)</label>
+                        <textarea id="observations" rows="4" placeholder="Observações adicionais, retorno, exames, etc."></textarea>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button type="submit" class="btn btn-primary" id="recordAppointmentBtn">
+                            <i class="fas fa-save"></i> Registrar Consulta
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="cancelEditBtn" style="display: none;">
+                            <i class="fas fa-times"></i> Cancelar Edição
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="my-profile" class="content-section">
+                <h2>Meu Perfil</h2>
+                <p>Visualize e edite suas informações pessoais.</p>
+                <form class="profile-form">
+                    <div class="form-group">
+                        <label for="doctorName">Nome Completo</label>
+                        <input type="text" id="doctorName" value="Dr. Sobrenome" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="doctorSpecialty">Especialidade</label>
+                        <input type="text" id="doctorSpecialty" value="Clínico Geral" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="doctorCRM">CRM</label>
+                        <input type="text" id="doctorCRM" value="SP 123456" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="doctorEmail">E-mail</label>
+                        <input type="email" id="doctorEmail" value="doutor@medcare.com" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="doctorPhone">Telefone</label>
+                        <input type="text" id="doctorPhone" value="(11) 98765-4321">
+                    </div>
+                    <button type="button" class="btn btn-primary"><i class="fas fa-edit"></i> Editar Dados</button>
+                    <button type="submit" class="btn btn-success" style="display: none;"><i class="fas fa-save"></i> Salvar Alterações</button>
+                    <button type="button" class="btn btn-secondary" style="display: none;"><i class="fas fa-times"></i> Cancelar</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <div id="viewAppointmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeModalButton">&times;</span>
+            <h2>Detalhes da Consulta</h2>
+            <div class="modal-body">
+                <p><strong>Paciente:</strong> <span id="modalPatientName"></span></p>
+                <p><strong>Data:</strong> <span id="modalConsultationDate"></span></p>
+                <p><strong>Horário:</strong> <span id="modalConsultationTime"></span></p>
+                <p><strong>Telefone:</strong> <span id="modalPatientPhone"></span></p>
+                <p><strong>Status:</strong> <span id="modalConsultationStatus" class="status-badge"></span></p>
+                <hr>
+                <p><strong>Queixa Principal:</strong> <span id="modalMainComplaint"></span></p>
+                <p><strong>Diagnóstico:</strong> <span id="modalDiagnosis"></span></p>
+                <p><strong>Medicações Prescritas:</strong> <span id="modalMedications"></span></p>
+                <p><strong>Observações / Plano de Tratamento:</strong> <span id="modalObservations"></span></p>
+                <div style="text-align: right; margin-top: 20px;">
+                    <button class="btn btn-primary" id="editModalButton"><i class="fas fa-edit"></i> Editar Consulta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="doctor-dashboard.js"></script>
+</body>
+</html>
