@@ -1,5 +1,5 @@
 <p align="right">
-  <a href="../README.md">← Voltar</a>
+  <a href="README.md">← Voltar</a>
 </p>
 
 # 👥 Equipe
