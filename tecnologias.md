@@ -1,3 +1,7 @@
+<p align="right">
+  <a href="../README.md">← Voltar</a>
+</p>
+
 # 🛠️ Tecnologias Utilizadas
 
 > As tecnologias abordadas proporcionam uma base sólida para o desenvolvimento de um sistema completo, com frontend moderno e backend bem estruturado.
