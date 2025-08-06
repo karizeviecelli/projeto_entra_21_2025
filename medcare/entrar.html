@@ -18,8 +18,6 @@
             --light-gray: #f8f9fa; /* Cinza muito claro para fundos */
             --gray: #6c757d; /* Cinza para textos secundários */
             --dark-gray: #343a40; /* Cinza escuro para textos principais */
-            --cream: #E7D7C1;
-            --dark-cream: #A78A7F;
             --border-color: #dee2e6;
             --success-green: #28a745;
             --danger-red: #dc3545;
@@ -30,7 +28,7 @@
             --box-shadow-md: 0 5px 15px rgba(0, 0, 0, 0.08);
             --transition-speed: 0.3s ease;
         }
-
+        
         /* Reset Básico e Estilos Globais */
         * {
             margin: 0;
@@ -146,6 +144,16 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
         }
+        
+        .btn-text {
+            color: var(--white);
+            text-decoration: none;
+            width: 100%; /* Garante que o link ocupe toda a largura do botão */
+        }
+        .btn-text:hover {
+            color: #E7D7C1;
+            text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+        }
 
         /* Mensagem de sucesso/erro */
         .form-message {
@@ -201,80 +209,25 @@
 <body>
     <div class="login-container">
         <i class="fas fa-user-circle" style="font-size: 3.5em; color: var(--primary-blue); margin-bottom: 20px;"></i>
-        <h2>Login de Paciente</h2>
+        <h2>Entrar</h2>
         <p>Acesse sua conta MedCare.</p>
 
         <div id="loginMessage" class="form-message"></div>
 
         <form class="login-form" id="loginForm">
-            <div class="form-group">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" placeholder="seuemail@example.com" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Senha</label>
-                <input type="password" id="password" placeholder="Sua senha" required>
-            </div>
-            <button type="submit" class="btn btn-primary">
-                <i class="fas fa-sign-in-alt"></i> Entrar
+            <button class="btn btn-primary">
+                 <a href="login.html" class="btn-text">Sou Paciente</a>
+            </button>
+            <button class="btn btn-primary">
+                 <a href="doctor-login.html" class="btn-text">Sou Médico</a>
             </button>
         </form>
 
         <p class="link-options">
-            <a href="forgot-password.html">Esqueceu a senha?</a>
-            <span class="separator">|</span>
+            <span class="separator"></span>
             Ainda não tem conta? <a href="register.html">Registre-se</a>
         </p>
         <p class="link-options"><a href="index.html">Voltar à Página Inicial</a></p>
     </div>
-
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede o envio real do formulário
-
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const loginMessage = document.getElementById('loginMessage');
-
-            // Limpa mensagens anteriores
-            loginMessage.style.display = 'none';
-            loginMessage.className = 'form-message';
-
-            // Simulação de validação e login
-            if (!email || !password) {
-                loginMessage.textContent = 'Por favor, preencha todos os campos.';
-                loginMessage.classList.add('error');
-                loginMessage.style.display = 'block';
-                return;
-            }
-
-            // Simulação de credenciais
-            const simulatedUser = {
-                email: 'paciente@medcare.com',
-                password: 'senha123'
-            };
-
-            if (email === simulatedUser.email && password === simulatedUser.password) {
-                loginMessage.textContent = `Login bem-sucedido! Bem-vindo(a), ${email}.`;
-                loginMessage.classList.add('success');
-                loginMessage.style.display = 'block';
-
-                console.log('Login simulado:', { email, password });
-
-                // ** ADICIONE ESTA LINHA AQUI: **
-                sessionStorage.setItem('medcarePatientLoggedIn', 'true');
-
-                // Em um cenário real, redirecionaria para o dashboard do paciente
-                setTimeout(() => {
-                    window.location.href = 'patient-dashboard.html'; 
-                }, 2000);
-
-            } else {
-                loginMessage.textContent = 'E-mail ou senha incorretos.';
-                loginMessage.classList.add('error');
-                loginMessage.style.display = 'block';
-            }
-        });
-    </script>
 </body>
 </html>
