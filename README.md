@@ -1,11 +1,11 @@
 # TCC Entra21 — Service+
 
-## 📑 Seções
+##  Seções
 
 - [📄 Documentação]()
-- [🛠️ Tecnologias utilizadas]()
 - [👥 Equipe]()
 
+## Links
 - [docs]()
 
 ---
