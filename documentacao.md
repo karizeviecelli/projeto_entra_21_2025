@@ -13,15 +13,18 @@ Ampliar a visibilidade de profissionais autônomos e microempreendedores, especi
 
 Facilitar o processo de busca por mão de obra qualificada, oferecendo aos contratantes uma plataforma intuitiva e organizada, que permite encontrar profissionais capacitados de forma rápida, segura e eficiente.
 
-Justificativa - ServiceHub
+**Justificativa - ServiceHub**
+---
 Em um cenário cada vez mais marcado pelo crescimento do trabalho informal, muitos profissionais autônomos e microempreendedores enfrentam uma dificuldade recorrente: a falta de meios eficientes para divulgar seus serviços e alcançar potenciais contratantes. Redes sociais e aplicativos de mensagens, embora populares, não oferecem as ferramentas necessárias para promover a visibilidade adequada ou estabelecer uma conexão direta e objetiva entre prestador e cliente.
 Ao mesmo tempo, os contratantes também enfrentam desafios na hora de encontrar mão de obra qualificada, confiável e disponível de forma rápida. A descentralização das ofertas de serviço e a ausência de uma plataforma acessível, prática e sem burocracias dificultam esse processo.
 Diante desse contexto, o ServiceHub surge como uma resposta direta a essa realidade, atuando como uma ponte entre quem oferece e quem precisa de serviços, sem intermediação de pagamentos ou taxas, promovendo inclusão digital, valorização profissional e dinamismo no processo de contratação.
 
-Plano de Monetização – ServiceHub
+**Plano de Monetização – ServiceHub**
+---
 Embora o ServiceHub, em sua proposta inicial, funcione como uma vitrine digital gratuita para profissionais autônomos e contratantes, o projeto prevê a implementação futura de um modelo de monetização baseado em planos e assinaturas. O objetivo é oferecer recursos adicionais que agreguem valor aos perfis dos prestadores e ampliem sua visibilidade na plataforma.
 Propostas de monetização:
-1. Planos de Assinatura (mensal):
+**1. Planos de Assinatura (mensal):**
+---
  Usuários poderão optar por diferentes categorias de plano, com benefícios escalonados conforme o investimento. Os planos poderão incluir:
 Destaque nos resultados de busca
 
@@ -35,9 +38,11 @@ Prioridade nas recomendações
 Possibilidade de adicionar mais categorias de serviço
 
 
-2. Selos de Verificação:
+**2. Selos de Verificação:**
+---
  Profissionais que comprovarem identidade, formação ou experiência poderão adquirir selos de verificação. Esses selos aumentam a credibilidade do perfil e transmitem mais segurança ao contratante.
-3. Espaços Promocionais:
+**3. Espaços Promocionais:**
+---
  Venda de espaços específicos dentro da plataforma para anúncios internos, como:
 Banner em áreas de destaque
 
@@ -48,14 +53,16 @@ Banner em áreas de destaque
 Sugestão de perfis na página inicial
 
 
- Público-Alvo – ServiceHub
+**Público-Alvo – ServiceHub**
+---
 O ServiceHub é voltado para dois públicos principais: prestadores de serviço e contratantes. A plataforma foi idealizada para atender de forma eficiente as necessidades específicas de cada grupo.
  Prestadores de Serviço
 Incluem-se aqui profissionais autônomos, freelancers, microempreendedores individuais (MEIs) e trabalhadores informais que atuam em diversas áreas, como:
-Serviços manuais: limpeza, jardinagem, manutenção, pequenas reformas, pintura, entre outros;
+**Serviços manuais:** limpeza, jardinagem, manutenção, pequenas reformas, pintura, entre outros;
 
+---
 
-Serviços remotos: design gráfico, desenvolvimento web, redação, edição de vídeo, marketing digital, entre outros.
+**Serviços remotos:** design gráfico, desenvolvimento web, redação, edição de vídeo, marketing digital, entre outros.
 
 
 O foco está, principalmente, naqueles que estão iniciando suas carreiras e ainda não possuem uma base de clientes consolidada, oferecendo uma oportunidade de ganhar visibilidade, construir reputação e ampliar sua rede de contatos profissionais.
@@ -72,7 +79,8 @@ Acesso direto aos prestadores para negociação personalizada.
 
 A plataforma é especialmente útil para quem valoriza agilidade, confiança e autonomia na contratação de serviços, seja para demandas pessoais ou profissionais.
 
-Tecnologias Utilizadas
+**Tecnologias Utilizadas**
+---
 Front-end: HTML5, CSS3, JavaScript
 
 
