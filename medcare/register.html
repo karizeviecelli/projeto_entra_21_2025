@@ -11,14 +11,14 @@
     <style>
         /* Variáveis de Cores (Consistentes com o projeto) */
         :root {
-            --primary-blue: #003366; /* Azul Marinho Principal */
-            --secondary-blue: #007bff; /* Azul para acentos e botões */
+            --primary-blue: #012A4A; /* Azul Marinho Principal */
+            --secondary-blue: #013A63; /* Azul para acentos e botões */
             --light-blue: #e0f2f7; /* Azul bem claro para fundos/destaques */
             --white: #ffffff;
-            --light-gray: #f0f2f5; /* Fundo mais suave */
-            --medium-gray: #ced4da; /* Para bordas e divisores */
+            --light-gray: #f8f9fa; /* Cinza muito claro para fundos */
+            --gray: #6c757d; /* Cinza para textos secundários */
             --dark-gray: #343a40; /* Cinza escuro para textos principais */
-            --text-light: #6c757d; /* Cinza para textos secundários */
+            --border-color: #dee2e6;
             --success-green: #28a745;
             --danger-red: #dc3545;
             --font-family: 'Poppins', sans-serif;
@@ -141,7 +141,7 @@
         }
 
         .btn-primary:hover {
-            background-color: #0069d9;
+            background-color: var(--primary-blue);
             transform: translateY(-2px);
             box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
         }

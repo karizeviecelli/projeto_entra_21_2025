@@ -22,14 +22,17 @@
     </script>
     <style>
         /* Variáveis de Cores (Consistentes com o projeto) */
-        :root {
-            --primary-blue: #003366; /* Azul Marinho Principal */
-            --secondary-blue: #007bff; /* Azul para acentos e botões */
+       :root {
+          --primary-blue: #012A4A; /* Azul Marinho Principal */
+            --secondary-blue: #013A63; /* Azul para acentos e botões */
             --light-blue: #e0f2f7; /* Azul bem claro para fundos/destaques */
             --white: #ffffff;
-            --light-gray: #f0f2f5; /* Fundo mais suave */
-            --medium-gray: #ced4da; /* Para bordas e divisores */
+            --cream: #E7D7C1;
+            --light-gray: #f8f9fa; /* Cinza muito claro para fundos */
+            --gray: #6c757d; /* Cinza para textos secundários */
             --dark-gray: #343a40; /* Cinza escuro para textos principais */
+            --border-color: #dee2e6;
+            --medium-gray: #ced4da; /* Para bordas e divisores */
             --text-light: #6c757d; /* Cinza para textos secundários */
             --success-green: #28a745;
             --danger-red: #dc3545;
@@ -220,7 +223,7 @@
         }
 
         .btn-primary:hover {
-            background-color: #0069d9;
+            background-color: var(--primary-blue);
             transform: translateY(-2px);
             box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
         }
@@ -645,7 +648,7 @@
     <div class="dashboard-container">
         <aside class="sidebar">
             <div class="sidebar-header">
-                <img src="https://via.placeholder.com/100/007bff/FFFFFF?text=P" alt="Avatar do Paciente" class="profile-pic">
+                <img src="logocrememenor.svg">
                 <h3 id="sidebarPatientName">Olá, Paciente!</h3> <p>Paciente MedCare</p>
             </div>
             <nav class="sidebar-nav">
@@ -672,14 +675,15 @@
                 <h2>Seja Bem-vindo(a) ao seu Painel MedCare!</h2>
                 <p>Aqui você pode gerenciar suas consultas, agendar novos atendimentos e atualizar seus dados.</p>
                 <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px;">
-                    <div style="background-color: var(--light-blue); padding: 25px; border-radius: var(--border-radius-md); flex: 1; min-width: 280px; box-shadow: var(--box-shadow-sm);">
+                    <div style="background-color: var(--cream); padding: 25px; border-radius: var(--border-radius-md); flex: 1; min-width: 280px; box-shadow: var(--box-shadow-sm);">
                         <h3>Próxima Consulta</h3>
-                        <p style="font-size: 1.1em; color: var(--primary-blue); font-weight: 600;" id="nextAppointmentSummary">Nenhuma consulta agendada.</p>
+                        <p style="font-size: 1.1em; color: var(--primary-blue); font-weight: 600;" id="nextAppointmentSummary">Nenhuma consulta agendada.</p><br>
                         <button class="btn btn-primary btn-small" onclick="showSection('schedule-appointment'); activateNavLink('schedule-appointment');">Agendar Agora <i class="fas fa-plus-circle"></i></button>
                     </div>
                     <div style="background-color: var(--white); padding: 25px; border-radius: var(--border-radius-md); flex: 1; min-width: 280px; box-shadow: var(--box-shadow-sm);">
                         <h3>Consultas Concluídas</h3>
                         <p style="font-size: 1.1em; color: var(--primary-blue); font-weight: 600;" id="completedAppointmentsCount">5</p>
+                        <br>
                         <button class="btn btn-secondary btn-small" onclick="showSection('my-appointments'); activateNavLink('my-appointments');">Ver Histórico <i class="fas fa-history"></i></button>
                     </div>
                 </div>
