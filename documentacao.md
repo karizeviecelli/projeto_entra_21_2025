@@ -23,6 +23,7 @@ Diante desse contexto, o ServiceHub surge como uma resposta direta a essa realid
 ---
 Embora o ServiceHub, em sua proposta inicial, funcione como uma vitrine digital gratuita para profissionais autônomos e contratantes, o projeto prevê a implementação futura de um modelo de monetização baseado em planos e assinaturas. O objetivo é oferecer recursos adicionais que agreguem valor aos perfis dos prestadores e ampliem sua visibilidade na plataforma.
 Propostas de monetização:
+
 **1. Planos de Assinatura (mensal):**
 ---
  Usuários poderão optar por diferentes categorias de plano, com benefícios escalonados conforme o investimento. Os planos poderão incluir:
@@ -41,6 +42,7 @@ Possibilidade de adicionar mais categorias de serviço
 **2. Selos de Verificação:**
 ---
  Profissionais que comprovarem identidade, formação ou experiência poderão adquirir selos de verificação. Esses selos aumentam a credibilidade do perfil e transmitem mais segurança ao contratante.
+ 
 **3. Espaços Promocionais:**
 ---
  Venda de espaços específicos dentro da plataforma para anúncios internos, como:
