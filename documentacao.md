@@ -1,11 +1,13 @@
 Documentação ServiceHUB
 
-Solução - ServiceHub
+**Solução - ServiceHub**
+---
 Nosso projeto busca solucionar uma das principais dificuldades enfrentadas por profissionais autônomos: a falta de visibilidade para divulgar seus serviços. O ServiceHub se apresenta como uma solução acessível e eficiente, especialmente para aqueles que estão no início de suas carreiras e ainda não possuem reconhecimento ou uma base consolidada de clientes. Ao oferecer um espaço dedicado para a apresentação de seus trabalhos, o ServiceHub contribui diretamente para a inserção desses profissionais no mercado e para a construção de sua reputação.
 Além disso, a plataforma também beneficia os contratantes, funcionando como um canal prático e centralizado para encontrar profissionais qualificados de maneira rápida e eficiente. Por meio do ServiceHub, os clientes conseguem visualizar perfis, analisar serviços oferecidos e entrar em contato direto com prestadores que atendam às suas necessidades, otimizando o processo de contratação e aumentando as chances de uma experiência satisfatória para ambas as partes.
 
 
-Objetivos - ServiceHub
+**Objetivos - ServiceHub**
+---
 Ampliar a visibilidade de profissionais autônomos e microempreendedores, especialmente aqueles que estão em início de carreira e enfrentam dificuldades para divulgar seus serviços e alcançar novos clientes.
 
 
