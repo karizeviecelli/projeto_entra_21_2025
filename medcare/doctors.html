@@ -11,8 +11,8 @@
     <style>
         /* Variáveis de Cores */
         :root {
-            --primary-blue: #003366; /* Azul Marinho Principal */
-            --secondary-blue: #007bff; /* Azul para acentos e botões */
+            --primary-blue: #012A4A; /* Azul Marinho Principal */
+            --secondary-blue: #013A63; /* Azul para acentos e botões */
             --light-blue: #e0f2f7; /* Azul bem claro para fundos/destaques */
             --white: #ffffff;
             --light-gray: #f8f9fa; /* Cinza muito claro para fundos */
@@ -97,23 +97,45 @@
             font-weight: 500;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2); 
+            color: #E7D7C1;
+            
         }
-
-        .btn-primary:hover {
-            background-color: #0069d9;
+        .btn-agenda {
+            background-color: #E7D7C1;
+            display: inline-block;
+            padding: 12px 25px;
+            color: var(--primary-blue);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2); 
+        }
+        .btn-agenda:hover {
+            background-color: #A78A7F;
             transform: translateY(-2px);
             box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+        }
+        .btn-primary:hover {
+            background-color: #A78A7F !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+            color: #013A63;
         }
 
         .btn-primary-small {
             padding: 8px 18px;
             font-size: 0.95em;
             border-radius: 6px;
+            color: #E7D7C1 !important;
         }
 
         .btn-primary-small:hover {
-            background-color: #0069d9;
+            background-color: #A78A7F !important;
+            color:#013A63 !important ;
         }
 
         .btn-secondary {
@@ -126,7 +148,7 @@
 
         .btn-secondary:hover {
             background-color: var(--primary-blue);
-            color: var(--white);
+            color: #e7d7c1 ;
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0, 51, 102, 0.1);
         }
@@ -136,6 +158,7 @@
             font-size: 1.2em;
             padding: 15px 30px;
             box-shadow: 0 4px 10px rgba(220, 53, 69, 0.2);
+            color: var(--white) !important;
         }
 
         .btn-contact-emergency:hover {
@@ -146,12 +169,11 @@
 
         /* Header */
         .header {
-            background-color: var(--white);
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
+            background-color: var(--white);
             z-index: 100;
+            padding: 20px 40px;
         }
 
         .header-content {
@@ -159,11 +181,15 @@
             justify-content: space-between;
             align-items: center;
         }
-
-        .logo a {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: var(--primary-blue);
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 10px;
+        }
+        .logo img {
+            height: 50px;
+            width: 100px;
         }
 
         .nav-menu {
@@ -209,34 +235,42 @@
             cursor: pointer;
         }
 
-        /* Hero Section (Específico para "Corpo Clínico") */
+        /* Hero Section */
         .hero-section {
             background: linear-gradient(#013A63, #012A4A), url('https://source.unsplash.com/1600x900/?hospital,doctors') no-repeat center center/cover;
             color: var(--white);
             text-align: center;
-            padding: 80px 20px;
+            padding: 100px 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 400px;
+            min-height: 600px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero .hero-content img {
+            width: 150px; /* Ajuste o tamanho da imagem do logo */
+            margin-bottom: 20px;
+            display: flex;
+            margin: 20px auto; /* Centraliza a imagem */
         }
 
         .hero-content h1 {
-            font-size: 3.2em;
-            margin-bottom: 15px;
+            font-size: 3.5em;
+            margin-bottom: 25px;
             line-height: 1.2;
             color: var(--white);
             font-weight: 700;
         }
 
         .hero-content p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
+            font-size: 1.3em;
+            margin-bottom: 40px;
             line-height: 1.6;
             color: #e0e0e0;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         /* Seções Gerais */
@@ -335,7 +369,7 @@
 
         /* Seção CTA para Agendamento (mesmo estilo das outras páginas) */
         .cta-appointment {
-            background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.85)), url('https://source.unsplash.com/1600x900/?appointment,calendar-medical') no-repeat center center/cover;
+            background: linear-gradient(#E7D7C1, #e7d7c18e), url('https://source.unsplash.com/1600x900/?appointment,calendar-medical') no-repeat center center/cover;
             color: var(--white);
             padding: 80px 20px;
             border-radius: 12px;
@@ -344,7 +378,7 @@
         }
 
         .cta-appointment h2 {
-            color: var(--white);
+            color: var(--primary-blue);
             font-size: 2.5em;
             margin-bottom: 20px;
         }
@@ -355,16 +389,17 @@
 
         .cta-appointment p {
             font-size: 1.2em;
-            color: #e0e0e0;
+            color: var(--primary-blue);
             margin-bottom: 30px;
         }
 
         /* Footer (mesmo estilo das outras páginas) */
         .footer {
             background-color: var(--primary-blue);
-            color: var(--white);
+            color: #E7D7C1;
             padding: 60px 0 20px 0;
             font-size: 0.95em;
+            margin-top: 20px; /* Garante espaço se a seção anterior não tiver */
         }
 
         .footer-columns {
@@ -382,7 +417,7 @@
         }
 
         .footer-col p {
-            color: #c0c0c0;
+            color: #E7D7C1;
             line-height: 1.8;
         }
 
@@ -391,11 +426,11 @@
         }
 
         .footer-col ul li a {
-            color: #c0c0c0;
+            color: #E7D7C1;
         }
 
         .footer-col ul li a:hover {
-            color: var(--secondary-blue);
+            color: var(--white);
         }
 
         .footer-col .social-icons a {
@@ -416,11 +451,14 @@
 
         .footer-bottom {
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.76);
             padding-top: 20px;
-            color: #c0c0c0;
+            color: #ffffff !important ;
         }
 
+        .footer i.fas, .footer i.fab {
+            color: #ffffff !important;
+        }
         /* Responsividade */
         @media (max-width: 992px) {
             .hero-content h1 {
@@ -519,27 +557,19 @@
 </head>
 <body>
 
-<header style="padding: 20px; text-align: right;">
-            <a href="register.html" class="btn btn-primary" style="margin-right: 10px;">
-                <i class="fas fa-user-plus"></i> Registrar-se
-            </a>
-            <a href="doctor-login.html" class="btn btn-secondary">
-                <i class="fas fa-user-md"></i> Área do Médico
-            </a>
-        </header>
-
-    <header class="header">
+<header class="header">
         <div class="container header-content">
             <div class="logo">
-                <a href="index.html">MedCare</a>
+                <a href="index.html"><img src="titulo.svg"/> 
+                </a>
             </div>
             <nav class="nav-menu" id="navMenu">
-                <a href="index.html">Início</a>
+                <a href="index.html" >Início</a>
                 <a href="about.html">Sobre Nós</a>
                 <a href="services.html">Serviços</a>
                 <a href="doctors.html" class="active">Corpo Clínico</a>
                 <a href="contact.html">Contato</a>
-                <a href="login.html" class="btn-primary-small">Login</a>
+                <a href="entrar.html" class="btn-primary-small">Entrar</a>
             </nav>
             <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
@@ -652,7 +682,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 MedCare. Todos os direitos reservados.</p>
+                <p style="color: white;">&copy; 2025 MedCare. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>

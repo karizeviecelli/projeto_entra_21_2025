@@ -28,6 +28,7 @@
             --box-shadow-md: 0 5px 15px rgba(0, 0, 0, 0.08);
             --transition-speed: 0.3s ease;
         }
+        
 
         /* Reset Básico e Estilos Globais */
         * {
@@ -199,28 +200,23 @@
 <body>
     <div class="login-container">
         <i class="fas fa-user-circle" style="font-size: 3.5em; color: var(--primary-blue); margin-bottom: 20px;"></i>
-        <h2>Login de Paciente</h2>
-        <p>Acesse sua conta MedCare.</p>
+        <h2>Entrar no Sistema</h2>
+        <p>Escolha uma das opções abaixo.</p>
 
         <div id="loginMessage" class="form-message"></div>
-
-        <form class="login-form" id="loginForm">
-            <div class="form-group">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" placeholder="seuemail@example.com" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Senha</label>
-                <input type="password" id="password" placeholder="Sua senha" required>
-            </div>
+            <a href="login.html">
             <button type="submit" class="btn btn-primary">
-                <i class="fas fa-sign-in-alt"></i> Entrar
+            Sou Paciente
             </button>
+            </a>
+            <a href="doctor-login.html">
+            <button type="submit" class="btn btn-primary">
+            Sou Médico
+            </button>
+            </a>
         </form>
 
         <p class="link-options">
-            <a href="forgot-password.html">Esqueceu a senha?</a>
-            <span class="separator">|</span>
             Ainda não tem conta? <a href="register.html">Registre-se</a>
         </p>
         <p class="link-options"><a href="index.html">Voltar à Página Inicial</a></p>
