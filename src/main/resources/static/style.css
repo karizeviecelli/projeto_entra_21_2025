@@ -17,6 +17,17 @@
   padding: 0;
 }
 
+
+h5 {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+h3 {
+  text-align: center;
+}
+
 body {
   font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
   color: var(--text);
@@ -637,14 +648,4 @@ color: #f0f4ff;
     opacity: 0;
     transform: translateY(50px);
   }
-}
-
-h5 {
-  font-size: 20px;
-  margin-top: 20px;
-  margin-bottom: 5px;
-}
-
-h3 {
-  text-align: center;
 }
