@@ -1,11 +1,5 @@
-# TCC Entra21 — Gleam
+# Desenvolvimento Inicial do Site Gleam - Kaio Alves
 
-## 📑 Seções
-
-- [📄 Documentação](documentacao.md)
-- [🛠️ Tecnologias utilizadas](tecnologias.md)
-- [👥 Equipe](equipe.md)
-
-- [docs](https://docs.google.com/document/d/17jz0KutD5hUgZKcwFxBB-38J02TAOlgClaujCd9vMAA/edit?usp=sharing)
-
----
+- Implementação da introdução com breve explicação sobre a finalidade do sistema: auxiliar profissionais que trabalham com **joias**, **semijoias** e **vendas**.  
+- Criação da **tela de login** para cadastro de usuários.  
+- Trabalho realizado por **Kaio**, em conjunto com **Sidney**.  
