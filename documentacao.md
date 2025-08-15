@@ -11,6 +11,7 @@ Hoje muitas clínicas médicas sofrem com a falta de um sistema próprio muitas 
 ## Justificativa:
 - Aumentar a eficiência das clínicas médicas podendo fazer uma gestão melhor dos horários.
 - Melhorar a experiência para os pacientes através de uma plataforma intuitiva e ágil.
+- Maximizar os lucros através de uma gestão eficaz de pacientes e consultas.
 
 ## Público alvo:
 Profissionais da saúde e clínicas médicas de quaisquer especialidade.
