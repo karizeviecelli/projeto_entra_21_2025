@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -65,5 +66,18 @@ public class UsuarioController {
 
         usuarioRepository.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody Map<String, String> body) {
+        String email = body.get("email");
+        String senha = body.get("senha");
+
+        Optional<Usuario> usuarioOpt = usuarioRepository.findByEmailAndSenha(email, senha);
+
+        if (usuarioOpt.isPresent()) {
+            return ResponseEntity.ok(usuarioOpt.get()); // retorna usuário encontrado
+        } else {
+            return ResponseEntity.status(401).body("Email ou senha inválidos");
+        }
     }
 }
