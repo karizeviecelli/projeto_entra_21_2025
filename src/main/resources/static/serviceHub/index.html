@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ServiceHub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="logo">ServiceHub</div>
+    <nav>
+      <a href="#">Como Funciona</a>
+      <a href="#">Categorias</a>
+      <a href="#">Suporte</a>
+    </nav>
+    <div class="auth">
+      <a href="#" id="abrirLogin">Entrar</a>
+      <a href="#" class="btn-cadastro" id="abrirModal">Cadastrar</a>
+    </div>
+
+  </header>
+
+  <!--Modal (login)-->
+  <div class="modal-overlay" id="modalLogin">
+    <div class="modal">
+      <span class="fechar" id="fecharLogin">&times;</span>
+      <h2>Entrar na sua conta</h2>
+      <p class="subtitulo">Bem-vindo de volta ao ServiceHub</p>
+      <img src="image/logoclara.jpeg" alt="ServiceHub" style="width: 100%; height: auto;">
+      <form>
+        <label>e-mail:</label>
+        <input type="email" placeholder="seuemail@exemplo.com" required>
+        <label>Senha:</label>
+        <input type="password" placeholder="Digite sua senha" required>
+        <a href="#" class="link">Esqueci minha senha</a>
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL (cadastro)-->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <span class="fechar" id="fecharModal">&times;</span>
+      <h2>Criar sua conta</h2>
+      <p class="subtitulo">Junte-se à Comunidade do</p>
+      <img src="image/logoclara.jpeg" alt="ServiceHub" style="width: 100%; height: auto;">
+      <form>
+        <label>Seu nome:</label>
+        <input type="text" placeholder="Seu Nome Completo">
+        <label>e-mail:</label>
+        <input type="email" placeholder="seuemail@exemplo.com">
+        <label>Senha:</label>
+        <input type="password" placeholder="suasenha123">
+        <label>Confirme sua senha:</label>
+        <input type="password" placeholder="suasenha123">
+        <label>CPF</label>
+        <input type="text" placeholder="123.456.789-09">
+        <label>Telefone</label>
+        <input type="text" placeholder="+55 21 994132-XXXX">
+        <div class="termos">
+          <input type="checkbox" id="termos">
+          <label for="termos">Concordo com os <a href="#">Termos de Uso</a> e <a href="#">privacidade</a></label>
+        </div>
+        <button type="submit" class="btn-verde">Criar Conta</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- HERO (conteúdo + formas) -->
+  <section class="hero">
+    <div class="hero-shapes">
+      <div class="shape s1"></div>
+      <div class="shape s2"></div>
+      <div class="shape s3"></div>
+    </div>
+
+    <div class="hero-content">
+      <h1>
+        Conectamos
+        <span class="talentos">Talentos</span>
+        a
+        <span class="oportunidades">Oportunidades</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        A plataforma completa para encontrar os melhores profissionais ou oferecer seus serviços com segurança e
+        praticidade.
+      </p>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Que serviços você procura?" />
+       <button id="abrirModalBusca">Buscar</button>
+      </div>
+
+      <div class="stats">
+        <div> <span class="stats-user"> <strong>50k+</strong> </span><br />Profissionais</div>
+        <div><span class="stats-sales"><strong>100k+</strong></span><br />serviços realizados</div>
+        <div><span class="stats-review"><strong>4.9★</strong></span><br />avaliação média</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO USAR -->
+  <section class="como-usar">
+    <h2>Como você pode usar nossa Plataforma?</h2>
+    <p>Escolha sua jornada e descubra todas as possibilidades que temos para você</p>
+
+    <div class="cards">
+      <div class="card contratar">
+        <div class="card-icon">🔍</div>
+        <h3>Preciso contratar</h3>
+        <p>Encontre os melhores profissionais para realizar seus serviços de forma rápida e segura.</p>
+        <ul> <br>
+          <li>Métricas de profissionais verificados</li> <br>
+          <li>Avaliações e comentários reais</li><br>
+          <li>Pagamento seguro e rápido</li><br>
+          <li>Desde 2025</li><br>
+        </ul>
+        <a href="#" class="btn-card azul">Encontrar Profissionais</a>
+      </div>
+
+      <div class="card vender">
+        <div class="card-icon">💸</div>
+        <h3>Quero vender meu serviço</h3>
+        <p>Conecte-se com clientes e expanda sua rede de oportunidades.</p>
+        <ul><br> <br>
+          <li>Cadastrar serviços e produtos</li><br>
+          <li>Atender novos clientes</li><br>
+          <li>Ferramentas de gestão incluídas</li><br>
+          <li>Pagamento garantido</li>
+        </ul>
+        <a href="#" class="btn-card verde">Começar a vender</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECURSOS -->
+  <section class="recursos">
+    <div>
+      <div class="resources">
+        <span class="icon">🔒</span>
+        <div class="confiavel">
+          <h4>100% confiável</h4>
+          <p>Seu dinheiro protegido até a conclusão do serviço.</p>
+        </div>
+      </div>
+    </div>
+    <div class="resources">
+      <span class="icon">👥</span>
+      <div class="comunidade">
+        <h4>Comunidade ativa</h4>
+        <p>Milhares de clientes e profissionais ativos.</p>
+      </div>
+    </div>
+    <div class="resources">
+
+      <span class="icon">⭐</span>
+      <div class="qualidade">
+        <h4>Alta qualidade</h4>
+        <p>Profissionais avaliados e recomendados.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-brand">
+      <img src="image/logov2.png" alt="ServiceHub Logo" style="width: 40%; height: 40%;">
+      <p id="slogan">Conectando talentos e oportunidades em todo o Brasil</p>
+    </div>
+
+    <div class="footer-links">
+      <div class="footer-column">
+        <h4>Para Clientes</h4>
+        <a href="#" class="links">Como Funciona</a>
+        <a href="#" class="links">Encontrar Profissionais</a>
+        <a href="#" class="links">Segurança</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Para Profissionais</h4>
+        <a href="#" class="links" >Cadastre-se</a>
+        <a href="#" class="links">Central de Ajuda</a>
+        <a href="#" class="links">Dicas de Sucesso</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Empresa</h4>
+        <a href="#" class="links">Sobre Nós</a>
+        <a href="#" class="links">Contato</a>
+        <a href="#" class="links">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
+
+<!--🔧 FUNCIONALIDADES PARA ADICIONAR
+1. Sistema de Avaliações e Comentários
+⭐ Profissionais avaliados por clientes (com estrelas e comentários).
+
+✅ Filtro por melhor avaliados.
+
+🔍 Mostrar depoimentos no perfil do profissional.
+
+2. Dashboard Personalizado
+Para profissionais:
+
+Ver pedidos, mensagens, saldo e histórico de serviços.
+
+Para clientes:
+
+Ver serviços contratados, avaliações feitas e favoritos.
+
+3. Chat em Tempo Real
+Chat interno entre cliente e profissional (estilo WhatsApp).
+
+Integração com WebSocket ou Firebase.
+
+4. Sistema de Notificações
+📬 Alerta para:
+
+Novas mensagens.
+
+Serviços contratados.
+
+Alterações de agendamento.
+
+5. Sistema de Favoritos
+Coraçãozinho ♥️ para "favoritar" profissionais.
+
+Seção "Meus Favoritos" no painel do usuário.
+
+6. Sistema de Filtragem de Serviços
+Filtros inteligentes na barra de busca:
+
+Localização.
+
+Faixa de preço.
+
+Tipo de serviço.
+
+Nível de avaliação.
+
+7. Geolocalização / Busca por proximidade
+Mostrar profissionais próximos com base na localização do usuário.
+
+8. Sistema de Agendamento
+Calendário para agendar data e hora do serviço.
+
+Integração com Google Calendar (opcional).
+
+9. Login com Redes Sociais (OAuth)
+Google / Facebook / Apple.
+
+10. Verificação de Perfil
+✔️ Selo de “verificado” para profissionais que enviaram documentação.
+
+-->
