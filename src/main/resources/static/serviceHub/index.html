@@ -5,6 +5,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ServiceHub</title>
+  <link rel="style6sheet" href="style.css" />
+</head>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ServiceHub</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -12,16 +19,64 @@
   <header>
     <div class="logo">ServiceHub</div>
     <nav>
-      <a href="#">Como Funciona</a>
-      <a href="#">Categorias</a>
-      <a href="#">Suporte</a>
+      <a href="#" id="abrirComoFunciona">Como Funciona</a>
+      <a href="#" id="abrirCategorias">Categorias</a>
+      <a href="#" id="abrirSuporte">Suporte</a>
     </nav>
     <div class="auth">
       <a href="#" id="abrirLogin">Entrar</a>
       <a href="#" class="btn-cadastro" id="abrirModal">Cadastrar</a>
     </div>
-
   </header>
+
+
+
+
+  <!-- MODAL COMO FUNCIONA -->
+  <div class="modal-overlay" id="modalComoFunciona">
+    <div class="modal">
+      <span class="fechar" id="fecharComoFunciona">&times;</span>
+      <h2>Como Funciona</h2>
+      <p class="subtitulo">Veja como usar o ServiceHub de forma simples e rápida.</p>
+      <ul style="text-align: left;">
+        <li>1. Cadastre-se ou faça login.</li>
+        <li>2. Escolha se quer contratar ou vender um serviço.</li>
+        <li>3. Use as ferramentas para negociar e concluir o serviço.</li>
+        <li>4. Pagamento seguro e avaliação final.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MODAL CATEGORIAS -->
+  <div class="modal-overlay" id="modalCategorias">
+    <div class="modal">
+      <span class="fechar" id="fecharCategorias">&times;</span>
+      <h2>Categorias</h2>
+      <p class="subtitulo">Encontre serviços em diversas áreas.</p>
+      <ul style="text-align: left;">
+        <li>💻 Tecnologia</li>
+        <li>🛠 Reparos e Manutenção</li>
+        <li>🎨 Design e Criatividade</li>
+        <li>📚 Educação e Aulas</li>
+        <li>🚚 Mudanças e Transporte</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MODAL SUPORTE -->
+  <div class="modal-overlay" id="modalSuporte">
+    <div class="modal">
+      <span class="fechar" id="fecharSuporte">&times;</span>
+      <h2>Suporte</h2>
+      <p class="subtitulo">Precisa de ajuda? Estamos aqui para você.</p>
+      <p>Email: suporte@servicehub.com.br</p>
+      <p>Telefone: (11) 4002-8922</p>
+      <p>Horário de Atendimento: Seg a Sex - 8h às 18h</p>
+    </div>
+  </div>
+
+
+
 
   <!--Modal (login)-->
   <div class="modal-overlay" id="modalLogin">
@@ -35,7 +90,8 @@
         <input type="email" placeholder="seuemail@exemplo.com" required>
         <label>Senha:</label>
         <input type="password" placeholder="Digite sua senha" required>
-        <a href="#" class="link">Esqueci minha senha</a>
+        <a href="#" class="link" id="abrirEsqueciSenha">Esqueci minha senha</a>
+
         <button type="submit">Entrar</button>
       </form>
     </div>
@@ -70,6 +126,22 @@
     </div>
   </div>
 
+  <!-- MODAL ESQUECI MINHA SENHA -->
+<div class="modal-overlay" id="modalEsqueciSenha">
+  <div class="modal">
+    <span class="fechar" id="fecharEsqueciSenha">&times;</span>
+    <h2>Recuperar Senha</h2>
+    <p class="subtitulo">Digite seu e-mail para redefinir a senha</p>
+    <img src="image/logoclara.jpeg" alt="ServiceHub" style="width: 100%; height: auto;">
+    <form>
+      <label>E-mail:</label>
+      <input type="email" placeholder="seuemail@exemplo.com" required>
+      <button type="submit">Enviar Link de Recuperação</button>
+    </form>
+  </div>
+</div>
+
+
   <!-- HERO (conteúdo + formas) -->
   <section class="hero">
     <div class="hero-shapes">
@@ -82,7 +154,7 @@
       <h1>
         Conectamos
         <span class="talentos">Talentos</span>
-        a
+
         <span class="oportunidades">Oportunidades</span>
       </h1>
 

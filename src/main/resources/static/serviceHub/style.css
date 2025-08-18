@@ -68,7 +68,7 @@ header nav a {
 }
 
 
-/*MODAL*/
+
 
 .modal-overlay {
   display: none;
@@ -114,9 +114,12 @@ header nav a {
 }
 
 .logo {
-  width: 150px;
+  width: 50px;
   margin-bottom: 15px;
 }
+
+
+
 
 form {
   text-align: left;
@@ -649,3 +652,4 @@ color: #f0f4ff;
     transform: translateY(50px);
   }
 }
+
