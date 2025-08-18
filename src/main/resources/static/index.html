@@ -131,15 +131,29 @@
   <div class="modal">
     <span class="fechar" id="fecharEsqueciSenha">&times;</span>
     <h2>Recuperar Senha</h2>
-    <p class="subtitulo">Digite seu e-mail para redefinir a senha</p>
+    <p class="subtitulo">Digite seu e-mail para receber o código e redefinir a senha</p>
     <img src="image/logoclara.jpeg" alt="ServiceHub" style="width: 100%; height: auto;">
+    
     <form>
-      <label>E-mail:</label>
-      <input type="email" placeholder="seuemail@exemplo.com" required>
-      <button type="submit">Enviar Link de Recuperação</button>
+      <!-- E-mail -->
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" placeholder="seuemail@exemplo.com" required>
+      <button type="button" id="btnEnviarEmail">Enviar E-mail</button>
+      
+      <!-- Código de verificação -->
+      <label for="codigo">Código de Verificação:</label>
+      <input type="text" id="codigo" placeholder="Digite o código recebido no e-mail" required>
+      
+      <!-- Nova Senha -->
+      <label for="novaSenha">Nova Senha:</label>
+      <input type="password" id="novaSenha" placeholder="Digite sua nova senha" required>
+      
+      <!-- Botão alterar -->
+      <button type="submit" id="btnAlterarSenha">Alterar Senha</button>
     </form>
   </div>
 </div>
+
 
 
   <!-- HERO (conteúdo + formas) -->
@@ -271,6 +285,7 @@
   <script src="script.js"></script>
 
 </body>
+
 
 </html>
 
