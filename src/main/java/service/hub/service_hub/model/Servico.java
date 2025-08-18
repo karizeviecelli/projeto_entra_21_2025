@@ -8,14 +8,14 @@ public class Servico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idServico;
+    private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "idUsuario", nullable = false)
-    private Usuario usuario;
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario_id;
 
-    @Column(nullable = false)
-    private Long idCategoria;
+    @Column(name = "categoria_id", nullable = false)
+    private Long categoria_id;
 
     @Column(nullable = false, length = 100)
     private String titulo;
@@ -34,9 +34,9 @@ public class Servico {
     }
 
     // Construtor com todos os campos (exceto id gerado automaticamente)
-    public Servico(Usuario usuario, Long idCategoria, String titulo, String descricao, Double preco, String cidade) {
-        this.usuario = usuario;
-        this.idCategoria = idCategoria;
+    public Servico(Usuario usuario_id, Long categoria_id, String titulo, String descricao, Double preco, String cidade) {
+        this.usuario_id = usuario_id;
+        this.categoria_id = categoria_id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.preco = preco;
@@ -44,28 +44,28 @@ public class Servico {
     }
 
     // Getters e Setters
-    public Long getIdServico() {
-        return idServico;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdServico(Long idServico) {
-        this.idServico = idServico;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Usuario getUsuario_id() {
+        return usuario_id;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuario_id(Usuario usuario_id) {
+        this.usuario_id = usuario_id;
     }
 
-    public Long getIdCategoria() {
-        return idCategoria;
+    public Long getCategoria_id() {
+        return categoria_id;
     }
 
-    public void setIdCategoria(Long idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setCategoria_id(Long categoria_id) {
+        this.categoria_id = categoria_id;
     }
 
     public String getTitulo() {

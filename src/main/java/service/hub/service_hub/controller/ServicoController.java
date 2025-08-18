@@ -39,8 +39,8 @@ public class ServicoController {
     @PutMapping("/{id}")
     public ResponseEntity<Servico> atualizarServico(@PathVariable Long id, @RequestBody Servico servicoAtualizado) {
         return servicoRepository.findById(id).map(servico -> {
-            servico.setUsuario(servicoAtualizado.getUsuario());
-            servico.setIdCategoria(servicoAtualizado.getIdCategoria());
+            servico.setUsuario_id(servicoAtualizado.getUsuario_id());
+            servico.setCategoria_id(servicoAtualizado.getCategoria_id());
             servico.setTitulo(servicoAtualizado.getTitulo());
             servico.setDescricao(servicoAtualizado.getDescricao());
             servico.setPreco(servicoAtualizado.getPreco());
