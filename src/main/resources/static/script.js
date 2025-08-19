@@ -78,3 +78,4 @@ overlayEsqueciSenha.addEventListener('click', (e) => {
   if (e.target === overlayEsqueciSenha) fecharOverlay(overlayEsqueciSenha);
 });
 
+

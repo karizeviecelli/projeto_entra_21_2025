@@ -1,15 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ServiceHub - Marketplace</title>
+  <link rel="stylesheet" href="marketplace.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-
 <body>
-    <h1>HENRIQUE AMA A MARIA</h1>
-    <H2>ELE É O MELHOR FRONT DO MUNDO</H2>
-</body>
+  <div class="layout">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+  <img src="image/logov2.png" alt="Logo">
+</div>
 
+      <nav class="menu">
+        <button class="menu-item active" data-name="marketplace">
+          <i data-lucide="home"></i>
+          <span>Marketplace</span>
+        </button>
+        <button class="menu-item" data-name="favoritos">
+          <i data-lucide="heart"></i>
+          <span>Favoritos</span>
+        </button>
+        <button class="menu-item" data-name="config">
+          <i data-lucide="settings"></i>
+          <span>Configurações</span>
+        </button>
+        <button class="menu-item" data-name="perfil">
+          <i data-lucide="user"></i>
+          <span>Perfil</span>
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="conteudo">
+      <header class="topbar">
+        <h1>MarketPlace de Serviços</h1>
+      </header>
+
+      <!-- Área de filtros -->
+      <section class="filtros">
+        <div class="campo">
+          <label for="buscar">Buscar Serviços</label>
+          <input type="text" id="buscar" placeholder="Digite o serviço...">
+        </div>
+        <div class="campo">
+          <label for="categoria">Categorias</label>
+          <select id="categoria">
+            <option>Todas as categorias</option>
+            <option>Tecnologia</option>
+            <option>Design</option>
+            <option>Domésticos</option>
+          </select>
+        </div>
+        <div class="campo faixa-preco">
+          <label for="preco">Preço máximo:</label>
+          <input type="range" id="preco" min="0" max="10000" step="100" value="5000">
+          <span id="valorPreco">R$ 5.000</span>
+        </div>
+      </section>
+
+      <!-- Lista de serviços (dinâmica) -->
+      <section class="servicos" id="listaServicos"></section>
+    </main>
+  </div>
+
+  <script src="marketplace.js"></script>
+</body>
 </html>

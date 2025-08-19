@@ -87,9 +87,9 @@
       <img src="image/logoclara.jpeg" alt="ServiceHub" style="width: 100%; height: auto;">
       <form>
         <label>e-mail:</label>
-        <input type="email" id="login-email" placeholder="seuemail@exemplo.com" required>
+        <input type="email" placeholder="seuemail@exemplo.com" required>
         <label>Senha:</label>
-        <input type="password" id="login-senha" placeholder="Digite sua senha" required>
+        <input type="password" placeholder="Digite sua senha" required>
         <a href="#" class="link" id="abrirEsqueciSenha">Esqueci minha senha</a>
 
         <button type="submit">Entrar</button>
@@ -105,16 +105,18 @@
       <p class="subtitulo">Junte-se à Comunidade do</p>
       <img src="image/logoclara.jpeg" alt="ServiceHub" style="width: 100%; height: auto;">
       <form>
-        <label for="nome">Seu nome:</label>
-        <input type="text" id="nome" placeholder="Seu Nome Completo">
-        <label for="email">e-mail:</label>
-        <input type="email" id="email" placeholder="seuemail@exemplo.com">
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" placeholder="suasenha123">
-        <label for="cpf">CPF</label>
-        <input type="text" id="cpf" placeholder="123.456.789-09">
-        <label for="telefone">Telefone</label>
-        <input type="text" id="telefone" placeholder="+55 21 994132-XXXX">
+        <label>Seu nome:</label>
+        <input type="text" placeholder="Seu Nome Completo">
+        <label>e-mail:</label>
+        <input type="email" placeholder="seuemail@exemplo.com">
+        <label>Senha:</label>
+        <input type="password" placeholder="suasenha123">
+        <label>Confirme sua senha:</label>
+        <input type="password" placeholder="suasenha123">
+        <label>CPF</label>
+        <input type="text" placeholder="123.456.789-09">
+        <label>Telefone</label>
+        <input type="text" placeholder="+55 21 994132-XXXX">
         <div class="termos">
           <input type="checkbox" id="termos">
           <label for="termos">Concordo com os <a href="#">Termos de Uso</a> e <a href="#">privacidade</a></label>
@@ -129,29 +131,15 @@
   <div class="modal">
     <span class="fechar" id="fecharEsqueciSenha">&times;</span>
     <h2>Recuperar Senha</h2>
-    <p class="subtitulo">Digite seu e-mail para receber o código e redefinir a senha</p>
+    <p class="subtitulo">Digite seu e-mail para redefinir a senha</p>
     <img src="image/logoclara.jpeg" alt="ServiceHub" style="width: 100%; height: auto;">
-    
     <form>
-      <!-- E-mail -->
-      <label for="email">E-mail:</label>
-      <input type="email" id="email" placeholder="seuemail@exemplo.com" required>
-      <button type="button" id="btnEnviarEmail">Enviar E-mail</button>
-      
-      <!-- Código de verificação -->
-      <label for="codigo">Código de Verificação:</label>
-      <input type="text" id="codigo" placeholder="Digite o código recebido no e-mail" required>
-      
-      <!-- Nova Senha -->
-      <label for="novaSenha">Nova Senha:</label>
-      <input type="password" id="novaSenha" placeholder="Digite sua nova senha" required>
-      
-      <!-- Botão alterar -->
-      <button type="submit" id="btnAlterarSenha">Alterar Senha</button>
+      <label>E-mail:</label>
+      <input type="email" placeholder="seuemail@exemplo.com" required>
+      <button type="submit">Enviar Link de Recuperação</button>
     </form>
   </div>
 </div>
-
 
 
   <!-- HERO (conteúdo + formas) -->
@@ -281,10 +269,70 @@
   </footer>
 
   <script src="script.js"></script>
-  <script src="login-usuario.js"></script>
-  <script src="cadastrar-usuario.js"></script>
-</body>
 
+</body>
 
 </html>
 
+<!--🔧 FUNCIONALIDADES PARA ADICIONAR
+1. Sistema de Avaliações e Comentários
+⭐ Profissionais avaliados por clientes (com estrelas e comentários).
+
+✅ Filtro por melhor avaliados.
+
+🔍 Mostrar depoimentos no perfil do profissional.
+
+2. Dashboard Personalizado
+Para profissionais:
+
+Ver pedidos, mensagens, saldo e histórico de serviços.
+
+Para clientes:
+
+Ver serviços contratados, avaliações feitas e favoritos.
+
+3. Chat em Tempo Real
+Chat interno entre cliente e profissional (estilo WhatsApp).
+
+Integração com WebSocket ou Firebase.
+
+4. Sistema de Notificações
+📬 Alerta para:
+
+Novas mensagens.
+
+Serviços contratados.
+
+Alterações de agendamento.
+
+5. Sistema de Favoritos
+Coraçãozinho ♥️ para "favoritar" profissionais.
+
+Seção "Meus Favoritos" no painel do usuário.
+
+6. Sistema de Filtragem de Serviços
+Filtros inteligentes na barra de busca:
+
+Localização.
+
+Faixa de preço.
+
+Tipo de serviço.
+
+Nível de avaliação.
+
+7. Geolocalização / Busca por proximidade
+Mostrar profissionais próximos com base na localização do usuário.
+
+8. Sistema de Agendamento
+Calendário para agendar data e hora do serviço.
+
+Integração com Google Calendar (opcional).
+
+9. Login com Redes Sociais (OAuth)
+Google / Facebook / Apple.
+
+10. Verificação de Perfil
+✔️ Selo de “verificado” para profissionais que enviaram documentação.
+
+-->
