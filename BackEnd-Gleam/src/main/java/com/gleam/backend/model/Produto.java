@@ -13,9 +13,8 @@ public class Produto {
     private Long id;
 
     private String nome;
-    private String descricao;
 
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(precision = 10, scale = 2)
     private BigDecimal precoVenda;
 
     @Column(nullable = false, precision = 10, scale = 2)
@@ -25,14 +24,11 @@ public class Produto {
     @Column(nullable = false)
     private Acabamento acabamento;
 
-    @Column(name = "codigofornecedor", unique = true) // << ALTERADO AQUI
-    private String codigoFornecedor; // << ALTERADO AQUI
+    @Column(name = "codigofornecedor", unique = true)
+    private String codigoFornecedor;
 
-    private String imagem;
-
-    @ManyToOne
-    @JoinColumn(name = "id_categoria")
-    private Categoria categoria;
+    @Column(name = "categoria")
+    private String categoria;
 
     @ManyToOne
     @JoinColumn(name = "id_fornecedor")

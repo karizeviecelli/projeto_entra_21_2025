@@ -2,7 +2,6 @@ package com.gleam.backend.controller;
 
 import com.gleam.backend.dto.FornecedorDTO;
 import com.gleam.backend.model.Fornecedor;
-import com.gleam.backend.repository.FornecedorRepository;
 import com.gleam.backend.service.FornecedorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +16,6 @@ public class FornecedorController {
     @Autowired
     private FornecedorService fornecedorService;
 
-    @Autowired
-    private FornecedorRepository fornecedorRepository;
-
     /**
      * Endpoint para CRIAR um novo fornecedor.
      * HTTP POST /api/fornecedores
@@ -33,10 +29,11 @@ public class FornecedorController {
     /**
      * Endpoint para LER todos os fornecedores.
      * HTTP GET /api/fornecedores
+     * Chama o método do serviço para aproveitar o cache.
      */
     @GetMapping
     public ResponseEntity<List<Fornecedor>> getAllFornecedores() {
-        List<Fornecedor> fornecedores = fornecedorRepository.findAll();
+        List<Fornecedor> fornecedores = fornecedorService.findAll();
         return ResponseEntity.ok(fornecedores);
     }
 

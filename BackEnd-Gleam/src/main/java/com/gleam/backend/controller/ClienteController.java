@@ -18,7 +18,7 @@ public class ClienteController {
 
     /**
      * Endpoint para CRIAR (cadastrar) um novo cliente.
-     * HTTP POST /api/clientes
+     * Chama o service, que irá limpar o cache.
      */
     @PostMapping
     public ResponseEntity<?> createCliente(@RequestBody ClienteDTO dto) {
@@ -32,7 +32,7 @@ public class ClienteController {
 
     /**
      * Endpoint para LER (buscar) todos os clientes cadastrados.
-     * HTTP GET /api/clientes
+     * Chama o service, que irá usar o cache.
      */
     @GetMapping
     public ResponseEntity<List<Cliente>> getAllClientes() {
@@ -42,7 +42,7 @@ public class ClienteController {
 
     /**
      * Endpoint para LER (buscar) um cliente específico pelo seu ID.
-     * HTTP GET /api/clientes/{id}
+     * Chama o service, que irá usar o cache.
      */
     @GetMapping("/{id}")
     public ResponseEntity<?> getClienteById(@PathVariable Long id) {
@@ -56,7 +56,7 @@ public class ClienteController {
 
     /**
      * Endpoint para ATUALIZAR (editar) um cliente existente.
-     * HTTP PUT /api/clientes/{id}
+     * Chama o service, que irá limpar o cache.
      */
     @PutMapping("/{id}")
     public ResponseEntity<?> updateCliente(@PathVariable Long id, @RequestBody ClienteDTO dto) {
@@ -70,13 +70,12 @@ public class ClienteController {
 
     /**
      * Endpoint para APAGAR um cliente.
-     * HTTP DELETE /api/clientes/{id}
+     * Chama o service, que irá limpar o cache.
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCliente(@PathVariable Long id) {
         try {
             clienteService.delete(id);
-            // Retorna uma resposta 204 No Content, indicando sucesso sem corpo de resposta.
             return ResponseEntity.noContent().build();
         } catch (Exception e) {
             return ResponseEntity.notFound().build();

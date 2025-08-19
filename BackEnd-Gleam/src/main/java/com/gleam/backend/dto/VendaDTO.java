@@ -1,6 +1,6 @@
 package com.gleam.backend.dto;
 
-import com.gleam.backend.enums.StatusVenda;
+
 import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 public class VendaDTO {
     private Long idCliente;
     private BigDecimal valorTotal;
-    private String status; // Ex: "PENDENTE", "CONCLUIDA", "CANCELADA"
+    private String status;
     private LocalDateTime dataVenda;
 
 }
