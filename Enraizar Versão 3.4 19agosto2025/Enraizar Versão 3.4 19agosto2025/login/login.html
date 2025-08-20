@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Enraizar</title>
+<link rel="stylesheet" href="login.css">
+<script src="login.js" defer></script>
+</head>
+<body>
+<div class="container">
+    <!-- Lado esquerdo com imagem -->
+    <div class="left-side">
+        <p class="direitos-reservados">© 2025 Enraizar. Todos os direitos reservados.</p>
+    </div>
+
+
+    <!-- Lado direito com formulário -->
+    <div class="right-side">
+        <div class="login-box">
+            <img src="../Imagens/logo-enraizar.png" alt="Enraizar" class="logo">
+            <h2>Bem-vindo ao Enraizar</h2>
+            <form onsubmit="loginUser(event)">
+                <label for="email">Email ou telefone</label>
+                <input type="text" id="email" placeholder="Digite seu email ou telefone">
+
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" placeholder="Digite sua senha">
+
+                <button type="submit">Entrar</button>
+            </form>
+            <p class="footer">Versão 3.2 • Enraizando Saúde Mental 🌱🌿🧠</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

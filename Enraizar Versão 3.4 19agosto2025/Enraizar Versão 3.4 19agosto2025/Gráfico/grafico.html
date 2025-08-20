@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gráfico - Enraizar</title>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="grafico.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header class="top-header">
+  <div class="logo-header">
+    <img src="../imagens/logo-enraizar.png" alt="Logo Enraizar" class="logo">
+    <span>Enraizar</span>
+  </div>
+</header>
+
+<div class="container">
+  <!-- MENU LATERAL -->
+  <nav class="menu-lateral">
+    <ul>
+      <li><button onclick="mostrarGraficoEquipe()">📊 Gráfico por Equipe</button></li>
+      <li>
+        <label for="pesquisaUsuario">🔍 Pesquisar por Usuário</label>
+        <input type="text" id="pesquisaUsuario" placeholder="Digite o nome">
+        <button onclick="pesquisarUsuario()">Buscar</button>
+      </li>
+      <li><button class="btn-sair" onclick="sair()">🚪 Sair</button></li>
+    </ul>
+  </nav>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="conteudo">
+    <section class="grafico-section">
+      <h2>Evolução do Seu Humor</h2>
+      <canvas id="graficoHumor"></canvas>
+    </section>
+  </main>
+</div>
+
+<script src="grafico.js"></script>
+<script>
+function mostrarGraficoEquipe() {
+  alert("Aqui será carregado o gráfico por equipe.");
+}
+
+function pesquisarUsuario() {
+  const nome = document.getElementById("pesquisaUsuario").value;
+  alert("Pesquisar dados de: " + nome);
+}
+
+function sair() {
+  // Redireciona para a página de login
+  window.location.href = "../login/login.html";
+}
+</script>
+
+</body>
+</html>

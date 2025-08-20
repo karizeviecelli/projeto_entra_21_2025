@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #EAF4EC;
+}
+
+.top-header {
+  background-color: #75B694;
+  color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.logo-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  background-color: white;
+  padding: 2px;
+}
+
+.container {
+  display: flex;
+}
+
+.menu-lateral {
+  width: 250px;
+  background-color: #B3DAC8;
+  padding: 20px;
+  box-shadow: 2px 0px 5px rgba(0,0,0,0.1);
+}
+
+.menu-lateral ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-lateral li {
+  margin-bottom: 10px;
+}
+
+.menu-lateral button {
+  width: 100%;
+  padding: 10px;
+  background-color: #75B694;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.menu-lateral button:hover {
+  background-color: #5b9477;
+}
+
+.menu-lateral input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Botão de sair com cor diferente */
+.btn-sair {
+  background-color: #d9534f;
+}
+
+.btn-sair:hover {
+  background-color: #b52b27;
+}
+
+.conteudo {
+  flex: 1;
+  padding: 20px;
+}
+
+.grafico-section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+}

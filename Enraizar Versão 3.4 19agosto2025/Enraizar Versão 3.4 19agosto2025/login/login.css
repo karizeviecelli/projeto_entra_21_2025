@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+/* Layout Principal Desktop */
+.container {
+  display: flex;
+  height: 100vh;
+}
+/*Lado esquerdo */
+.left-side {
+  flex: 1;
+  background: url("../Imagens/fundo-login.png") no-repeat center center;
+  background-size: cover;
+}
+
+.direitos-reservados {
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0px;
+  right: 1000px;
+  padding: 40px;
+}
+
+.right-side {
+  flex: 1;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+}
+
+.logo {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: white;
+    padding: 2px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 600;
+}
+
+label {
+  font-size: 14px;
+  color: #555;
+  display: block;
+  text-align: left;
+  margin-top: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 16px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: rgb(234, 244, 236);
+  color: #000;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #75B694;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #5ca17d;
+}
+
+.footer {
+  margin-top: 15px;
+  font-size: 12px;
+  color: #888;
+}
+
+/* Layout Mobile: formulário sobre a imagem */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+
+  .right-side {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 350px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+/*Imagem a esquerda */
+  .left-side {
+    position: relative;
+    flex: 1;
+    background: url("../Imagens/fundo-login.png") no-repeat center center;
+    background-size: cover;
+  }
+
+  .direitos-reservados {
+    color: white;
+    text-align: center;
+    text-align: end;
+  }
+
+  .rodape-imagem {
+    position: absolute;
+    bottom: 10px;
+    /* distância da borda inferior */
+    left: 20px;
+    /* alinhado à esquerda */
+    font-size: 12px;
+    color: white;
+    /* cor do texto */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* fundo semitransparente opcional */
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+
+
+
+  .login-box {
+    text-align: center;
+  }
+}

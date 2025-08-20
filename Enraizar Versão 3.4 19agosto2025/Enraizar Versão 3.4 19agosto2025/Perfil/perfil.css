@@ -1,0 +1,397 @@
+:root {
+  --verde-medio: #75B694;
+  --verde-bem-claro: #EAF4EC;
+  --verde-claro-acinzentado1: #DCEDE5;
+  --verde-claro: #B3DAC8;
+  --verde-medio-escuro: #73B593;
+}
+/*Remove margens padrão.
+Define fonte do site.
+Coloca fundo verde bem claro. */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--verde-bem-claro);
+  color: #333;
+}
+
+header {
+  background-color: var(--verde-medio);
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.top-header {
+  height: 50px; /* altura do topo */
+}
+/*Topo da página verde médio.
+Conteúdo do topo (logo, nome do sistema, etc.) alinhado em linha (flexbox).
+Altura fixa de 50px.*/
+
+/* Menu lateral esquerdo */
+.side-menu-left {
+  position: fixed;            /* Fixo na tela */
+  top: 70px;                  /* Mesma altura do haeader */
+  left: 0;                    /* À esquerda */
+  width: 210px;               /* Largura do menu */
+  height: calc(100vh - 60px); /* Altura total da tela menos o topo */
+  background-color: var(--verde-claro); /* Verde claro */
+  /*border-right: 2px solid var(--verde-medio); /* Borda separando do conteúdo */
+  padding: 20px;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+}
+/*Fixa o menu lateral na tela, do lado esquerdo.
+Começa um pouco abaixo do topo (top: 70px).
+Tem largura de 210px.
+Usa cor verde claro no fundo.
+Organiza os itens em coluna com espaço entre eles.*/
+/* Logo do usuário */
+/* Saudação do usuário */
+.user-greeting {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* Lista de opções do menu */
+.menu-options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Links do menu */
+.menu-options li a {
+  display: block;
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: var(--verde-medio); /* Botão verde médio */
+  color: white;
+  border-radius: 6px;
+  transition: background-color 0.3s, transform 0.2s;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Hover nos botões */
+.menu-options li a:hover {
+  background-color: var(--verde-medio-escuro); /* Verde mais escuro ao passar o mouse */
+  transform: scale(1.05);
+}
+/*Botões verdes arredondados.
+No hover ficam mais escuros e crescem um pouquinho.*/
+
+/* Responsividade: reduz o menu em telas pequenas */
+@media (max-width: 768px) {
+  .side-menu-left {
+    width: 160px;
+    padding: 15px;
+  }
+
+  .menu-options li a {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .user-greeting {
+    font-size: 1rem;
+  }
+}
+
+main {
+  display: flex;
+    justify-content: center; /* centraliza no eixo horizontal */
+  align-items: center;     /* centraliza no eixo vertical */
+  flex-direction: row;/* ⬅ muda de coluna para linha */
+  gap: 20px;
+  padding: 20px;
+  height: calc(100vh - 80px);
+  box-sizing: border-box;
+  margin-left: 240px; /* aumenta o deslocamento para deixar espaço do menu lateral */
+}
+/*Tem margem esquerda (240px) para não ficar escondido pelo menu fixo.
+Os itens dentro dele (gráfico e calendário) ficam lado a lado (flex-direction: row).*/
+
+/* Gráfico Humor */
+section {
+  flex: 1;             /* ocupa o espaço restante */
+  min-width: 0;        /* evita overflow do conteúdo */
+  background: var(--verde-claro); /* fundo títulos */
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+/*Fundo verde claro.
+Borda arredondada.
+Pequena sombra para destacar.*/
+
+/*Mesma largura para os dois gráficos */
+.grafico-section,
+.calendario-section {
+  width: 90%;        /* Mesma largura para as duas seções */
+  box-sizing: border-box;
+  height: 400px; /* ou outro valor que queira */
+}
+
+.grafico-section canvas {
+  display: block;          /* Remove espaço extra */
+  width: 100% !important;   /* Preenche toda a seção */
+  height: auto !important;
+}
+
+section canvas,
+#calendar {
+  background-color: var(--verde-claro);
+  border-radius: 10px; /* mantém o arredondado */
+  min-height: 400px; /* altura mínima para visualização */
+}
+
+#calendar {
+  width: 100%;        /* ocupa 100% da seção */
+  max-width: 100%;    /* evita que ultrapasse */
+  height: auto;       /* ajusta altura proporcionalmente */
+}
+
+/* Container do menu de usuário */
+.user-info {
+  position: relative;
+  display: inline-block;
+}
+
+/* Texto "Olá, Usuário!" que abre o menu */
+.user-menu .saudacao {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Dropdown escondido inicialmente */
+.menu-dropdown {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: white;
+  list-style: none;
+  padding: 5px 0;
+  margin: 0;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  min-width: 120px;
+  display: none; /* 🔹 Oculto por padrão */
+  z-index: 1000;
+}
+
+/* Itens do menu */
+/* Estilo específico para o botão Sair */
+.menu-dropdown li {
+  color: #73B593; /* cor Verde mais escuro */
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.menu-dropdown li:hover {
+  background-color: var(--verde-claro-acinzentado1); /* cor de fundo no hover */
+}
+
+
+.menu-dropdown li#logout {
+  color: #73B593; /* Verde mais escuro */
+  font-weight: bold;
+}
+
+.menu-dropdown li#logout:hover {
+  background-color: var(--verde-claro-acinzentado1); /* Verde claro no hover */
+  color: #73B593; /* Verde mais escuro */
+}
+
+/* Classe para abrir o menu */
+.menu-dropdown {
+  display: none;
+}
+.menu-dropdown.show {
+  display: block;
+}
+
+
+canvas {
+  max-width: 100%;
+  flex: 1;
+}
+
+#calendar {
+  flex: 1;
+  min-height: 0;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 100000;
+  max-width: 90%;
+  text-align: center;
+}
+
+.emoji-options {
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.emoji-options span {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.emoji-options span:hover {
+  transform: scale(1.2);
+}
+.emoji-options span.selected {
+  border: 2px solid var(--verde-medio);
+  border-radius: 50%;
+  padding: 4px;
+}
+/*Mostra os emojis em linha com espaçamento.
+Aumenta de tamanho no hover.
+O selecionado fica com borda verde arredondada.*/
+
+
+button {
+  background: var(--verde-medio);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+button:hover {
+  background: var(--verde-medio-escuro);
+}
+
+/* Centralizar o Emoji na célula */
+.fc-event-title,
+.fc-event-time {
+  display: flex;
+  justify-content: center;  /* Centraliza na horizontal */
+  align-items: center;      /* Centraliza na vertical */
+  height: 100%;             /* Ocupa toda a altura do evento */
+}
+/*Isso garante que os emojis do humor fiquem centralizados dentro de cada célula do calendário*/
+
+.fc-event {
+  text-align: center; /* Garante centralização no texto puro */
+}
+
+/* Header principal */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #73B593;
+}
+
+/* Logo + texto */
+.logo-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* Tamanho e formato da logo */
+.logo {
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: white;
+    padding: 2px;
+}
+
+/* Saudação */
+.saudacao {
+    font-size: 1.2rem;
+    color: white;
+    margin: 0;
+}
+
+/* --------  -------- */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  height: calc(100vh - 100px); /* Ajusta conforme o header */
+  box-sizing: border-box;
+}
+
+section {
+  background: #73B593;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+section canvas,
+#calendar {
+  flex: 1;
+  min-height: 0;
+}
+
+h2 {
+  margin: 0 0 10px 0;
+}
+/* Altera a cor dos títulos do calendário */
+#calendar h2,
+#calendar .titulo-calendario { 
+  color: var(--verde-medio-escuro); /* ou outra cor que desejar */
+  font-weight: bold;
+}
+.grafico-section h2,
+.calendario-section h2 {
+  color: white; /* cor dos títulos */
+  font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+  main {
+    padding: 10px;
+  }
+}

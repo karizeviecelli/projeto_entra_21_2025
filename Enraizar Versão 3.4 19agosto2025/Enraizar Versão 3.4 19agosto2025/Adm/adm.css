@@ -1,0 +1,250 @@
+:root {
+  --verde-medio: #75B694;
+  --verde-bem-claro: #EAF4EC;
+  --verde-claro-acinzentado1: #DCEDE5;
+  --verde-claro: #B3DAC8;
+  --verde-medio-escuro: #73B593;
+}
+
+/* ===== RESET ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--verde-bem-claro);
+  color: #333;
+}
+
+/* ===== HEADER ===== */
+
+.top-header {
+  position: fixed;
+  /* Fixa o header no topo */
+  top: 0;
+  /* Alinha no topo */
+  left: 0;
+  /* Alinha à esquerda */
+  width: 100vw;
+  /* Ocupa toda a largura da tela */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--verde-medio);
+  color: white;
+  height: 50px;
+
+}
+
+/* Logo + texto */
+.logo-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Tamanho e formato da logo */
+.logo {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  background-color: white;
+  padding: 2px;
+}
+
+/* ---------- Menu lateral esquerdo ---------- */
+.sidebar {
+  position: fixed;
+  top: 70px;
+  /* altura do header */
+  left: 0;
+  width: 210px;
+  height: calc(100vh - 60px);
+  background-color: var(--verde-claro);
+  padding: 20px;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+}
+
+/* Saudação do usuário */
+.user-greeting {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* Lista de opções do menu */
+.menu-options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-options li a {
+  display: block;
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: var(--verde-medio);
+  color: white;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 500;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.menu-options li a:hover {
+  background-color: var(--verde-medio-escuro);
+  transform: scale(1.05);
+}
+
+/* ===== LAYOUT ===== */
+.container {
+  display: flex;
+  min-height: calc(100vh - 60px);
+}
+
+.sidebar {
+  background-color: var#73B593;
+  padding: 20px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar button {
+  padding: 10px;
+  background: var(--verde-medio);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.sidebar button:hover {
+  background: var(--verde-medio-escuro);
+}
+
+/* Button */
+.btn {
+  padding: 10px 20px;
+  background: var(--verde-medio);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  background: var(--verde-medio-escuro);
+  transform: scale(1.05);
+}
+
+/* ------ Main -------*/
+
+main {
+  flex: 1;
+  padding: 20px;
+  padding-top: 70px;
+  /* Compensa a altura do header */
+  margin-left: 270px;
+  /* Compensa a largura do menu lateral */
+  position: relative;
+  /* necessário para o z-index funcionar em filhos, se precisar */
+  z-index: 1;
+  /* mantém abaixo dos menus fixos */
+}
+
+.grafico-section {
+  background: white;
+  /* Fundo branco */
+  padding: 15px;
+  /* Espaçamento interno (conteúdo afastado das bordas) */
+  border-radius: 8px;
+  /* Cantos arredondados */
+  margin-bottom: 5px;
+  /* Espaço externo inferior (afasta da próxima seção) */
+  margin: 0 auto 20px auto;
+  /* Centraliza a seção e adiciona espaço inferior */
+  max-width: 900px;
+  /* Largura máxima da seção */
+  width: fit-content;
+  /* Largura do conteúdo */
+}
+
+/* ...Altura Gráfico... */
+
+.grafico-section canvas,
+#myChart {
+  max-height: 400px; /* altura máxima do gráfico */
+  height: 400px; /* altura fixa do gráfico */
+  max-width: 900px;
+  /* ajustar a largura do gráfico interno */
+  width: 100%;
+  /* ocupa toda a largura disponível do container */
+  display: block;
+  /* evita espaços extras */
+  margin: 0 auto;
+  /* centraliza o gráfico */
+}
+
+/* Caixa branca pesquisar... */
+.filtros-section {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 0 auto 20px auto;
+  /* centraliza na tela */
+  max-width: 800px;
+  /* mesmo limite do gráfico */
+}
+
+.filtros {
+  display: flex;
+  /* Coloca os elementos filhos lado a lado (layout flexbox) */
+  gap: 50px;
+  /* Espaço entre os elementos */
+  margin-top: 10px;
+  /* Espaço superior, separando do título ou outro conteúdo */
+}
+
+.filtros select {
+  padding: 8px;
+  width: 100%;
+  max-width: 200px;
+  /* Largura máxima do select */
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/*.filtros label {
+  font-weight: bold;   /* Deixa o texto em negrito 
+  color: var(--verde-medio); /* Cor do texto 
+}*/
+#searchInput {
+  padding: 8px;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.menu-dropdown {
+  display: none;
+}
+
+.menu-dropdown.show {
+  display: block;
+}

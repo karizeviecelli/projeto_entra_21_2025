@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Administrador - Enraizar</title>
+    <link rel="stylesheet" href="adm.css">
+</head>
+
+<body>
+<div class="container">
+    
+      <!-- Topo da Página -->
+  <header class="top-header">
+    <div class="logo-header">
+      <img src="../imagens/logo-enraizar.png" alt="Logo Enraizar" class="logo">
+      <span>Enraizar</span>
+    </div>
+  </header>
+
+    <!-- Menu lateral -->
+    <aside class="sidebar">
+            <div class="user-greeting">Olá, Usuário!</div>
+        <button onclick="window.location.href='../CriarColaborador/criar_colaborador.html'">Criar conta de colaborador</button>
+        <button onclick="window.location.href='../CriarEquipe/criar_equipe.html'">Criar equipe</button>
+        <button onclick="window.location.href='../CriarSetor/criar_setor.html'">Criar setor</button>
+            <ul class="menu-options">
+        <li><a class="btn" href="../login/login.html">Sair</a></li>
+    </ul>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <!-- Seção do gráfico -->
+        <section class="grafico-section">
+            <h2>Visão Geral</h2>
+            <div>
+                <label><input type="checkbox" id="mostrarMeses"> Mostrar em meses</label>
+            </div>
+            <div class="chart-box"><canvas id="myChart"></canvas></div>
+        </section>
+
+        <!-- Barra de pesquisa e filtros -->
+        <section class="filtros-section">
+            <input type="text" id="searchInput" placeholder="Pesquisar...">
+
+            <div class="filtros">
+                <label><input type="radio" name="filtro" value="colaborador"> Colaborador</label>
+                <label><input type="radio" name="filtro" value="equipe"> Equipe</label>
+                <label><input type="radio" name="filtro" value="setor"> Setor</label>
+            </div>
+
+            <!-- Novo checkbox para mostrar média -->
+            <div class="media-checkbox">
+                <label><input type="checkbox" id="mostrarMedia"> Mostrar média</label>
+            </div>
+        </section>
+    </main>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="adm.js"></script>
+<script src="../MenuAdm/menu_admin.js"></script>
+
+</body>
+</html>

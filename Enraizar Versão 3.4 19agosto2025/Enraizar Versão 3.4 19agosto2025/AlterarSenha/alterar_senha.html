@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alterar Senha - Enraizar</title>
+  <link rel="stylesheet" href="AlterarSenha.css">
+</head>
+<body>
+
+
+   <!-- Topo da Página -->
+  <header class="top-header">
+    <div class="logo-header">
+      <img src="../imagens/logo-enraizar.png" alt="Logo Enraizar" class="logo">
+      <span>Enraizar</span>
+    </div>
+  </header> 
+
+
+  <!-- Menu lateral esquerdo -->
+  <aside class="side-menu-left">
+    <div class="user-greeting">
+      Olá, Usuário!
+    </div>
+    <ul class="menu-options">
+        <li><a href="../Perfil/perfil.html">Voltar</a></li>
+        <li><a href="../login/login.html">Sair</a></li>
+    </ul>
+  </aside>
+
+
+<main style="padding:20px;">
+  <h2>Alterar Senha</h2>
+  <form id="formAlterarSenha" style="display:flex; flex-direction:column; gap:10px;">
+    <input type="password" id="senhaAtual" placeholder="Senha atual" required>
+    <input type="password" id="novaSenha" placeholder="Nova senha" required>
+    <input type="password" id="confirmarSenha" placeholder="Confirmar nova senha" required>
+    <button type="submit">Salvar</button>
+  </form>
+</main>
+
+<!-- Scripts da página -->
+<script src="alterar_senha.js"></script>
+<!-- Script do menu (sempre por último) -->
+<script src="../MenuAdm/menu_admin.js"></script>
+</body>
+</html>

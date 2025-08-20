@@ -1,0 +1,151 @@
+/* enraizar.css */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #EAF4EC;
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  /*joga tudo para direita */
+  align-items: center;
+  background-color: #73B593;
+  color: #EAF4EC;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* centraliza horizontalmente */
+  gap: 12px;
+  /* espaçamento entre círculo e texto */
+  margin-top: 20px;
+  /* opcional: dá um respiro do topo */
+  margin-bottom: 40px;
+}
+
+.circle {
+  width: 70px;
+  /* aumenta o círculo */
+  height: 70px;
+  background-color: #75B694;
+  /* cor do círculo */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  /* aumenta a letra 'e' */
+  font-weight: bold;
+  color: white;
+}
+
+.brand {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  /* aumenta o texto ENRAIZAR */
+  font-weight: bold;
+  color: #75B694;
+  text-align: center;
+}
+
+.login-btn {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #B3DAC8;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.login-btn:hover {
+  background-color: #004d40;
+}
+
+main {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+/*Texto central da página*/
+.intro p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  /*Aumentar o espaçamento entre linhas */
+  color: black;
+  text-align: center;
+}
+
+/*Footer no final da página*/
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  /* Faz o conteúdo ocupar o espaço e empurra o footer para baixo */
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #B3DAC8;
+  color: white;
+  margin-top: 2rem;
+}
+
+/* 🌐 Responsividade */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .login-btn {
+    align-self: flex-end;
+    margin-top: 0.5rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .intro p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .circle {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+
+  .brand {
+    font-size: 1rem;
+  }
+
+  .login-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .intro p {
+    font-size: 0.95rem;
+  }
+}

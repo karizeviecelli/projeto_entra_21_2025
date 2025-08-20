@@ -1,0 +1,201 @@
+:root {
+    --verde-medio: #75B694;
+    --verde-bem-claro: #EAF4EC;
+    --verde-claro: #B3DAC8;
+    --verde-medio-escuro: #73B593;
+}
+
+/* ---------- Body ---------- */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--verde-bem-claro);
+    color: #333;
+
+}
+
+/* ---------- Header ---------- */
+header,
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--verde-medio);
+    color: white;
+    height: 50px;
+}
+
+/* Logo + texto */
+.logo-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* Tamanho e formato da logo */
+.logo {
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: white;
+    padding: 2px;
+}
+
+/* ---------- Menu lateral esquerdo ---------- */
+.side-menu-left {
+    position: fixed;
+    top: 70px;
+    /* altura do header */
+    left: 0;
+    width: 210px;
+    height: calc(100vh - 60px);
+    background-color: var(--verde-claro);
+    padding: 20px;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+}
+
+/* Saudação do usuário */
+.user-greeting {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+/* Lista de opções do menu */
+.menu-options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Lista de opções do menu */
+.menu-options li a {
+    display: block;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: var(--verde-medio);
+    color: white;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.menu-options li a:hover {
+    background-color: var(--verde-medio-escuro);
+    transform: scale(1.05);
+}
+
+
+/* ---------- Main ---------- */
+main {
+    display: flex;
+    flex-direction: column; /* mantém os itens em coluna */
+    align-items: center;  /* cenraliza horizontalmente */
+    gap: 20px;
+    padding: 40px; 
+    height: calc(100vh - 100px);  /* ajusta conforme o header */
+    margin-left: 240px;/* espaço para o menu lateral */
+    box-sizing: border-box;
+
+    /* margin-right: auto;  /* adiciona margem à direita */
+    /*max-width: 900px; /* limite de largura do main */
+    /* width: 100%; */
+   
+}
+/* Centraliza e aumenta main */
+form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+/* Formatar caixas de dados do criar conta do colaborador */
+form input {
+  max-width: 100%;
+  /* ocupa toda a largura do form */
+  width: 100%;
+  /* garante largura total */
+  padding: 10px 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+
+/* ---------- Section ---------- */
+section {
+    background: var(--verde-medio-escuro);
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+/* ---------- Botões ---------- */
+button {
+    background: var(--verde-medio);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+button:hover {
+    background: var(--verde-medio-escuro);
+}
+
+/* Espaço entre Adicionar colaboradores e lista de colaboradores */
+form#formEquipe h3,
+form#formEquipe h4 {
+    margin-bottom: 4px;
+    /* espaço entre os títulos e os campos */
+    margin-top: 8px;
+}
+
+#listaColaboradores {
+    margin-bottom: 2px;
+    /* espaço entre a lista de colaboradores e o botão */
+}
+
+/* ---------- Responsividade ---------- */
+@media (max-width: 768px) {
+
+
+    @media (max-width: 768px) {
+        main {
+            padding: 10px;
+            /*margin-left: 0;*/
+        }
+
+        .side-menu-left {
+            width: 160px;
+            padding: 15px;
+        }
+
+        .menu-options li a {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+        }
+
+        .user-greeting {
+            font-size: 1rem;
+        }
+    }

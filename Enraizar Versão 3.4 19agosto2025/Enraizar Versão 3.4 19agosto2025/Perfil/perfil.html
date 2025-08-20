@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil - Enraizar</title>
+  <link rel="icon" type="image/x-icon" href="../Imagens/logo-enraizar-favicon.png">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="perfil.css" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- FullCalendar -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales-all.min.js"></script>
+</head>
+</head>
+
+<body>
+  <!-- Topo da Página -->
+  <header class="top-header">
+    <div class="logo-header">
+      <img src="../imagens/logo-enraizar.png" alt="Logo Enraizar" class="logo">
+      <span>Enraizar</span>
+    </div>
+  </header>
+
+  <!-- Menu lateral esquerdo -->
+  <aside class="side-menu-left">
+    <div class="user-greeting">
+      Olá, Usuário
+    </div>
+    <ul class="menu-options">
+      <li><a href="../AlterarSenha/alterar_senha.html">Alterar Senha</a></li>
+      <li><a href="../login/login.html">Sair</a></li>
+    </ul>
+  </aside>
+
+
+  <main>
+    <!-- Gráfico -->
+    <section class="grafico-section">
+      <h2>Seu humor</h2>
+      <canvas id="myChart"></canvas>
+    </section>
+
+    <!-- Calendário -->
+    <section class="calendario-section">
+      <h2>Seu calendário emocional</h2>
+      <div id="calendar"></div>
+    </section>
+  </main>
+
+  <!-- Modal para escolher carinha e motivo -->
+  <div id="emojiModal" class="modal">
+    <div class="modal-content">
+      <h3>Como você está se sentindo?</h3>
+      <div class="emoji-options">
+        <span data-humor="1">😭</span> <!-- Muito triste -->
+        <span data-humor="2">😢</span> <!-- Triste -->
+        <span data-humor="3">🙁</span> <!-- Pouco triste -->
+        <span data-humor="4">😐</span> <!-- Neutro -->
+        <span data-humor="5">🙂</span> <!-- Pouco feliz -->
+        <span data-humor="6">😊</span> <!-- Feliz -->
+        <span data-humor="7">🤩</span> <!-- Muito feliz -->
+      </div>
+      <input type="text" id="motivoInput" placeholder="Digite um motivo (opcional)">
+      <button id="salvarHumor">Salvar</button>
+    </div>
+  </div>
+
+  <script src="perfil.js"></script>
+
+</body>
+
+</html>

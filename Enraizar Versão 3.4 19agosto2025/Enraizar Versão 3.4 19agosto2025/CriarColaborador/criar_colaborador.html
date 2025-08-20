@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Criar Colaborador - Enraizar</title>
+  <link rel="icon" type="image/x-icon" href="../Imagens/logo-enraizar-favicon.png">
+  <link rel="stylesheet" href="criar_colaborador.css" />
+</head>
+<body>
+
+   <!-- Topo da Página -->
+  <header class="top-header">
+    <div class="logo-header">
+      <img src="../imagens/logo-enraizar.png" alt="Logo Enraizar" class="logo">
+      <span>Enraizar</span>
+    </div>
+  </header> 
+
+
+  <!-- Menu lateral esquerdo -->
+  <aside class="side-menu-left">
+    <div class="user-greeting">
+      Olá, Usuário!
+    </div>
+    <ul class="menu-options">
+        <li><a href="../Adm/adm.html">Voltar</a></li>
+        <li><a href="../login/login.html">Sair</a></li>
+    </ul>
+  </aside>
+
+
+<main style="padding: 20px; ">
+  <h2>Criar conta de colaborador</h2>
+  <form id="formColaborador">
+    <input type="text" id="nomeColaborador" placeholder="Nome completo" required>
+    <input type="email" id="emailColaborador" placeholder="E-mail" required>
+    <input type="text" id="setorColaborador" placeholder="Setor" required>
+    <input type="password" id="senhaColaborador" placeholder="Senha provisória" required>
+    <button type="submit">Criar conta</button>
+  </form>
+</main>
+
+<script src="criar_colaborador.js"></script>
+<script src="../MenuAdm/menu_admin.js"></script>
+</body>
+</html>
