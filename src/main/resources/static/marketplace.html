@@ -1,20 +1,99 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ServiceHub - Marketplace</title>
   <link rel="stylesheet" href="marketplace.css">
   <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* ===== Modal ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal.ativo {
+      display: flex;
+    }
+
+    .modal-conteudo {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      width: 400px;
+      max-width: 90%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-conteudo h2 {
+      margin-bottom: 15px;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .modal-conteudo .campo {
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-conteudo label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .modal-conteudo input,
+    .modal-conteudo textarea {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .modal-conteudo button {
+      margin-top: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .btn-salvar {
+      background: #4CAF50;
+      color: white;
+    }
+
+    .btn-fechar {
+      background: #e74c3c;
+      color: white;
+    }
+
+    /* Serviços cadastrados */
+    .servico {
+      border: 1px solid #ddd;
+      padding: 12px;
+      border-radius: 8px;
+      margin: 10px;
+      background: #fafafa;
+    }
+  </style>
 </head>
+
 <body>
   <div class="layout">
-    
+
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="logo">
-  <img src="image/logov2.png" alt="Logo">
-</div>
+        <img src="image/logov2.png" alt="Logo">
+      </div>
 
       <nav class="menu">
         <button class="menu-item active" data-name="marketplace">
@@ -40,6 +119,7 @@
     <main class="conteudo">
       <header class="topbar">
         <h1>MarketPlace de Serviços</h1>
+        <button id="btnAbrirModal">+Adicionar serviço</button>
       </header>
 
       <!-- Área de filtros -->
@@ -69,6 +149,42 @@
     </main>
   </div>
 
-  <script src="marketplace.js"></script>
+<!-- Modal de cadastro -->
+<div class="modal" id="modalServico">
+  <div class="modal-conteudo">
+    <h2>Cadastrar Serviço</h2>
+    
+    <div class="campo">
+      <label for="titulo">Título do serviço</label>
+      <input type="text" id="titulo" placeholder="Ex: Pedreiro, Designer Gráfico, Professor de Inglês">
+    </div>
+    
+    <div class="campo">
+      <label for="descricao">Descrição</label>
+      <textarea id="descricao" rows="3" placeholder="Descreva brevemente o serviço que você oferece, suas habilidades e diferenciais..."></textarea>
+    </div>
+    
+  <div class="campo preco-container">
+  <label for="precoServico">Preço</label>
+  <div class="linha-preco">
+    <input type="number" id="precoServico" placeholder="Ex: 60">
+
+  </div>
+</div>
+
+    
+    <div class="campo">
+      <label for="cidade">Cidade</label>
+      <input type="text" id="cidade" placeholder="Ex: Blumenau, Florianópolis, São Paulo">
+    </div>
+    
+    <button class="btn-salvar" id="btnSalvar">Salvar</button>
+    <button class="btn-fechar" id="btnFechar">Cancelar</button>
+  </div>
+</div>
+
+  <script src="marketplace.js"> 
+  </script>
 </body>
+
 </html>
