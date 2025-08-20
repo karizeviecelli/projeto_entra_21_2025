@@ -11,10 +11,10 @@ public class Servico {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id", nullable = false)
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario_id;
 
-    @Column(name = "categoria_id", nullable = false)
+    @Column(name = "categoria_id")
     private Long categoria_id;
 
     @Column(nullable = false, length = 100)

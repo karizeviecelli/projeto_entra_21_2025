@@ -93,8 +93,7 @@ btnFechar.addEventListener("click", () => {
 btnSalvar.addEventListener("click", () => {
   const titulo = document.getElementById("titulo").value;
   const descricao = document.getElementById("descricao").value;
-  const preco = Number(document.getElementById("precoServico").value);
-  const tipoPreco = document.getElementById("tipoPreco").value;
+  const preco = Number(document.getElementById("precoServico").value);  
   const cidade = document.getElementById("cidade").value;
 
   if (!titulo || !descricao || !preco || !cidade) {

@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/servicos")
+@CrossOrigin
 public class ServicoController {
 
     @Autowired
@@ -32,6 +33,7 @@ public class ServicoController {
     // Criar novo serviço
     @PostMapping
     public Servico criarServico(@RequestBody Servico servico) {
+        System.out.println("oi");
         return servicoRepository.save(servico);
     }
 
