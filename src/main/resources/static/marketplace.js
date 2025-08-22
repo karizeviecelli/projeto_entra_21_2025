@@ -181,3 +181,28 @@ atualizarLabelPreco();
 renderizarServicos();
 
 window.renderizarServicos = renderizarServicos;
+
+
+const dropdown = document.querySelector('.dropdown');
+const dropbtn = dropdown.querySelector('.dropbtn');
+const content = dropdown.querySelector('.dropdown-content');
+
+dropbtn.addEventListener('click', () => {
+  dropdown.classList.toggle('show');
+});
+
+content.querySelectorAll('div').forEach(option => {
+  option.addEventListener('click', () => {
+    dropbtn.textContent = option.textContent;
+    dropdown.classList.remove('show');
+    // aqui você pode salvar a categoria selecionada
+    window.categoriaSelecionada = option.dataset.value;
+  });
+});
+
+// fecha se clicar fora
+window.addEventListener('click', e => {
+  if (!dropdown.contains(e.target)) {
+    dropdown.classList.remove('show');
+  }
+});

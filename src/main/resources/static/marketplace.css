@@ -282,8 +282,46 @@ body {
 }
 
 #btnFechar:hover {
-  background: #d1d5db;
+  background: #d1d5db; }
+  
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 250px;
 }
+
+.dropbtn {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: 100%;
+  max-height: 150px; /* altura limitada para 4 opções */
+  overflow-y: auto;  /* scroll vertical */
+  border: 1px solid #ccc;
+  background-color: white;
+  z-index: 1000;
+}
+
+.dropdown-content div {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dropdown-content div:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown.show .dropdown-content {
+  display: block;
+}
+
+
+
 
 /* Responsividade */
 @media (max-width: 768px) {
