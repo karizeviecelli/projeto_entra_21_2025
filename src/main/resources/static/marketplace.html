@@ -23,6 +23,11 @@
       display: flex;
     }
 
+    .servico {
+      cursor: pointer;
+    }
+
+
     .modal-conteudo {
       background: #fff;
       padding: 20px;
@@ -128,19 +133,11 @@
           <label for="buscar">Buscar Serviços</label>
           <input type="text" id="buscar" placeholder="Digite o serviço...">
         </div>
-        <div class="campo">
-          <label for="categoria">Categorias</label>
-          <select id="categoria">
-            <option>Todas as categorias</option>
-            <option>Tecnologia</option>
-            <option>Design</option>
-            <option>Domésticos</option>
-          </select>
-        </div>
         <div class="campo faixa-preco">
           <label for="preco">Preço máximo:</label>
-          <input type="range" id="preco" min="0" max="10000" step="100" value="5000">
-          <span id="valorPreco">R$ 5.000</span>
+          <input type="range" id="preco" min="0" max="10001" step="100">
+          <span id="valorPreco"></span>
+
         </div>
       </section>
 
@@ -149,43 +146,43 @@
     </main>
   </div>
 
-<!-- Modal de cadastro -->
-<div class="modal" id="modalServico">
-  <div class="modal-conteudo">
-    <h2>Cadastrar Serviço</h2>
-    
-    <div class="campo">
-      <label for="titulo">Título do serviço</label>
-      <input type="text" id="titulo" placeholder="Ex: Pedreiro, Designer Gráfico, Professor de Inglês">
-    </div>
-    
-    <div class="campo">
-      <label for="descricao">Descrição</label>
-      <textarea id="descricao" rows="3" placeholder="Descreva brevemente o serviço que você oferece, suas habilidades e diferenciais..."></textarea>
-    </div>
-    
-  <div class="campo preco-container">
-  <label for="precoServico">Preço</label>
-  <div class="linha-preco">
-    <input type="number" id="precoServico" placeholder="Ex: 60">
+  <!-- Modal de cadastro -->
+  <div class="modal" id="modalServico">
+    <div class="modal-conteudo">
+      <h2>Cadastrar Serviço</h2>
 
+      <div class="campo">
+        <label for="titulo">Título do serviço</label>
+        <input type="text" id="titulo" placeholder="Ex: Pedreiro, Designer Gráfico, Professor de Inglês">
+      </div>
+
+      <div class="campo">
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" rows="3"
+          placeholder="Descreva brevemente o serviço que você oferece, suas habilidades e diferenciais..."></textarea>
+      </div>
+
+      <div class="campo preco-container">
+        <label for="precoServico">Preço</label>
+        <div class="linha-preco">
+          <input type="number" id="precoServico" placeholder="Ex: 60">
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="cidade">Cidade</label>
+        <input type="text" id="cidade" placeholder="Ex: Blumenau, Florianópolis, São Paulo">
+      </div>
+
+      <button class="btn-salvar" id="btnSalvar">Salvar</button>
+      <button class="btn-fechar" id="btnFechar">Cancelar</button>
+    </div>
   </div>
-</div>
 
-    
-    <div class="campo">
-      <label for="cidade">Cidade</label>
-      <input type="text" id="cidade" placeholder="Ex: Blumenau, Florianópolis, São Paulo">
-    </div>
-    
-    <button class="btn-salvar" id="btnSalvar">Salvar</button>
-    <button class="btn-fechar" id="btnFechar">Cancelar</button>
-  </div>
-</div>
-
-  <script src="marketplace.js"> </script>
+  <script src="marketplace.js"></script>
   <script src="cadastrar-servico.js"></script>
   <script src="listar-servicos.js"></script>
+  <script src="mostrar-servico.js"></script>
 </body>
 
 </html>
