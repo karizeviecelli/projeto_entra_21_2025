@@ -11,6 +11,6 @@
   
 - [🖥️ Link Frontend](https://github.com/vinisebold/Entra21-Frontend-TCC)
   
-- [🗄️ Link Backend](https://github.com/vinisebold/Entra21-Frontend-TCC)
+- [🗄️ Link Backend](https://github.com/vinisebold/Entra21-Backend-TCC-backup)
 
 ##
