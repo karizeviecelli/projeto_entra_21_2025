@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil - ServiceHub</title>
+  <link rel="stylesheet" href="perfil.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="image/logov2.png" alt="ServiceHub">
+
+      </div>
+      <nav class="menu">
+        <button class="menu-item" data-name="marketplace" onclick="window.location.href='marketplace.html'">
+          <i data-lucide="home"></i>
+          <span>Marketplace</span>
+        </button>
+        <button class="menu-item" data-name="favoritos" onclick="window.location.href='favoritos.html'">
+          <i data-lucide="heart"></i>
+          <span>Favoritos</span>
+        </button>
+        <button class="menu-item" data-name="config" onclick="window.location.href='configurações.html'">
+          <i data-lucide="settings"></i>
+          <span>Configurações</span>
+        </button>
+        <button class="menu-item active" data-name="perfil" onclick="window.location.href='perfil.html'">
+            <i data-lucide="user"></i>
+            <span>Perfil</span>
+          </button>
+        
+
+      </nav>
+    </aside>
+
+    <!-- Conteúdo -->
+    <main class="conteudo">
+      <!-- Cabeçalho perfil -->
+      <section class="profile-header">
+        <div class="cover"></div>
+        <div class="profile-info">
+          <div class="profile-info-left">
+            <img src="https://i.pravatar.cc/150" alt="Avatar" class="avatar">
+            <div class="profile-text">
+              <h2>Henrique de Moraes Pinheiro</h2>
+              <p>Cliente</p>
+              <p>⭐ 4.9 (2.8k avaliações)</p>
+              <p>📍 Blumenau - Santa Catarina</p>
+            </div>
+          </div>
+          <button class="edit-btn">✏️ Editar Perfil</button>
+        </div>
+      </section>
+
+      <!-- Abas -->
+      <div class="tabs">
+        <button class="tab active" data-tab="geral">Visão geral</button>
+        <button class="tab" data-tab="avaliacoes">Avaliações</button>
+      </div>
+
+      <!-- Conteúdo das abas -->
+      <section class="tab-content">
+        <div id="geral" class="content active">
+          <h3>Sobre</h3>
+          <p>
+            Profissional dedicado com ampla experiência em desenvolvimento e prestação de serviços de alta qualidade.
+            Sempre focado em entregar resultados excepcionais para meus clientes.
+          </p>
+          <h3>Contato</h3>
+          <p>📧 meu@email.com</p>
+          <p>📞 99999-9999</p>
+          <p>🌐 meusite.com</p>
+        </div>
+        <div id="avaliacoes" class="content">
+          <h3>Avaliações</h3>
+          <p>Aqui ficarão as avaliações recebidas do usuário.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="perfil.js"></script>
+</body>
+
+</html>

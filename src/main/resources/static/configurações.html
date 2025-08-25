@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ServiceHub - Configurações</title>
+  <link rel="stylesheet" href="configurações.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="image/logov2.png" alt="Logo">
+      </div>
+        <nav class="menu">
+        <button class="menu-item" data-name="marketplace" onclick="window.location.href='marketplace.html'">
+          <i data-lucide="home"></i>
+          <span>Marketplace</span>
+        </button>
+        <button class="menu-item" data-name="favoritos" onclick="window.location.href='favoritos.html'">
+          <i data-lucide="heart"></i>
+          <span>Favoritos</span>
+        </button>
+        <button class="menu-item active" data-name="config" onclick="window.location.href='configurações.html'">
+          <i data-lucide="settings"></i>
+          <span>Configurações</span>
+        </button>
+        <button class="menu-item " data-name="perfil" onclick="window.location.href='perfil.html'">
+            <i data-lucide="user"></i>
+            <span>Perfil</span>
+          </button>
+        
+
+      </nav>
+    </aside>
+
+    <!-- Conteúdo -->
+    <main class="content">
+      <div class="tabs">
+        <button class="tab active" data-tab="notificacoes">🔔 Notificações</button>
+        <button class="tab" data-tab="seguranca">🔒 Segurança</button>
+        <button class="tab" data-tab="preferencias">⚙️ Preferências</button>
+      </div>
+
+      <!-- Notificações -->
+      <section id="notificacoes" class="tab-content active">
+        <h3>Notificações</h3>
+        <p>Configure como você deseja receber notificações</p>
+        <div class="option">
+          <span>
+            <strong>Notificações por E-mail</strong>
+            <small>Receba atualizações importantes por e-mail</small>
+          </span>
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="option">
+          <span>
+            <strong>Notificações Push</strong>
+            <small>Receba notificações no navegador</small>
+          </span>
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="option">
+          <span>
+            <strong>SMS</strong>
+            <small>Receba notificações por mensagem de texto</small>
+          </span>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="option">
+          <span>
+            <strong>Marketing</strong>
+            <small>Receba ofertas e novidades da plataforma</small>
+          </span>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Segurança -->
+      <section id="seguranca" class="tab-content">
+        <h3>Segurança</h3>
+        <p>Gerencie opções de segurança da sua conta</p>
+        <div class="option">
+          <span>
+            <strong>Alterar senha</strong>
+            <small>Troque sua senha de acesso</small>
+          </span>
+          <button class="btn" id="alterarSenhaBtn">Alterar</button>
+        </div>
+        <div class="option">
+          <span>
+            <strong>Autenticação em 2 fatores</strong>
+            <small>Proteja sua conta com verificação adicional</small>
+          </span>
+          <label class="switch">
+            <input type="checkbox" id="twoFactor">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Preferências -->
+      <section id="preferencias" class="tab-content">
+        <h3>Preferências</h3>
+        <p>Personalize sua experiência na plataforma</p>
+        <div class="option">
+          <span>
+            <strong>Tema Escuro</strong>
+            <small>Ative o modo escuro no site</small>
+          </span>
+          <label class="switch">
+            <input type="checkbox" id="darkMode">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="option">
+          <span>
+            <strong>Idioma</strong>
+            <small>Escolha o idioma preferido</small>
+          </span>
+          <select id="idiomaSelect">
+            <option value="pt" selected>Português (Brasil)</option>
+            <option value="en">Inglês</option>
+            <option value="es">Espanhol</option>
+          </select>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="configurações.js"></script>
+</body>
+</html>
