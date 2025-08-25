@@ -1,6 +1,6 @@
 # Prototipagem
 
-🔹O design foi feito no figma para garantir clareza nas telas prototipadas, valida-las, e facilitar a cominicação entre os desenvolvedores.
+🔹O design foi feito no figma para garantir clareza nas telas prototipadas, valida-las e facilitar a cominicação entre os desenvolvedores.
 
 ⚠️O protótipo fornece uma visão inicial do site mas ***não*** reflete a versão final dele.
 
