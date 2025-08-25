@@ -26,9 +26,10 @@
 <img width="330" height="185" alt="image" src="https://github.com/user-attachments/assets/369ecc70-6278-4b76-927c-fc5dcea119e4" />
 
 ---
-▫️Tela de perfil
+▫️Tela de favoritos
 
-<img width="328" height="187" alt="image" src="https://github.com/user-attachments/assets/0fb24d37-ef22-41c3-a0f7-1095da060dcd" />
+<img width="328" height="186" alt="image" src="https://github.com/user-attachments/assets/3c994577-2445-44a6-bc5d-3aea5b0a0022" />
+<img width="328" height="186" alt="image" src="https://github.com/user-attachments/assets/94c6cd39-bf1c-48aa-a69d-cac707b29cf7" />
 
 ---
 ▫️Tela de configurações
@@ -38,10 +39,10 @@
 <img width="330" height="189" alt="image" src="https://github.com/user-attachments/assets/6eef4310-9a2a-4b22-a8e5-155a96862663" />
 
 ---
-▫️Tela de favoritos
+▫️Tela de perfil
 
-<img width="328" height="186" alt="image" src="https://github.com/user-attachments/assets/3c994577-2445-44a6-bc5d-3aea5b0a0022" />
-<img width="328" height="186" alt="image" src="https://github.com/user-attachments/assets/94c6cd39-bf1c-48aa-a69d-cac707b29cf7" />
+<img width="328" height="187" alt="image" src="https://github.com/user-attachments/assets/0fb24d37-ef22-41c3-a0f7-1095da060dcd" />
+
 
 
 
