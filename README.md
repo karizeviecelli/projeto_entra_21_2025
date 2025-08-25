@@ -4,7 +4,7 @@
 
 - [📄 Documentação](documentacao.md)
 - [👥 Equipe]()
-- [✏️ Prototipagem ](Protogipagem.md)
+- [✏️ Prototipagem ](prototipagem.md)
 - [📊 Diagrama]()
 
 ## Links
