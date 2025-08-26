@@ -1,5 +1,7 @@
 # Prototipagem
 
+🔹O ServiceHub é um marketplace para serviços que conecta clientes e prestadores em um site.
+
 🔹O design foi feito no figma para garantir clareza nas telas prototipadas, valida-las e facilitar a cominicação entre os desenvolvedores.
 
 ⚠️O protótipo fornece uma visão inicial do site mas ***não*** reflete a versão final dele.
