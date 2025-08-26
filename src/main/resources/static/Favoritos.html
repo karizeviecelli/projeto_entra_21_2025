@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ServiceHub - Favoritos</title>
+  <link rel="stylesheet" href="favoritos.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="image/logov2.png" alt="Logo">
+      </div>
+
+      <nav class="menu">
+        
+        <a href="marketplace.html"><button class="menu-item" data-name="marketplace">
+          <i data-lucide="home"></i>
+          <span>Marketplace</span>
+        </button></a>
+        <a href="Favoritos.html">><button class="menu-item active" data-name="favoritos">
+          <i data-lucide="heart"></i>
+          <span>Favoritos</span>
+        </button></a>
+        <a href="configurações.html"><button class="menu-item">
+          <i data-lucide="settings"></i>
+          <span>Configurações</span>
+        </button></a>
+        <a href="perfil.html"><button class="menu-item">
+          <i data-lucide="user"></i>
+          <span>Perfil</span>
+        </button></a>
+      </nav>
+    </aside>
+
+    <!-- Conteúdo -->
+    <main class="conteudo">
+      <header class="topbar">
+        <h1>Meus Favoritos</h1>
+      </header>
+
+      <!-- Estatísticas -->
+      <section class="estatisticas">
+        <div class="card-estat">
+          <i data-lucide="heart"></i>
+          <p><strong id="qtdFavoritos">0</strong><br>Favoritos</p>
+        </div>
+        <div class="card-estat">
+          <i data-lucide="star"></i>
+          <p><strong id="notaMedia">0</strong><br>Avaliação Média</p>
+        </div>
+        <div class="card-estat">
+          <i data-lucide="eye"></i>
+          <p><strong id="visualizacoes">0</strong><br>Visualizados</p>
+        </div>
+      </section>
+
+      <!-- Filtros -->
+      <section class="filtros">
+        <div class="campo">
+          <input type="text" id="buscarFavorito" placeholder="Buscar nos favoritos...">
+        </div>
+        <div class="campo">
+          <select id="categoriaFavorito">
+            <option>Todas as categorias</option>
+            <option>Tecnologia</option>
+            <option>Design</option>
+            <option>Marketing</option>
+          </select>
+        </div>
+        <div class="campo">
+          <select id="ordenarFavorito">
+            <option>Mais recente</option>
+            <option>Menor preço</option>
+            <option>Maior preço</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Lista -->
+      <section class="servicos" id="listaFavoritos"></section>
+    </main>
+  </div>
+
+  <script src="favoritos.js"></script>
+</body>
+</html>
