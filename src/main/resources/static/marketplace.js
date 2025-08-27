@@ -44,6 +44,7 @@ function criarCardServico(servico, index) {
     <p>${servico.descricao}</p>
     <p><strong>Preço:</strong> R$ ${Number(servico.preco).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</p>
     <p><strong>Cidade:</strong> ${servico.cidade}</p>
+    <p><strong>Categoria:</strong> ${servico.categoria || 'Não definido'}</p>
   `;
 
   card.addEventListener('click', () => abrirModalEditar(index));
@@ -53,6 +54,7 @@ function criarCardServico(servico, index) {
 function renderizarServicos() {
   const termo = inputBuscar.value.toLowerCase();
   const precoMax = Number(inputPreco.value);
+  const categoriaSelecionada = window.categoriaFiltro || 'todas';
 
   listaServicos.innerHTML = "";
 
@@ -70,7 +72,10 @@ function renderizarServicos() {
 
     const correspondePreco = precoMax >= 10000 || Number(servico.preco) <= precoMax;
 
-    if (correspondeTexto && correspondePreco) {
+    const correspondeCategoria =
+      categoriaSelecionada === 'todas' || servico.categoria === categoriaSelecionada;
+
+    if (correspondeTexto && correspondePreco && correspondeCategoria) {
       listaServicos.appendChild(criarCardServico(servico, index));
       encontrados++;
     }
@@ -90,6 +95,11 @@ function abrirModalEditar(index) {
   document.getElementById("precoServico").value = servico.preco;
   document.getElementById("cidade").value = servico.cidade;
 
+  // Atualiza dropdown do modal via função do cadastrar-servico.js
+  if (window.atualizarCategoriaDropdown) {
+    window.atualizarCategoriaDropdown(servico.categoria);
+  }
+
   modal.querySelector('h2').textContent = "Editar Serviço";
   modal.classList.add("ativo");
 }
@@ -99,6 +109,7 @@ function limparCampos() {
   document.getElementById("descricao").value = "";
   document.getElementById("precoServico").value = "";
   document.getElementById("cidade").value = "";
+  if (window.atualizarCategoriaDropdown) window.atualizarCategoriaDropdown(null);
   servicoEditandoIndex = null;
   modal.querySelector('h2').textContent = "Cadastrar Serviço";
 }
@@ -109,8 +120,9 @@ async function salvarServico() {
   const descricao = document.getElementById("descricao").value.trim();
   const preco = Number(document.getElementById("precoServico").value);
   const cidade = document.getElementById("cidade").value.trim();
+  const categoria = window.categoriaSelecionada || 'todas';
 
-  if (!titulo || !descricao || isNaN(preco) || preco <= 0 || !cidade) {
+  if (!titulo || !descricao || isNaN(preco) || preco <= 0 || !cidade || categoria === 'todas') {
     alert("Preencha todos os campos corretamente!");
     return;
   }
@@ -124,7 +136,7 @@ async function salvarServico() {
       const response = await fetch(`http://localhost:8080/servicos/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ titulo, descricao, preco, cidade })
+        body: JSON.stringify({ titulo, descricao, preco, cidade, categoria })
       });
 
       if (!response.ok) throw new Error("Erro ao editar serviço");
@@ -137,7 +149,7 @@ async function salvarServico() {
       const response = await fetch('http://localhost:8080/servicos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ titulo, descricao, preco, cidade })
+        body: JSON.stringify({ titulo, descricao, preco, cidade, categoria })
       });
 
       if (!response.ok) throw new Error("Erro ao criar serviço");
@@ -179,30 +191,28 @@ inputPreco.addEventListener("input", () => {
 inputPreco.value = 10000;
 atualizarLabelPreco();
 renderizarServicos();
-
 window.renderizarServicos = renderizarServicos;
 
+// ===== Dropdown Filtro =====
+const dropdownFiltro = document.getElementById('dropdownFiltro');
+const dropbtnFiltro = dropdownFiltro.querySelector('.dropbtn');
+const contentFiltro = dropdownFiltro.querySelector('.dropdown-content');
 
-const dropdown = document.querySelector('.dropdown');
-const dropbtn = dropdown.querySelector('.dropbtn');
-const content = dropdown.querySelector('.dropdown-content');
-
-dropbtn.addEventListener('click', () => {
-  dropdown.classList.toggle('show');
+dropbtnFiltro.addEventListener('click', e => {
+  e.stopPropagation();
+  dropdownFiltro.classList.toggle('show');
 });
 
-content.querySelectorAll('div').forEach(option => {
+contentFiltro.querySelectorAll('div').forEach(option => {
   option.addEventListener('click', () => {
-    dropbtn.textContent = option.textContent;
-    dropdown.classList.remove('show');
-    // aqui você pode salvar a categoria selecionada
-    window.categoriaSelecionada = option.dataset.value;
+    dropbtnFiltro.textContent = option.textContent;
+    window.categoriaFiltro = option.dataset.value;
+    dropdownFiltro.classList.remove('show');
+    renderizarServicos();
   });
 });
 
-// fecha se clicar fora
-window.addEventListener('click', e => {
-  if (!dropdown.contains(e.target)) {
-    dropdown.classList.remove('show');
-  }
+// Fecha dropdown ao clicar fora
+window.addEventListener('click', () => {
+  dropdownFiltro.classList.remove('show');
 });

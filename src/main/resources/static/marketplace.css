@@ -170,6 +170,38 @@ body {
   gap: 5px;
 }
 
+/* Botão de adicionar serviço */
+#btnAbrirModal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+  transition: all 0.3s ease;
+}
+
+#btnAbrirModal:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.6);
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+}
+
+#btnAbrirModal:active {
+  transform: scale(0.97);
+}
+
+
 .campo input,
 .campo select,
 .campo textarea {
@@ -211,6 +243,7 @@ body {
   transition: transform 0.2s, box-shadow 0.2s;
   overflow: hidden;
   min-height: 300px;
+  user-select: none;
 }
 
 .servico:hover {
@@ -361,6 +394,23 @@ body {
   display: block;
 }
 
+.filtros .dropdown {
+  width: 200px;
+}
+
+.filtros .dropbtn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+}
+
+.filtros .dropdown-content {
+  max-height: 150px; 
+  overflow-y: auto;
+}
 
 
 

@@ -4,35 +4,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnAbrir = document.getElementById('btnAbrirModal');
   const btnFechar = document.getElementById('btnFechar');
 
-  // Lista de categorias
-  const categorias = [
-    'Construção e Reformas',
-    'Serviços de Limpeza',
-    'Beleza e Estética',
-    'Assistência Técnica',
-    'Aulas e Treinamentos',
-    'Serviços Automotivos',
-    'Eventos e Festas',
-    'Saúde e Bem-estar',
-    'Transporte e Mudanças',
-    'Serviços Domésticos'
-  ];
+  // Dropdown de categorias dentro do modal
+  const dropdown = modal.querySelector('.dropdown');
+  const dropbtn = dropdown.querySelector('.dropbtn');
+  const content = dropdown.querySelector('.dropdown-content');
 
-  // Preencher select de categoria dinamicamente
-  const selectCategoria = document.getElementById('categoria');
-  if (selectCategoria) {
-    selectCategoria.innerHTML = ''; // limpa antes
-    categorias.forEach(cat => {
-      const option = document.createElement('option');
-      option.value = cat;
-      option.textContent = cat;
-      selectCategoria.appendChild(option);
-    });
-  }
+  // Categoria selecionada no modal
+  window.categoriaSelecionada = null;
 
-  // Abrir modal (apenas cadastro, não edição)
+  // Abrir modal (apenas cadastro)
   btnAbrir?.addEventListener('click', () => {
     if (window.limparCampos) window.limparCampos();
+    dropbtn.textContent = 'Selecione uma categoria';
+    window.categoriaSelecionada = null;
     modal.classList.add('ativo');
   });
 
@@ -42,6 +26,41 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.limparCampos) window.limparCampos();
   });
 
-  // Obs: não adicionamos mais o "btnSalvar" aqui,
-  // porque o marketplace.js já cuida disso (decide entre criar/editar)
+  // Abrir/fechar dropdown ao clicar no botão
+  dropbtn.addEventListener('click', e => {
+    e.stopPropagation();
+    dropdown.classList.toggle('show');
+  });
+
+  // Selecionar categoria
+  content.querySelectorAll('div').forEach(option => {
+    option.addEventListener('click', e => {
+      e.stopPropagation();
+      dropbtn.textContent = option.textContent;
+      dropdown.classList.remove('show');
+      window.categoriaSelecionada = option.dataset.value;
+    });
+  });
+
+  // Fecha dropdown se clicar fora
+  window.addEventListener('click', () => {
+    dropdown.classList.remove('show');
+  });
+
+  // Função para atualizar dropdown quando editar um serviço
+  window.atualizarCategoriaDropdown = categoria => {
+    if (!categoria) {
+      dropbtn.textContent = 'Selecione uma categoria';
+      window.categoriaSelecionada = null;
+    } else {
+      const opcao = content.querySelector(`div[data-value="${categoria}"]`);
+      if (opcao) {
+        dropbtn.textContent = opcao.textContent;
+        window.categoriaSelecionada = categoria;
+      } else {
+        dropbtn.textContent = 'Selecione uma categoria';
+        window.categoriaSelecionada = null;
+      }
+    }
+  };
 });
