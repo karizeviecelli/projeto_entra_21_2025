@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro - Gleam</title>
+    <link rel="icon" href="gleam.png" type="image/png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Modal container */
+        .modal {
+            display: flex;
+            flex-direction: row-reverse;
+            width: 800px;
+            max-width: 95%;
+            height: auto;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+            animation: fadeIn .3s ease;
+        }
+
+        .left-side .logo {
+            max-width: 160px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 15px
+        }
+
+        .left-side {
+            flex: .4;
+            background: #889b56;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 30px;
+        }
+
+        .left-side p {
+            font-size: 16px;
+            text-align: center;
+            max-width: 200px
+        }
+
+        /* Lado direito (formulário) */
+        .right-side {
+            flex: .6;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .form-box {
+            width: 100%;
+            max-width: 320px
+        }
+
+        .form-box h2 {
+            color: #889b56;
+            margin-bottom: 15px;
+            text-align: center
+        }
+
+        .form-box label {
+            display: block;
+            margin-top: 12px;
+            font-size: 14px;
+            color: #444
+        }
+
+        .form-box input[type="text"],
+        .form-box input[type="email"],
+        .form-box input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .senha-container {
+            position: relative;
+            margin-top: 5px
+        }
+
+        .senha-container input {
+            width: 100%;
+            padding-right: 40px
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            opacity: .6;
+        }
+
+        .toggle-password:hover {
+            opacity: 1
+        }
+
+        .btn {
+            width: 100%;
+            background: #889b56;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 18px;
+            transition: .3s
+        }
+
+        .btn:hover {
+            background: #6d7c45
+        }
+
+        /* Link para login igual ao estilo do login → cadastro */
+        .sem-conta {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .sem-conta a {
+            color: #6d7c45;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .sem-conta a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(.95)
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="modal">
+        <!-- Verde (vai ficar à direita por causa do row-reverse) -->
+        <div class="left-side">
+            <img src="logo_branco.png" alt="Logo Gleam" class="logo">
+            <p>Sua gestão, seu negócio</p>
+        </div>
+
+        <!-- Formulário (vai ficar à esquerda) -->
+        <div class="right-side">
+            <div class="form-box">
+                <h2>Criar Conta</h2>
+                <form>
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" placeholder="Digite seu nome">
+
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="Digite seu e-mail">
+
+                    <label for="senha">Senha</label>
+                    <div class="senha-container">
+                        <input type="password" id="senha" placeholder="Digite sua senha">
+                        <img src="eye.png" alt="Mostrar senha" class="toggle-password" id="toggleSenha">
+                    </div>
+
+                    <label for="confirmar">Confirmar senha</label>
+                    <div class="senha-container">
+                        <input type="password" id="confirmar" placeholder="Confirme sua senha">
+                        <img src="eye.png" alt="Mostrar senha" class="toggle-password" id="toggleConfirmar">
+                    </div>
+
+                    <button type="submit" class="btn">Cadastrar</button>
+
+                    <!-- Novo link igual ao estilo do login -->
+                    <p class="sem-conta">
+                        Já tem uma conta? <a href="indexL.html">Faça login</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword(inputId, toggleId) {
+            const input = document.getElementById(inputId);
+            const toggle = document.getElementById(toggleId);
+            toggle.addEventListener("click", () => {
+                const isPassword = input.type === "password";
+                input.type = isPassword ? "text" : "password";
+                toggle.src = isPassword ? "eye-off.png" : "eye.png";
+            });
+        }
+        togglePassword("senha", "toggleSenha");
+        togglePassword("confirmar", "toggleConfirmar");
+    </script>
+</body>
+
+</html>
