@@ -81,8 +81,9 @@ Banco de Dados: MySQL
 
 
 Controle de Versão: Git e GitHub
----
+
 **Contribuição aos Objetivos de Desenvolvimento Sustentável (ODS)**
+---
 O ServiceHub se conecta diretamente com os Objetivos de Desenvolvimento Sustentável (ODS) propostos pela ONU, atuando como uma solução que promove inclusão digital, oportunidades de trabalho e inovação tecnológica. A plataforma contribui principalmente para os seguintes objetivos:
 
 ODS 8 – Trabalho Decente e Crescimento Econômico:
