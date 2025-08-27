@@ -8,6 +8,42 @@
   <link rel="stylesheet" href="marketplace.css">
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
+    /* ===== Hero (background animado) ===== */
+    .hero {
+      position: fixed; /* cobre a tela toda */
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #d0e6ff, #e6fff5, #f0f4ff);
+      overflow: hidden;
+      z-index: -1; /* fica atrás do layout */
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 8px;
+      transform: rotate(15deg);
+    }
+
+    .hero::before {
+      width: 180px;
+      height: 180px;
+      top: 10%;
+      left: 8%;
+      background: rgba(0, 123, 255, 0.15);
+    }
+
+    .hero::after {
+      width: 220px;
+      height: 220px;
+      bottom: 15%;
+      right: 10%;
+      background: rgba(40, 167, 69, 0.15);
+    }
+
     /* ===== Modal ===== */
     .modal {
       display: none;
@@ -26,7 +62,6 @@
     .servico {
       cursor: pointer;
     }
-
 
     .modal-conteudo {
       background: #fff;
@@ -92,15 +127,17 @@
 </head>
 
 <body>
-  <div class="layout">
+  <!-- Hero como background -->
+  <section class="hero"></section>
 
+  <div class="layout">
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="logo">
         <img src="image/logov2.png" alt="Logo">
       </div>
 
-       <nav class="menu">
+      <nav class="menu">
         <button class="menu-item active" data-name="marketplace" onclick="window.location.href='marketplace.html'">
           <i data-lucide="home"></i>
           <span>Marketplace</span>
@@ -114,11 +151,9 @@
           <span>Configurações</span>
         </button>
         <button class="menu-item " data-name="perfil" onclick="window.location.href='perfil.html'">
-            <i data-lucide="user"></i>
-            <span>Perfil</span>
-          </button>
-        
-
+          <i data-lucide="user"></i>
+          <span>Perfil</span>
+        </button>
       </nav>
     </aside>
 
@@ -139,7 +174,6 @@
           <label for="preco">Preço máximo:</label>
           <input type="range" id="preco" min="0" max="10001" step="100">
           <span id="valorPreco"></span>
-
         </div>
       </section>
 
@@ -170,23 +204,23 @@
           <input type="number" id="precoServico" placeholder="Ex: 60">
         </div>
       </div>
-      <Label>Categorias</Label>
-<div class="dropdown">
-  <button class="dropbtn">Selecione uma categoria</button>
-  <div class="dropdown-content">
-    <div data-value="construcao">Construção e Reformas</div>
-    <div data-value="limpeza">Serviços de Limpeza</div>
-    <div data-value="beleza">Beleza e Estética</div>
-    <div data-value="assistencia">Assistência Técnica</div>
-    <div data-value="aulas">Aulas e Treinamentos</div>
-    <div data-value="automotivos">Serviços Automotivos</div>
-    <div data-value="eventos">Eventos e Festas</div>
-    <div data-value="saude">Saúde e Bem-estar</div>
-    <div data-value="transporte">Transporte e Mudanças</div>
-    <div data-value="domesticos">Serviços Domésticos</div>
-  </div>
-</div>
 
+      <label>Categorias</label>
+      <div class="dropdown">
+        <button class="dropbtn">Selecione uma categoria</button>
+        <div class="dropdown-content">
+          <div data-value="construcao">Construção e Reformas</div>
+          <div data-value="limpeza">Serviços de Limpeza</div>
+          <div data-value="beleza">Beleza e Estética</div>
+          <div data-value="assistencia">Assistência Técnica</div>
+          <div data-value="aulas">Aulas e Treinamentos</div>
+          <div data-value="automotivos">Serviços Automotivos</div>
+          <div data-value="eventos">Eventos e Festas</div>
+          <div data-value="saude">Saúde e Bem-estar</div>
+          <div data-value="transporte">Transporte e Mudanças</div>
+          <div data-value="domesticos">Serviços Domésticos</div>
+        </div>
+      </div>
 
       <div class="campo">
         <label for="cidade">Cidade</label>

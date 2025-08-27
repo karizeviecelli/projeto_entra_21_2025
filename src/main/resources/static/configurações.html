@@ -6,8 +6,52 @@
   <title>ServiceHub - Configurações</title>
   <link rel="stylesheet" href="configurações.css">
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Background padrão (mesmo usado nas outras páginas) */
+    body {
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    .bg-wrapper {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #d0e6ff, #e6fff5, #f0f4ff);
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bg-wrapper::before,
+    .bg-wrapper::after {
+      content: "";
+      position: absolute;
+      border-radius: 8px;
+      transform: rotate(15deg);
+    }
+
+    .bg-wrapper::before {
+      width: 180px;
+      height: 180px;
+      top: 10%;
+      left: 8%;
+      background: rgba(0, 123, 255, 0.15);
+    }
+
+    .bg-wrapper::after {
+      width: 220px;
+      height: 220px;
+      bottom: 15%;
+      right: 10%;
+      background: rgba(40, 167, 69, 0.15);
+    }
+  </style>
 </head>
+
 <body>
+  <!-- Background -->
+  <div class="bg-wrapper"></div>
+
   <div class="layout">
     <!-- Sidebar -->
     <aside class="sidebar">
@@ -17,134 +61,84 @@
 
       <nav class="menu">
         <button class="menu-item" onclick="window.location.href='marketplace.html'">
-          <i data-lucide="home"></i>
-          <span>Marketplace</span>
+          <i data-lucide="home"></i> <span>Marketplace</span>
         </button>
         <button class="menu-item" onclick="window.location.href='favoritos.html'">
-          <i data-lucide="heart"></i>
-          <span>Favoritos</span>
+          <i data-lucide="heart"></i> <span>Favoritos</span>
         </button>
-        <button class="menu-item active" onclick="window.location.href='configurações.html'">
-          <i data-lucide="settings"></i>
-          <span>Configurações</span>
+        <button class="menu-item active">
+          <i data-lucide="settings"></i> <span>Configurações</span>
         </button>
         <button class="menu-item" onclick="window.location.href='perfil.html'">
-          <i data-lucide="user"></i>
-          <span>Perfil</span>
+          <i data-lucide="user"></i> <span>Perfil</span>
         </button>
       </nav>
     </aside>
 
     <!-- Conteúdo -->
-    <main class="conteudo">
-      <!-- Topbar -->
-      <div class="topbar">
-        <h1>Configurações</h1>
+    <main class="content">
+      <div class="tabs">
+        <button class="tab active" data-tab="notificacoes">🔔 Notificações</button>
+        <button class="tab" data-tab="seguranca">🔒 Segurança</button>
+        <button class="tab" data-tab="preferencias">⚙️ Preferências</button>
       </div>
 
-      <!-- Bloco de opções -->
-      <div class="configuracoes">
-        <!-- Notificações -->
-        <section>
-          <h2>🔔 Notificações</h2>
-          <p>Configure como você deseja receber notificações</p>
-          <div class="option">
-            <span>
-              <strong>Notificações por E-mail</strong>
-              <small>Receba atualizações importantes por e-mail</small>
-            </span>
-            <label class="switch">
-              <input type="checkbox" checked>
-              <span class="slider"></span>
-            </label>
-          </div>
-          <div class="option">
-            <span>
-              <strong>Notificações Push</strong>
-              <small>Receba notificações no navegador</small>
-            </span>
-            <label class="switch">
-              <input type="checkbox" checked>
-              <span class="slider"></span>
-            </label>
-          </div>
-          <div class="option">
-            <span>
-              <strong>SMS</strong>
-              <small>Receba notificações por mensagem de texto</small>
-            </span>
-            <label class="switch">
-              <input type="checkbox">
-              <span class="slider"></span>
-            </label>
-          </div>
-          <div class="option">
-            <span>
-              <strong>Marketing</strong>
-              <small>Receba ofertas e novidades da plataforma</small>
-            </span>
-            <label class="switch">
-              <input type="checkbox">
-              <span class="slider"></span>
-            </label>
-          </div>
-        </section>
+      <!-- Notificações -->
+      <section id="notificacoes" class="tab-content active">
+        <h3>Notificações</h3>
+        <p>Configure como você deseja receber notificações</p>
+        <div class="option">
+          <span><strong>Notificações por E-mail</strong> <small>Receba atualizações importantes por e-mail</small></span>
+          <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+        </div>
+        <div class="option">
+          <span><strong>Notificações Push</strong> <small>Receba notificações no navegador</small></span>
+          <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+        </div>
+        <div class="option">
+          <span><strong>SMS</strong> <small>Receba notificações por mensagem de texto</small></span>
+          <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+        </div>
+        <div class="option">
+          <span><strong>Marketing</strong> <small>Receba ofertas e novidades da plataforma</small></span>
+          <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+        </div>
+      </section>
 
-        <!-- Segurança -->
-        <section>
-          <h2>🔒 Segurança</h2>
-          <p>Gerencie opções de segurança da sua conta</p>
-          <div class="option">
-            <span>
-              <strong>Alterar senha</strong>
-              <small>Troque sua senha de acesso</small>
-            </span>
-            <button class="btn" id="alterarSenhaBtn">Alterar</button>
-          </div>
-          <div class="option">
-            <span>
-              <strong>Autenticação em 2 fatores</strong>
-              <small>Proteja sua conta com verificação adicional</small>
-            </span>
-            <label class="switch">
-              <input type="checkbox" id="twoFactor">
-              <span class="slider"></span>
-            </label>
-          </div>
-        </section>
+      <!-- Segurança -->
+      <section id="seguranca" class="tab-content">
+        <h3>Segurança</h3>
+        <p>Gerencie opções de segurança da sua conta</p>
+        <div class="option">
+          <span><strong>Alterar senha</strong> <small>Troque sua senha de acesso</small></span>
+          <button class="btn" id="alterarSenhaBtn">Alterar</button>
+        </div>
+        <div class="option">
+          <span><strong>Autenticação em 2 fatores</strong> <small>Proteja sua conta com verificação adicional</small></span>
+          <label class="switch"><input type="checkbox" id="twoFactor"><span class="slider"></span></label>
+        </div>
+      </section>
 
-        <!-- Preferências -->
-        <section>
-          <h2>⚙️ Preferências</h2>
-          <p>Personalize sua experiência na plataforma</p>
-          <div class="option">
-            <span>
-              <strong>Tema Escuro</strong>
-              <small>Ative o modo escuro no site</small>
-            </span>
-            <label class="switch">
-              <input type="checkbox" id="darkMode">
-              <span class="slider"></span>
-            </label>
-          </div>
-          <div class="option">
-            <span>
-              <strong>Idioma</strong>
-              <small>Escolha o idioma preferido</small>
-            </span>
-            <select id="idiomaSelect">
-              <option value="pt" selected>Português (Brasil)</option>
-              <option value="en">Inglês</option>
-              <option value="es">Espanhol</option>
-            </select>
-          </div>
-        </section>
-      </div>
+      <!-- Preferências -->
+      <section id="preferencias" class="tab-content">
+        <h3>Preferências</h3>
+        <p>Personalize sua experiência na plataforma</p>
+        <div class="option">
+          <span><strong>Tema Escuro</strong> <small>Ative o modo escuro no site</small></span>
+          <label class="switch"><input type="checkbox" id="darkMode"><span class="slider"></span></label>
+        </div>
+        <div class="option">
+          <span><strong>Idioma</strong> <small>Escolha o idioma preferido</small></span>
+          <select id="idiomaSelect">
+            <option value="pt" selected>Português (Brasil)</option>
+            <option value="en">Inglês</option>
+            <option value="es">Espanhol</option>
+          </select>
+        </div>
+      </section>
     </main>
   </div>
+
   <script src="configurações.js"></script>
-  <script>
-    lucide.createIcons();
-  </script>
 </body>
 </html>
