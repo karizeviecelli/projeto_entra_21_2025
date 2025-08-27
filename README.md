@@ -1,10 +1,11 @@
-# Tela de Login
+# Gleam - Telas de Login e Cadastro
 
-Foquei em desenvolver a tela de login para melhorar a experiência do usuário, evitando que ele precise relogar toda vez que acessar o sistema.
+Projeto com as telas de **Login** e **Cadastro** do sistema **Gleam**.
 
-## Funcionalidades
-- Campos de **E-mail** e **Senha** com placeholders claros.
-- Botões de **Entrar** e **Cancelar** com design intuitivo.
-- Tentativa de **mostrar/ocultar a senha** com ícones de olho.
-## Objetivo
-Garantir que o usuário tenha uma experiência prática e rápida ao acessar o sistema, tornando o login simples e eficiente.
+## 📌 Funcionalidades
+- Login com e-mail e senha.  
+- Opção de "Lembrar senha" e botão para mostrar/ocultar a senha.  
+- Link entre Login ↔ Cadastro.
+
+## 🎯 Objetivo
+Facilitar o acesso de usuários, permitindo login rápido e criação de novas contas de forma simples e intuitiva.  
