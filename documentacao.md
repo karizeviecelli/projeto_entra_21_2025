@@ -92,6 +92,6 @@ ODS 9 – Indústria, Inovação e Infraestrutura:
 O projeto utiliza tecnologia como ferramenta de transformação, criando uma infraestrutura digital que conecta contratantes e prestadores de serviço de forma inovadora, eficiente e acessível.
 
 ODS 10 – Redução das Desigualdades:
-Ao oferecer espaço para profissionais que enfrentam dificuldades em conquistar visibilidade, a plataforma reduz barreiras de acesso ao mercado de trabalho e promove igualdade de oportunidades, especialmente para aqueles que estão no início de suas carreiras..
+Ao oferecer espaço para profissionais que enfrentam dificuldades em conquistar visibilidade, a plataforma reduz barreiras de acesso ao mercado de trabalho e promove igualdade de oportunidades, especialmente para aqueles que estão no início de suas carreiras.
 
 
