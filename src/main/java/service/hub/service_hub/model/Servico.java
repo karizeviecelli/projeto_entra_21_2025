@@ -2,6 +2,9 @@ package service.hub.service_hub.model;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "servico")
 public class Servico {
@@ -9,6 +12,9 @@ public class Servico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToMany(mappedBy = "favoritos")
+    private Set<Usuario> usuariosFavoritaram = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
