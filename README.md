@@ -4,4 +4,4 @@
 
 - [📄 Documentação](documentacao.md)
 - [✏️ Prototipagem ](prototipagem.md)
-- [📊 Diagrama]()
+- [📊 Diagrama](diagrama.md)
