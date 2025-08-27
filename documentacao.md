@@ -42,18 +42,6 @@ Possibilidade de adicionar mais categorias de serviço
 **2. Selos de Verificação:**
 ---
  Profissionais que comprovarem identidade, formação ou experiência poderão adquirir selos de verificação. Esses selos aumentam a credibilidade do perfil e transmitem mais segurança ao contratante.
- 
-**3. Espaços Promocionais:**
----
- Venda de espaços específicos dentro da plataforma para anúncios internos, como:
-Banner em áreas de destaque
-
-
-“Profissional em destaque do mês”
-
-
-Sugestão de perfis na página inicial
-
 
 **Público-Alvo – ServiceHub**
 ---
