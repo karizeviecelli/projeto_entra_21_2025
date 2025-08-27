@@ -5,12 +5,53 @@
   box-sizing: border-box;
 }
 
+
 body {
-  font-family: "Segoe UI", sans-serif;
-  background: #f5f7fa;
-  color: #333;
-  height: 100vh;
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #d0e6ff, #e6fff5, #f0f4ff);
+  overflow-x: hidden;
+}
+
+
+.hero {
+  position: relative;
+  height: 85vh;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+
+  /* Gradiente mais visível */
+  background: linear-gradient(135deg, #d0e6ff, #e6fff5, #f0f4ff);
+  overflow: hidden;
+}
+
+/* Formas de fundo */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  transform: rotate(15deg);
+}
+
+.hero::before {
+  width: 180px;
+  height: 180px;
+  top: 10%;
+  left: 8%;
+  background: rgba(0, 123, 255, 0.15);
+}
+
+.hero::after {
+  width: 220px;
+  height: 220px;
+  bottom: 15%;
+  right: 10%;
+  background: rgba(40, 167, 69, 0.15);
 }
 
 /* Layout principal */
