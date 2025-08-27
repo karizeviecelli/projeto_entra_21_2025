@@ -42,18 +42,6 @@ Possibilidade de adicionar mais categorias de serviço
 **2. Selos de Verificação:**
 ---
  Profissionais que comprovarem identidade, formação ou experiência poderão adquirir selos de verificação. Esses selos aumentam a credibilidade do perfil e transmitem mais segurança ao contratante.
- 
-**3. Espaços Promocionais:**
----
- Venda de espaços específicos dentro da plataforma para anúncios internos, como:
-Banner em áreas de destaque
-
-
-“Profissional em destaque do mês”
-
-
-Sugestão de perfis na página inicial
-
 
 **Público-Alvo – ServiceHub**
 ---
@@ -93,5 +81,18 @@ Banco de Dados: MySQL
 
 
 Controle de Versão: Git e GitHub
+
+**Contribuição aos Objetivos de Desenvolvimento Sustentável (ODS)**
+---
+O ServiceHub se conecta diretamente com os Objetivos de Desenvolvimento Sustentável (ODS) propostos pela ONU, atuando como uma solução que promove inclusão digital, oportunidades de trabalho e inovação tecnológica. A plataforma contribui principalmente para os seguintes objetivos:
+
+ODS 8 – Trabalho Decente e Crescimento Econômico:
+Ao ampliar a visibilidade de profissionais autônomos, freelancers e microempreendedores, o ServiceHub possibilita a inserção desses trabalhadores no mercado, gerando novas oportunidades de renda e crescimento profissional.
+
+ODS 9 – Indústria, Inovação e Infraestrutura:
+O projeto utiliza tecnologia como ferramenta de transformação, criando uma infraestrutura digital que conecta contratantes e prestadores de serviço de forma inovadora, eficiente e acessível.
+
+ODS 10 – Redução das Desigualdades:
+Ao oferecer espaço para profissionais que enfrentam dificuldades em conquistar visibilidade, a plataforma reduz barreiras de acesso ao mercado de trabalho e promove igualdade de oportunidades, especialmente para aqueles que estão no início de suas carreiras.
 
 
