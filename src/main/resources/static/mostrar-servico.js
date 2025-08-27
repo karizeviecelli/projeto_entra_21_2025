@@ -1,3 +1,4 @@
+// mostrar-servicos.js
 document.addEventListener('DOMContentLoaded', () => {
   const listaServicos = document.getElementById('listaServicos');
 
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <p><strong>Descrição:</strong> <span id="detalheDescricao"></span></p>
         <p><strong>Preço:</strong> R$ <span id="detalhePreco"></span></p>
         <p><strong>Cidade:</strong> <span id="detalheCidade"></span></p>
+        <p><strong>Categoria:</strong> <span id="detalheCategoria"></span></p>
         <hr>
         <p><strong>Email:</strong> <span id="detalheEmail"></span></p>
         <p><strong>Telefone:</strong> <span id="detalheTelefone"></span></p>
@@ -33,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const detalheDescricao = $('detalheDescricao');
   const detalhePreco = $('detalhePreco');
   const detalheCidade = $('detalheCidade');
+  const detalheCategoria = $('detalheCategoria');
   const detalheEmail = $('detalheEmail');
   const detalheTelefone = $('detalheTelefone');
   const btnFecharDetalhes = $('btnFecharDetalhes');
@@ -55,10 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
     detalheDescricao.textContent = s.descricao || '';
     detalhePreco.textContent = Number(s.preco || 0).toFixed(2);
     detalheCidade.textContent = s.cidade || '';
+    detalheCategoria.textContent = s.categoria || 'Não definida';
     detalheEmail.textContent = s.email || 'Não informado';
     detalheTelefone.textContent = s.telefone || 'Não informado';
 
-    // fecha modal de edição se estiver aberto
+    // Fecha modal de edição se estiver aberto
     const modalEdicao = document.getElementById('modalServico');
     modalEdicao?.classList.remove('ativo');
 
@@ -73,13 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const idx = Number(card.dataset.index);
     if (!Number.isNaN(idx)) {
       abrirDetalhesPorIndex(idx);
-      return;
-    }
-
-    const idAttr = card.dataset.id;
-    if (idAttr && Array.isArray(window.servicosData)) {
-      const i = window.servicosData.findIndex(s => String(s.id) === String(idAttr));
-      if (i >= 0) abrirDetalhesPorIndex(i);
     }
   });
 
@@ -107,7 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const s = window.servicosData[servicoAtualIndex];
     if (!s) return;
 
-    // Preenche modal de criação/edição
     const modalEdicao = document.getElementById('modalServico');
     if (!modalEdicao) return;
 
@@ -118,9 +114,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.edicaoServicoId = s.id ?? null;
 
-    // Fecha modal de detalhes e abre modal de edição
     modalDetalhes.classList.remove('ativo');
     modalEdicao.classList.add('ativo');
+
+    // Atualiza dropdown de categoria
+    if (window.atualizarCategoriaDropdown) {
+      window.atualizarCategoriaDropdown(s.categoria);
+    }
   });
 
   // ===== Excluir Serviço =====

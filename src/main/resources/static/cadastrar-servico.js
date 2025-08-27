@@ -3,16 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('modalServico');
   const btnAbrir = document.getElementById('btnAbrirModal');
   const btnFechar = document.getElementById('btnFechar');
+  const btnSalvar = document.getElementById('btnSalvar');
 
-  // Dropdown de categorias dentro do modal
+  // Dropdown de categorias
   const dropdown = modal.querySelector('.dropdown');
   const dropbtn = dropdown.querySelector('.dropbtn');
   const content = dropdown.querySelector('.dropdown-content');
 
-  // Categoria selecionada no modal
   window.categoriaSelecionada = null;
 
-  // Abrir modal (apenas cadastro)
+  // Abrir modal
   btnAbrir?.addEventListener('click', () => {
     if (window.limparCampos) window.limparCampos();
     dropbtn.textContent = 'Selecione uma categoria';
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.limparCampos) window.limparCampos();
   });
 
-  // Abrir/fechar dropdown ao clicar no botão
+  // Abrir/fechar dropdown
   dropbtn.addEventListener('click', e => {
     e.stopPropagation();
     dropdown.classList.toggle('show');
@@ -47,9 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
     dropdown.classList.remove('show');
   });
 
-  // Função para atualizar dropdown quando editar um serviço
+  // Atualiza dropdown quando editar
   window.atualizarCategoriaDropdown = categoria => {
-    if (!categoria) {
+    if (!categoria || categoria === 'todas') {
       dropbtn.textContent = 'Selecione uma categoria';
       window.categoriaSelecionada = null;
     } else {
@@ -63,4 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   };
+
+  // ===== EVENTO DO SALVAR =====
+  btnSalvar?.addEventListener('click', () => {
+    // chama a função salvar do marketplace.js
+    if (typeof window.salvarServico === 'function') {
+      window.salvarServico();
+    } else {
+      alert('Função salvarServico não encontrada!');
+    }
+  });
 });

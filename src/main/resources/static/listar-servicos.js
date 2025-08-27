@@ -18,6 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.renderizarServicos) {
         window.renderizarServicos();
       }
+
+      // Atualiza modal de detalhes caso esteja aberto
+      if (window.servicoAtualIndex != null) {
+        const s = window.servicosData[window.servicoAtualIndex];
+        if (s && document.getElementById('detalheCategoria')) {
+          document.getElementById('detalheCategoria').textContent = s.categoria || 'Não definida';
+        }
+      }
+
     } catch (error) {
       listaServicos.innerHTML = '<p>Erro ao carregar serviços.</p>';
       console.error('Erro ao buscar serviços:', error);
