@@ -2,6 +2,9 @@ package service.hub.service_hub.model;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "usuarios")
 public class Usuario {
@@ -27,6 +30,22 @@ public class Usuario {
         this.email = email;
         this.senha = senha;
         this.telefone = telefone;
+    }
+    @ManyToMany
+    @JoinTable(
+            name = "usuarios_favoritos",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "servico_id")
+    )
+    private Set<Servico> favoritos = new HashSet<>();
+
+    // Getter e Setter
+    public Set<Servico> getFavoritos() {
+        return favoritos;
+    }
+
+    public void setFavoritos(Set<Servico> favoritos) {
+        this.favoritos = favoritos;
     }
 
     // GETTERS E SETTERS
