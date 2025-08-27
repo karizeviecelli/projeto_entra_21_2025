@@ -7,9 +7,67 @@
   <title>ServiceHub - Favoritos</title>
   <link rel="stylesheet" href="favoritos.css">
   <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* === Fundo gradiente com shapes === */
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    .hero {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #d0e6ff, #e6fff5, #f0f4ff);
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 8px;
+      transform: rotate(15deg);
+    }
+
+    .hero::before {
+      width: 180px;
+      height: 180px;
+      top: 12%;
+      left: 8%;
+      background: rgba(0, 123, 255, 0.15);
+    }
+
+    .hero::after {
+      width: 220px;
+      height: 220px;
+      bottom: 15%;
+      right: 10%;
+      background: rgba(40, 167, 69, 0.15);
+    }
+
+    /* === Layout principal === */
+    .layout {
+      display: flex;
+      min-height: 100vh;
+      position: relative;
+      z-index: 1;
+    }
+
+  
+    .conteudo {
+      flex: 1;
+      padding: 20px;
+    }
+  </style>
 </head>
 
 <body>
+  <!-- Fundo -->
+  <section class="hero"></section>
+
   <div class="layout">
 
     <!-- Sidebar -->

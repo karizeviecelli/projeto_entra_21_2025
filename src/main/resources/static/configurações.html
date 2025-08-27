@@ -6,9 +6,52 @@
   <title>ServiceHub - Configurações</title>
   <link rel="stylesheet" href="configurações.css">
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Background padrão (mesmo usado nas outras páginas) */
+    body {
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    .bg-wrapper {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #d0e6ff, #e6fff5, #f0f4ff);
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bg-wrapper::before,
+    .bg-wrapper::after {
+      content: "";
+      position: absolute;
+      border-radius: 8px;
+      transform: rotate(15deg);
+    }
+
+    .bg-wrapper::before {
+      width: 180px;
+      height: 180px;
+      top: 10%;
+      left: 8%;
+      background: rgba(0, 123, 255, 0.15);
+    }
+
+    .bg-wrapper::after {
+      width: 220px;
+      height: 220px;
+      bottom: 15%;
+      right: 10%;
+      background: rgba(40, 167, 69, 0.15);
+    }
+  </style>
 </head>
 
 <body>
+  <!-- Background -->
+  <div class="bg-wrapper"></div>
+
   <div class="layout">
     <!-- Sidebar -->
     <aside class="sidebar">
@@ -23,7 +66,7 @@
         <button class="menu-item" onclick="window.location.href='favoritos.html'">
           <i data-lucide="heart"></i> <span>Favoritos</span>
         </button>
-        <button class="menu-item active" >
+        <button class="menu-item active">
           <i data-lucide="settings"></i> <span>Configurações</span>
         </button>
         <button class="menu-item" onclick="window.location.href='perfil.html'">

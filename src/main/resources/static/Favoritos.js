@@ -5,21 +5,6 @@ const inputBuscar = document.getElementById("buscarFavorito");
 const selectCategoria = document.getElementById("categoriaFavorito");
 const selectOrdenar = document.getElementById("ordenarFavorito");
 
-// dados simulados  
-let favoritosData = [
-  { id: 1, titulo: "Desenvolvimento de Website Responsivo", descricao: "Criação moderna usando React e Tailwind.", preco: 1500, categoria: "Tecnologia", nota: 4.8, cidade: "São Paulo" },
-  { id: 2, titulo: "Design de Logo e Identidade Visual", descricao: "Criação de identidade visual completa.", preco: 800, categoria: "Design", nota: 4.9, cidade: "Curitiba" },
-  { id: 3, titulo: "Consultoria em Marketing Digital", descricao: "Aumente suas vendas com estratégias digitais.", preco: 600, categoria: "Marketing", nota: 4.7, cidade: "Porto Alegre" }
-];
-
-// estatísticas
-function atualizarEstatisticas() {
-  document.getElementById("qtdFavoritos").textContent = favoritosData.length;
-  const media = favoritosData.length ? 
-    (favoritosData.reduce((acc, s) => acc + s.nota, 0) / favoritosData.length).toFixed(1) : 0;
-  document.getElementById("notaMedia").textContent = media;
-  document.getElementById("visualizacoes").textContent = (favoritosData.length * 4); // simulação
-}
 
 // criar card
 function criarCardFavorito(servico) {
