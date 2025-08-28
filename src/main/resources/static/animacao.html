@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Animação Lupa e Logo</title>
+  <style>
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      position: relative;
+      width: 500px;
+      height: 120px;
+    }
+    .logo-text {
+      position: absolute;
+      left: 100px;
+      top: 40px;
+      font-size: 48px;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      color: #fff;
+      z-index: 1;
+    }
+    /* Área ampliada da lupa */
+    .zoomed {
+      position: absolute;
+      left: 0;
+      top: 40px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      z-index: 3;
+      pointer-events: none;
+      animation: arcoLupa 4s cubic-bezier(.77,0,.18,1) forwards;
+      box-shadow: 0 0 10px #fff3;
+      background: transparent;
+      /* Suaviza a borda */
+    }
+    .zoomed .logo-text {
+      position: absolute;
+      left: -80px;
+      top: -25px;
+      font-size: 72px;
+      color: #fff;
+      transform: scale(1.5);
+      /* O texto ampliado dentro da lupa */
+      pointer-events: none;
+      user-select: none;
+    }
+    .lupa {
+      position: absolute;
+      left: 0;
+      top: 40px;
+      width: 60px;
+      height: 60px;
+      z-index: 4;
+      animation: arcoLupa 4s cubic-bezier(.77,0,.18,1) forwards;
+      pointer-events: none;
+    }
+    .logo-img {
+      position: absolute;
+      left: 80px;
+      top: 40px;
+      width: 60px;
+      height: 60px;
+      opacity: 0;
+      z-index: 5;
+      border-radius: 50%;
+      animation: logoAppear 4s forwards;
+      transition: opacity 0.3s;
+    }
+    @keyframes arcoLupa {
+      0%   { left: 0; top: 40px; }
+      20%  { left: 80px; top: 10px; }
+      40%  { left: 200px; top: 0px; }
+      60%  { left: 320px; top: 10px; }
+      80%  { left: 80px; top: 40px; }
+      100% { left: 80px; top: 40px; opacity: 0; }
+    }
+    @keyframes logoAppear {
+      0%, 89% { opacity: 0; }
+      90% { opacity: 1; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="logo-text">Service hub</span>
+    <!-- Área ampliada da lupa -->
+    <div class="zoomed">
+      <span class="logo-text">Service hub</span>
+    </div>
+    <!-- SVG da lupa branca -->
+    <svg class="lupa" viewBox="0 0 60 60">
+      <circle cx="30" cy="30" r="28" stroke="#fff" stroke-width="4" fill="none"/>
+      <rect x="38" y="38" width="12" height="4" rx="2" fill="#fff" transform="rotate(45 44 40)"/>
+    </svg>
+    <!-- Imagem da logo (substitua src depois) -->
+    <img class="logo-img" src="image/img-logo.jpeg" alt="Logo">
+  </div>
+</body>
+</html>
