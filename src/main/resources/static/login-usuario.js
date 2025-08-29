@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         alert('Login realizado com sucesso!');
         formLogin.reset();
         // Aqui é o redirecionamento
-        window.location.href = 'marketplace.html';
+        window.location.href = 'animacao.html';
       } else {
         const erro = await response.text(); // teu backend retorna string
         alert('Erro ao fazer login: ' + erro);
@@ -43,11 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Exemplo: troque para sua lógica real!
       // Aqui aceita qualquer e-mail que não esteja vazio e senha igual a "123456"
-      if (email && senha === "123456") {
-        window.location.href = "animacao.html";
-      } else {
-        alert("E-mail ou senha incorretos!");
-      }
+     
     });
   }
 });

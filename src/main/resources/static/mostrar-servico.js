@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     servicoAtualIndex = idx;
 
     detalheTitulo.textContent = s.titulo || '';
-    detalheImagem.src = s.imagem || 'https://via.placeholder.com/800x450?text=Servi%C3%A7o';
+    detalheImagem.src = s.imagem || 'src/main/resources/static/image/seu servico.jpg';
     detalheImagem.alt = s.titulo || 'Serviço';
     detalheDescricao.textContent = s.descricao || '';
     detalhePreco.textContent = Number(s.preco || 0).toFixed(2);

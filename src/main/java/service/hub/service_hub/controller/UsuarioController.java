@@ -46,6 +46,9 @@ public class UsuarioController {
             return ResponseEntity.notFound().build();
         }
 
+
+
+
         Usuario usuario = optionalUsuario.get();
         usuario.setNome(usuarioDetails.getNome());
         usuario.setCpf(usuarioDetails.getCpf());

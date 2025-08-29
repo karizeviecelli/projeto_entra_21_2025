@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     card.classList.add("servico");
     card.dataset.index = index;
 
-    const imagemSrc = servico.imagem || 'https://blog.obramax.com.br/wp-content/uploads/2022/03/pedreiro-empreitada.jpg';
+    const imagemSrc = servico.imagem || '';
 
     card.innerHTML = `
       <div class="imagem-container">

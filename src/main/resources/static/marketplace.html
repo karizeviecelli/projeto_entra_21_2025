@@ -226,6 +226,27 @@
           <label for="buscar">Buscar Serviços</label>
           <input type="text" id="buscar" placeholder="Digite o serviço...">
         </div>
+
+          <div class="campo">
+            <label for="categoriaFiltro">Filtrar por Categoria</label>
+            <div class="dropdown" id="dropdownFiltro">
+              <button class="dropbtn">Todas as categorias</button>
+              <div class="dropdown-content">
+                <div data-value="todas">Todas as categorias</div>
+                <div data-value="construcao">Construção e Reformas</div>
+                <div data-value="limpeza">Serviços de Limpeza</div>
+                <div data-value="beleza">Beleza e Estética</div>
+                <div data-value="assistencia">Assistência Técnica</div>
+                <div data-value="aulas">Aulas e Treinamentos</div>
+                <div data-value="automotivos">Serviços Automotivos</div>
+                <div data-value="eventos">Eventos e Festas</div>
+                <div data-value="saude">Saúde e Bem-estar</div>
+                <div data-value="transporte">Transporte e Mudanças</div>
+                <div data-value="domesticos">Serviços Domésticos </div>
+              </div>
+            </div>
+          </div>
+
         <div class="campo faixa-preco">
           <label for="preco">Preço máximo:</label>
           <input type="range" id="preco" min="0" max="10001" step="100">
