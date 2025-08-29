@@ -82,6 +82,15 @@ document.addEventListener('DOMContentLoaded', () => {
                    const sectionId = link.dataset.section; // Pega o ID da seção do atributo data-section
                    showSection(sectionId); // Exibe a seção
                    activateNavLink(sectionId); // Ativa o link na sidebar
+                   // Carrega consultas quando a seção for aberta
+                    if (sectionId === 'my-appointments') {
+                        // Usa a função do arquivo externo
+                        if (typeof carregarConsultasUsuario === 'function') {
+                            setTimeout(() => {
+                                carregarConsultasUsuario();
+                            }, 100);
+                        }
+                    }
                });
            });
 
@@ -126,87 +135,103 @@ async function carregarMedicos() {
     const id = m.idMedico || m.id_medicos;
     const nome = m.nomeMedico || m.nome_medico;
     const especialidade = m.especialidade || '';
-    if (id == null || !nome) return;
-    select.add(new Option(`${nome} (${especialidade})`, String(id)));
+    const option = document.createElement('option');
+    option.value = id;
+    option.textContent = `${nome} (${especialidade})`;
+    select.appendChild(option);
     });
     // Depois do forEach que adiciona as opções:
     
 
     // Se só ficou o placeholder, algo deu ruim
     if (select.options.length === 1) {
-      errorDiv.textContent =
-        '⚠️ Recebi ' + medicos.length + ' registros, mas não consegui montar o texto das opções. Veja o console.';
-      console.log('HTML do <select>:', select.innerHTML);
+      errorDiv.textContent = 'Nenhum médico disponível';
     }
 
-    // (Opcional) ajuda a debugar ao escolher
-    select.addEventListener('change', (e) => {
-      const opt = e.target.selectedOptions[0];
-      console.log('Escolhido:', opt.text, ' – id:', opt.value);
-    });
-
   } catch (e) {
-    console.error(e);
-    errorDiv.textContent = '❌ Não foi possível carregar a lista de médicos. Tente novamente.';
-    // mantém o select com a última mensagem
     select.innerHTML = '<option disabled selected>Erro ao carregar</option>';
   }
 }
+        
 
+
+// Carrega o nome salvo se existir
+const savedName = sessionStorage.getItem("username");
+if (savedName) {
+    document.getElementById("usernameDisplay").textContent = savedName;
+    document.getElementById("headerPatientName").textContent = savedName;
+}
+
+// Busca dados atualizados
+document.addEventListener('DOMContentLoaded', carregarNomeUsuario);
+
+// Busca dados atualizados
+document.addEventListener('DOMContentLoaded', carregarNomeUsuario);
            // Simulação de Submissão de Agendamento: Lida com o formulário de agendamento de consulta
-           if (scheduleAppointmentForm) {
+            if (scheduleAppointmentForm) {
                scheduleAppointmentForm.addEventListener('submit', async function (event) {
                     event.preventDefault(); // Impede o envio real do formulário
                    
-                   const doctor = document.getElementById('doctorName').value;
+                   const doctor = document.getElementById('doctorName');
+                    const doctorid = doctor.value;
+                    const doctorName = doctor.options[doctor.selectedIndex].text;
                    const date = document.getElementById('appointmentDate').value;
                    const time = document.getElementById('appointmentTime').value;
                    const appointmentType = document.getElementById('appointmentType').value; // Novo campo
                    const reason = document.getElementById('reason').value;
-                   const datetime = `${date} ${time}:00`;
+                   const datetime = `${date}T${time}:00`;
+                   console.log(datetime)
 
                    // Validação simples dos campos
                    if (!doctor || !date || !time || !appointmentType || !reason) {
                        showFormMessage(scheduleMessage, 'Por favor, preencha todos os campos para agendar a consulta.', 'error');
                        return;
                    }
+                   /// Busca o id do paciente atual
+                    let pacienteId = null; // Use 'let' em vez de 'const' pois será reatribuído
+                    try {
+                        const userResp = await fetch('http://localhost:8080/usuarios/atual', { 
+                            credentials: 'include' 
+                        });
+                        if (userResp.ok) {
+                            const userData = await userResp.json();
+                            pacienteId = userData.idUsuario || userData.id_usuarios || userData.id;
+                        }
+                    } catch (e) {
+                        showFormMessage(scheduleMessage, 'Erro ao obter dados do paciente.', 'error');
+                        return;
+                    }
+
+                    if (!pacienteId) {
+                        showFormMessage(scheduleMessage, 'Não foi possível identificar o paciente.', 'error');
+                        return;
+                    }
+
+                    const appointmentTypeValue = appointmentType.toLowerCase() === "presencial";
+
+                    // CORREÇÃO: Use o formato correto do DTO
                     const response = await fetch('http://localhost:8080/agendamentos', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        data_agendamento: datetime,
-                        id_medicos: doctor,
-                        tipo_consulta: appointmentType,
-                        motivo_consulta: reason
-                    })
-                });
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            dataAgendamento: datetime,
+                            idMedico: doctorid,        // Mude de 'medico' para 'idMedico'
+                            idUsuario: pacienteId,     // Mude de 'usuario' para 'idUsuario'
+                            tipoConsulta: appointmentTypeValue,
+                            motivoConsulta: reason,
+                            anamnese: null
+                        })
+                    });
+                console.log('Resposta do servidor:', response);
 
                  if (response.ok) {
                     // Simulação de sucesso
-                   showFormMessage(scheduleMessage, `Agendamento com "${doctor}" para ${date} às ${time} (${appointmentType}) solicitado com sucesso!`, 'success');
+                   showFormMessage(scheduleMessage, `Agendamento com "${doctorName}" para ${date} às ${time} (${appointmentType}) solicitado com sucesso!`, 'success');
                    scheduleAppointmentForm.reset(); // Limpa o formulário
                 }   else {
                     scheduleMessage.textContent = 'Erro ao agendar consulta.';
                     scheduleMessage.className = 'error'; 
                 }
-                   
-
-                   // Opcional: Adicionar a nova consulta à lista simulada (para aparecer na tabela)
-                   const newAppointmentId = Object.keys(simulatedAppointments).length + 1;
-                   const newAppointment = {
-                       id: String(newAppointmentId), // Garante que o ID é uma string
-                       doctor: doctor.split('(')[0].trim(), // Pega apenas o nome do médico
-                       date: date,
-                       time: time,
-                       specialty: doctor.split('(')[1].replace(')', '').trim(), // Pega a especialidade
-                       status: "pending",
-                       reason: reason,
-                       appointmentType: appointmentType, // Adiciona o tipo de consulta
-                       doctorNotes: "Aguardando confirmação.",
-                       prescription: "Nenhuma.",
-                       statusText: "Pendente"
-                   };
-                   simulatedAppointments[newAppointmentId] = newAppointment;
                    
                    // Re-renderiza a tabela para incluir a nova consulta
                    renderAppointmentsTable();
@@ -214,7 +239,6 @@ async function carregarMedicos() {
                    updateOverviewCounts();
                });
            }
-
            // Lógica de Edição de Perfil: Gerencia a edição dos campos do perfil
            // Função para alternar o modo de edição dos inputs e visibilidade dos botões
            const toggleProfileEdit = (isEditing) => {
@@ -256,93 +280,12 @@ async function carregarMedicos() {
                    sidebarPatientName.textContent = `Olá, ${updatedName.split(' ')[0]}!`;
                    headerPatientName.textContent = updatedName;
 
-                   alert('Dados do perfil salvos com sucesso (simulado)!'); // Alerta de sucesso
                    toggleProfileEdit(false); // Volta ao modo de visualização
                });
            }
 
            // --- Lógica de Modal de Detalhes da Consulta ---
            // Dados simulados de consultas com mais detalhes
-           const simulatedAppointments = {
-               "1": {
-                   id: "1",
-                   doctor: "Dr. João Silva",
-                   date: "2025-08-10",
-                   time: "14:00",
-                   specialty: "Clínico Geral",
-                   status: "confirmed",
-                   reason: "Consulta de rotina e check-up anual.",
-                   appointmentType: "Presencial",
-                   doctorNotes: "Paciente com boa saúde geral, exames de rotina solicitados. Retorno em 6 meses.",
-                   prescription: "Multivitamínico (1x ao dia por 30 dias).",
-                   statusText: "Confirmada" 
-               },
-               "2": {
-                   id: "2",
-                   doctor: "Dra. Ana Costa",
-                   date: "2025-07-28",
-                   time: "10:30",
-                   specialty: "Cardiologista",
-                   status: "completed",
-                   reason: "Acompanhamento de pressão arterial e exames cardíacos.",
-                   appointmentType: "Presencial",
-                   doctorNotes: "Paciente apresentou resultados satisfatórios. Manter medicação conforme prescrito. Próxima consulta em 1 ano.",
-                   prescription: "Losartana 50mg (1x ao dia).",
-                   statusText: "Concluída"
-               },
-               "3": {
-                   id: "3",
-                   doctor: "Dr. Pedro Rocha",
-                   date: "2025-08-15",
-                   time: "09:00",
-                   specialty: "Pediatra",
-                   status: "pending",
-                   reason: "Vacinação e consulta de rotina para criança.",
-                   appointmentType: "Presencial",
-                   doctorNotes: "Aguardando vacinação e avaliação do desenvolvimento.",
-                   prescription: "Nenhuma (aguardando consulta).",
-                   statusText: "Pendente"
-               },
-               "4": {
-                   id: "4",
-                   doctor: "Dra. Marta Lima",
-                   date: "2025-07-20",
-                   time: "16:00",
-                   specialty: "Dermatologista",
-                   status: "canceled",
-                   reason: "Avaliação de lesão na pele.",
-                   appointmentType: "Online",
-                   doctorNotes: "Consulta cancelada pelo paciente. Motivo: Indisponibilidade. Remarcar.",
-                   prescription: "Nenhuma.",
-                   statusText: "Cancelada"
-               },
-               "5": {
-                   id: "5",
-                   doctor: "Dra. Sofia Nogueira",
-                   date: "2025-09-01",
-                   time: "11:00",
-                   specialty: "Ginecologista",
-                   status: "confirmed",
-                   reason: "Exames de rotina e acompanhamento anual.",
-                   appointmentType: "Presencial",
-                   doctorNotes: "Agendamento confirmado. Preparar exames pré-consulta.",
-                   prescription: "Nenhuma.",
-                   statusText: "Confirmada"
-               },
-               "6": {
-                   id: "6",
-                   doctor: "Dr. Ricardo Dias",
-                   date: "2025-07-10",
-                   time: "15:00",
-                   specialty: "Oftalmologista",
-                   status: "completed",
-                   reason: "Avaliação de grau e saúde ocular.",
-                   appointmentType: "Presencial",
-                   doctorNotes: "Exame de vista realizado, nova receita emitida.",
-                   prescription: "Óculos com grau atualizado.",
-                   statusText: "Concluída"
-               }
-           };
 
            // Elementos da Modal de Detalhes
            const appointmentDetailsModal = document.getElementById('appointmentDetailsModal');

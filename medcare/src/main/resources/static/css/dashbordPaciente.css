@@ -44,6 +44,7 @@
 
         /* Sidebar (Barra Lateral) */
         .sidebar {
+            position: relative;
             width: 280px;
             background-color: var(--primary-blue);
             color: var(--white);
@@ -52,6 +53,7 @@
             flex-direction: column;
             box-shadow: var(--box-shadow-md);
             z-index: 100;
+            height: 100%;
         }
 
         .sidebar-header {
@@ -61,6 +63,32 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
+        .sidebar-button {
+            display: inline-flex;
+            background-color: #E7D7C1;
+            color: var(--primary-blue);
+            justify-content: center;
+            align-self: center;
+            align-items: center;
+            padding: 10px 20px;
+            border-radius: var(--border-radius-md);
+            font-size: 0.95em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            text-align: center;
+            gap: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 10px #A78A7F;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            width: calc(100% - 40px); /* Largura menos as margens */
+        }
+        .sidebar-button :hover {
+            box-shadow: 0 6px 15px #A78A7F;
+            transform: translateY(-2px);
+            }
         .sidebar-header .profile-pic {
             width: 100px;
             height: 100px;
@@ -79,6 +107,11 @@
         .sidebar-header p {
             font-size: 0.9em;
             color: rgba(255, 255, 255, 0.8);
+        }
+
+        .sidebar-nav{
+            flex: 1;
+            overflow-y: auto;
         }
 
         .sidebar-nav ul {
@@ -218,22 +251,45 @@
             font-size: 0.85em;
             border-radius: var(--border-radius-sm);
         }
+        .actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    }
+
 
         /* Badges de Status */
         .status-badge {
-            display: inline-block;
-            padding: 5px 10px;
-            border-radius: var(--border-radius-sm);
-            font-size: 0.8em;
-            font-weight: 600;
-            text-transform: uppercase;
-            text-align: center;
-        }
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
 
-        .status-badge.confirmed { background-color: #d4edda; color: #155724; } /* Verde suave */
-        .status-badge.pending { background-color: #fff3cd; color: #856404; } /* Amarelo suave */
-        .status-badge.completed { background-color: #cce5ff; color: #004085; } /* Azul suave */
-        .status-badge.canceled { background-color: #f8d7da; color: #721c24; } /* Vermelho suave */
+.status-badge.confirmed {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.status-badge.pending {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+.status-badge.completed {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+.status-badge.canceled {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
 
         /* Tabelas */
         .data-table {
@@ -390,18 +446,22 @@
 
         /* Estilos para a Janela Modal */
         .modal {
-            display: none; /* Escondido por padrão */
-            position: fixed; /* Fica por cima de tudo */
-            z-index: 1000; /* Alto z-index para estar no topo */
-            left: 0;
-            top: 0;
-            width: 100%; /* Largura total */
-            height: 100%; /* Altura total */
-            overflow: auto; /* Habilita scroll se o conteúdo for muito grande */
-            background-color: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente escuro */
-            display: flex; /* Para centralizar o conteúdo */
-            justify-content: center;
-            align-items: center;
+    display: none; /* Deve ficar escondida por padrão */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Adicione esta classe para quando a modal estiver visível */
+        .modal.show {
+            display: flex;
         }
 
         .modal-content {
