@@ -1,44 +1,21 @@
+# TCC Entra21 — Gleam
 
-# 💻 Projeto TCC – Entra21 – 2025
+## 📎 ENTREGA PROJETO FINAL
+> [gleam-tcc.vercel.app](https://gleam-tcc.vercel.app)
+> 
+> [gleam.software](https://gleam.software)
 
-Este é o repositório base para os projetos de TCC dos alunos do Entra21 - Turma 2025. Cada aluno deve criar seu próprio branch e desenvolver o projeto de forma independente, seguindo as orientações.
+## 📑 Acesso Rápido
 
----
+* [📄 Documentação](documentacao.md)
+* [🛠️ Tecnologias Utilizadas](tecnologias.md)
+* [👥 Equipe](equipe.md)
 
-## 📋 Regras para colaboração
+## 📎 Links Importantes
 
-1. **Não altere o branch `main`.**
-2. Crie um branch com seu nome completo ou nome de usuário.
-3. Faça commits frequentes e com mensagens claras.
-4. O código deve estar organizado, comentado e funcional.
+> [!WARNING]  
+> Para acompanhar os commits de alterações e/ou atualizações do projeto, acesse os repositórios pelos links abaixo. Isso se deve à dificuldade de versionar um projeto dentro do escopo limitado de uma única branch.
 
----
-
-## 🚀 Passos para começar
-
-### ✅ 1. Faça o clone do repositório
-
-```bash
-git clone https://github.com/karizeviecelli/projeto_entra_21_2025.git
-cd projeto_entra_21_2025
-
-2️⃣ Criar seu branch
-Use o seguinte comando, substituindo 'seu-nome' por seu nome ou nome de usuário:
-
-git checkout -b seu-nome
-
-Depois, envie esse branch para o GitHub:
-git push origin seu-nome
-
-3️⃣ Trabalhar e enviar alterações
-Após fazer alterações no projeto, envie-as com os comandos:
-git add .
-git commit -m "mensagem do commit"
-git push origin seu-nome
-
-✅ Boas práticas
-- Não altere o branch 'main'.
-- Sempre crie e trabalhe no seu próprio branch.
-- Comente seu código de forma clara.
-- Realize commits frequentes e com mensagens descritivas.
-Em caso de dúvidas, procure a professora responsável pelo projeto.
+* [🖥️ Repositório Frontend](https://github.com/vinisebold/Entra21-Frontend-TCC)
+* [🗄️ Repositório Backend](https://github.com/vinisebold/Entra21-Backend-TCC-backup)
+* [🎨 Protótipo no Figma](https://www.figma.com/design/pUObVsQCIiMWosdP8ywxJ1/Projeto-Final---Gleam-60-?node-id=1-2&t=gJsU21Go118Y3pLo-1)
