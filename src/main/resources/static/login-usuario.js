@@ -32,4 +32,22 @@ document.addEventListener('DOMContentLoaded', function () {
       alert('Erro de conexão. Tente novamente.');
     }
   });
+
+  const loginForm = document.querySelector('#modalLogin form');
+  if (loginForm) {
+    loginForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById('login-email').value.trim();
+      const senha = document.getElementById('login-senha').value.trim();
+
+      // Exemplo: troque para sua lógica real!
+      // Aqui aceita qualquer e-mail que não esteja vazio e senha igual a "123456"
+      if (email && senha === "123456") {
+        window.location.href = "animacao.html";
+      } else {
+        alert("E-mail ou senha incorretos!");
+      }
+    });
+  }
 });

@@ -34,6 +34,7 @@
       top: 10%;
       left: 8%;
       background: rgba(0, 123, 255, 0.15);
+      animation: moverQuadrado1 8s ease-in-out infinite alternate;
     }
 
     .hero::after {
@@ -42,6 +43,61 @@
       bottom: 15%;
       right: 10%;
       background: rgba(40, 167, 69, 0.15);
+      animation: moverQuadrado2 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes moverQuadrado1 {
+      0% {
+        transform: rotate(10deg) translate(0, 0) scale(1);
+        opacity: 0.7;
+      }
+
+      25% {
+        transform: rotate(35deg) translate(60px, 80px) scale(1.18);
+        opacity: 1;
+      }
+
+      50% {
+        transform: rotate(20deg) translate(-50px, 60px) scale(1.08);
+        opacity: 0.9;
+      }
+
+      75% {
+        transform: rotate(40deg) translate(40px, -60px) scale(1.22);
+        opacity: 1;
+      }
+
+      100% {
+        transform: rotate(15deg) translate(-40px, -70px) scale(0.95);
+        opacity: 0.8;
+      }
+    }
+
+    @keyframes moverQuadrado2 {
+      0% {
+        transform: rotate(20deg) translate(0, 0) scale(1);
+        opacity: 0.7;
+      }
+
+      25% {
+        transform: rotate(0deg) translate(-80px, 60px) scale(1.15);
+        opacity: 1;
+      }
+
+      50% {
+        transform: rotate(30deg) translate(60px, -60px) scale(1.12);
+        opacity: 0.85;
+      }
+
+      75% {
+        transform: rotate(10deg) translate(-60px, -80px) scale(1.18);
+        opacity: 1;
+      }
+
+      100% {
+        transform: rotate(25deg) translate(80px, 40px) scale(1);
+        opacity: 0.85;
+      }
     }
 
     /* ===== Modal ===== */
@@ -161,48 +217,21 @@
     <main class="conteudo">
       <header class="topbar">
         <h1>MarketPlace de Serviços</h1>
-        <button id="btnAbrirModal">
-  <i data-lucide="plus-circle"></i>
-  Adicionar Serviço
-</button>
-
+        <button id="btnAbrirModal">+Adicionar serviço</button>
       </header>
 
-     <!-- Área de filtros -->
-<section class="filtros">
-  <div class="campo">
-    <label for="buscar">Buscar Serviços</label>
-    <input type="text" id="buscar" placeholder="Digite o serviço...">
-  </div>
-
-  <!-- Dropdown de categoria adicionado -->
-  <div class="campo">
-    <label for="categoriaFiltro">Filtrar por Categoria</label>
-    <div class="dropdown" id="dropdownFiltro">
-      <button class="dropbtn">Todas as categorias</button>
-      <div class="dropdown-content">
-        <div data-value="todas">Todas as categorias</div>
-        <div data-value="construcao">Construção e Reformas</div>
-        <div data-value="limpeza">Serviços de Limpeza</div>
-        <div data-value="beleza">Beleza e Estética</div>
-        <div data-value="assistencia">Assistência Técnica</div>
-        <div data-value="aulas">Aulas e Treinamentos</div>
-        <div data-value="automotivos">Serviços Automotivos</div>
-        <div data-value="eventos">Eventos e Festas</div>
-        <div data-value="saude">Saúde e Bem-estar</div>
-        <div data-value="transporte">Transporte e Mudanças</div>
-        <div data-value="domesticos">Serviços Domésticos </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="campo faixa-preco">
-    <label for="preco">Preço máximo:</label>
-    <input type="range" id="preco" min="0" max="10001" step="100">
-    <span id="valorPreco"></span>
-  </div>
-</section>
-
+      <!-- Área de filtros -->
+      <section class="filtros">
+        <div class="campo">
+          <label for="buscar">Buscar Serviços</label>
+          <input type="text" id="buscar" placeholder="Digite o serviço...">
+        </div>
+        <div class="campo faixa-preco">
+          <label for="preco">Preço máximo:</label>
+          <input type="range" id="preco" min="0" max="10001" step="100">
+          <span id="valorPreco"></span>
+        </div>
+      </section>
 
       <!-- Lista de serviços (dinâmica) -->
       <section class="servicos" id="listaServicos"></section>
@@ -259,11 +288,10 @@
     </div>
   </div>
 
-  <script src="marketplace.js"></script>  <!-- primeiro -->
-<script src="cadastrar-servico.js"></script> <!-- depois -->
-<script src="listar-servicos.js"></script>
-<script src="mostrar-servico.js"></script>
-
+  <script src="marketplace.js"></script>
+  <script src="cadastrar-servico.js"></script>
+  <script src="listar-servicos.js"></script>
+  <script src="mostrar-servico.js"></script>
 </body>
 
 </html>

@@ -1,109 +1,273 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Animação Lupa e Logo</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ServiceHub Intro</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <style>
     body {
-      background: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .container {
-      position: relative;
-      width: 500px;
-      height: 120px;
-    }
-    .logo-text {
-      position: absolute;
-      left: 100px;
-      top: 40px;
-      font-size: 48px;
-      font-family: Arial, sans-serif;
-      font-weight: bold;
-      color: #fff;
-      z-index: 1;
-    }
-    /* Área ampliada da lupa */
-    .zoomed {
-      position: absolute;
-      left: 0;
-      top: 40px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
+      margin: 0;
+      background: #111;
       overflow: hidden;
-      z-index: 3;
-      pointer-events: none;
-      animation: arcoLupa 4s cubic-bezier(.77,0,.18,1) forwards;
-      box-shadow: 0 0 10px #fff3;
-      background: transparent;
-      /* Suaviza a borda */
-    }
-    .zoomed .logo-text {
-      position: absolute;
-      left: -80px;
-      top: -25px;
-      font-size: 72px;
+      font-family: Arial, sans-serif;
       color: #fff;
-      transform: scale(1.5);
-      /* O texto ampliado dentro da lupa */
-      pointer-events: none;
+    }
+
+    #intro {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: #111;
+      overflow: visible;
+      z-index: 1000;
+    }
+
+    #text-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    #reveal-text {
+      font-size: 3rem;
+      font-weight: bold;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       user-select: none;
+      margin: 0;
+      white-space: nowrap;
+      z-index: 1;
+      letter-spacing: 2px;
     }
-    .lupa {
-      position: absolute;
-      left: 0;
-      top: 40px;
-      width: 60px;
-      height: 60px;
-      z-index: 4;
-      animation: arcoLupa 4s cubic-bezier(.77,0,.18,1) forwards;
+
+    .letter {
+      display: inline-block;
+      transition: transform 0.18s cubic-bezier(.4,2,.6,1), opacity 0.3s;
+      will-change: transform, opacity;
+    }
+    .letter.big {
+      transform: scale(1.7);
+      z-index: 2;
+    }
+    .letter.out {
+      opacity: 0;
+      transform: translateY(-60px) scale(0.7);
       pointer-events: none;
     }
-    .logo-img {
+
+    #lupa {
       position: absolute;
-      left: 80px;
-      top: 40px;
-      width: 60px;
-      height: 60px;
-      opacity: 0;
-      z-index: 5;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
-      animation: logoAppear 4s forwards;
+      border: 4px solid #aaa;
+      pointer-events: none;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    #logo-img {
+      display: none;
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      z-index: 4;
+      pointer-events: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
       transition: opacity 0.3s;
     }
-    @keyframes arcoLupa {
-      0%   { left: 0; top: 40px; }
-      20%  { left: 80px; top: 10px; }
-      40%  { left: 200px; top: 0px; }
-      60%  { left: 320px; top: 10px; }
-      80%  { left: 80px; top: 40px; }
-      100% { left: 80px; top: 40px; opacity: 0; }
+
+    #logo-final {
+      position: absolute;
+      opacity: 0;
+      font-size: 3.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 4;
+      pointer-events: none;
     }
-    @keyframes logoAppear {
-      0%, 89% { opacity: 0; }
-      90% { opacity: 1; }
-      100% { opacity: 1; }
+
+    /* Novo: logo-final-img substitui o triângulo */
+    #logo-final-img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      opacity: 0;
+      margin-right: 10px;
+      transition: opacity 0.5s;
+    }
+
+    /* Remova ou comente o bloco do #logo-symbol */
+    #logo-symbol {
+      display: none;
+    }
+
+    #site {
+      display: none;
+      padding: 20px;
+      animation: fadein 1s forwards;
+      color: #fff;
+    }
+
+    @keyframes fadein {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <span class="logo-text">Service hub</span>
-    <!-- Área ampliada da lupa -->
-    <div class="zoomed">
-      <span class="logo-text">Service hub</span>
+
+  <div id="intro">
+    <div id="text-container">
+      <div id="reveal-text"></div>
     </div>
-    <!-- SVG da lupa branca -->
-    <svg class="lupa" viewBox="0 0 60 60">
-      <circle cx="30" cy="30" r="28" stroke="#fff" stroke-width="4" fill="none"/>
-      <rect x="38" y="38" width="12" height="4" rx="2" fill="#fff" transform="rotate(45 44 40)"/>
-    </svg>
-    <!-- Imagem da logo (substitua src depois) -->
-    <img class="logo-img" src="image/img-logo.jpeg" alt="Logo">
+    <div id="lupa">
+      <img id="logo-img" src="image/img-logo.jpeg" alt="Logo ServiceHub">
+    </div>
   </div>
+
+  <div id="site">
+    <h1>Bem-vindo ao ServiceHub 🚀</h1>
+    <p>Seu marketplace já está pronto para começar.</p>
+  </div>
+
+  <script>
+    // --- Monta as letras separadas ---
+    const text = "ServiceHub";
+    const revealText = document.getElementById("reveal-text");
+    revealText.innerHTML = "";
+    for (let i = 0; i < text.length; i++) {
+      const span = document.createElement("span");
+      span.className = "letter";
+      span.textContent = text[i];
+      revealText.appendChild(span);
+    }
+    const letters = Array.from(document.querySelectorAll('.letter'));
+
+    // --- Animação da lupa e efeito nas letras ---
+    const lupa = document.getElementById("lupa");
+    const logoImg = document.getElementById("logo-img");
+    const intro = document.getElementById("intro");
+    const site = document.getElementById("site");
+    
+    // Posição inicial da lupa (fora da tela à esquerda)
+    gsap.set(lupa, { x: -300, y: 0, opacity: 0 });
+    gsap.set(logoImg, { opacity: 0 });
+    
+    // Pega posição das letras na tela
+    function getLetterCenters() {
+      return letters.map(letter => {
+        const rect = letter.getBoundingClientRect();
+        return {
+          x: rect.left + rect.width / 2,
+          y: rect.top + rect.height / 2
+        };
+      });
+    }
+
+    // Função para destacar letras sob a lupa
+    function highlightLetters(lupaCenter) {
+      const radius = 100; // raio da lupa
+      const centers = getLetterCenters();
+      letters.forEach((letter, i) => {
+        const dx = centers[i].x - lupaCenter.x;
+        const dy = centers[i].y - lupaCenter.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < radius) {
+          letter.classList.add("big");
+        } else {
+          letter.classList.remove("big");
+        }
+      });
+    }
+
+    // Timeline GSAP
+    const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
+
+    // Lupa aparece e vai para o centro
+    tl.to(lupa, { x: 0, opacity: 1, duration: 0.7, onUpdate: () => {
+      const lupaRect = lupa.getBoundingClientRect();
+      highlightLetters({ x: lupaRect.left + lupaRect.width/2, y: lupaRect.top + lupaRect.height/2 });
+    }});
+
+    // Movimenta lupa para direita, atualizando destaque das letras
+    tl.to(lupa, {
+      x: 200,
+      duration: 2.2,
+      onUpdate: () => {
+        const lupaRect = lupa.getBoundingClientRect();
+        highlightLetters({ x: lupaRect.left + lupaRect.width/2, y: lupaRect.top + lupaRect.height/2 });
+      }
+    });
+
+    // Lupa vira quadrado e mostra logo devagar
+    tl.to(lupa, {
+      scale: 0.5,
+      borderRadius: "10%",
+      duration: 0.7,
+      background: "#fff",
+      onUpdate: () => {
+        const lupaRect = lupa.getBoundingClientRect();
+        highlightLetters({ x: lupaRect.left + lupaRect.width/2, y: lupaRect.top + lupaRect.height/2 });
+      },
+      onComplete: () => {
+        // Troca a lupa pelo logo
+        lupa.style.border = "none";
+        logoImg.style.display = "block";
+        gsap.to(logoImg, { opacity: 1, duration: 3.2 }); // Mais devagar
+      }
+    });
+
+    // Remove destaque das letras
+    tl.call(() => {
+      letters.forEach(l => l.classList.remove("big"));
+    });
+
+    // Some o logo da lupa
+    tl.to(logoImg, { opacity: 0, duration: 3.3 });
+    tl.to(lupa, { opacity: 0, duration: 0.3 }, "-=0.2");
+
+    // Tela intro some
+    tl.to(intro, { opacity: 0, duration: 0.7 });
+
+    // Mostra o conteúdo do site
+    tl.call(() => {
+      intro.style.display = "none";
+      site.style.display = "block";
+      window.location.href = "marketplace.html";
+    });
+
+    // Responsivo: recalcula ao redimensionar
+    window.addEventListener('resize', () => {
+      setTimeout(() => {
+        const lupaRect = lupa.getBoundingClientRect();
+        highlightLetters({ x: lupaRect.left + lupaRect.width/2, y: lupaRect.top + lupaRect.height/2 });
+      }, 100);
+    });
+
+  </script>
+
 </body>
 </html>
