@@ -1,5 +1,9 @@
 # TCC Entra21 — Gleam
 
+## 📎 ENTREGA PROJETO FINAL
+* [gleam-tcc.vercel.app](https://gleam-tcc.vercel.app)
+* [gleam.software](https://gleam.software)
+
 ## 📑 Acesso Rápido
 
 * [📄 Documentação](documentacao.md)
